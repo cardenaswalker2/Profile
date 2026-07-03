@@ -60,7 +60,23 @@
       --input-bg: #121214;
     }
 
-
+    html.light-mode {
+      --bg-primary: #fafafa; /* Zinc 50 */
+      --bg-secondary: #f4f4f5; /* Zinc 100 */
+      --bg-card: #ffffff;
+      --bg-card-hover: #fafafa;
+      --text-primary: #09090b; /* Zinc 950 */
+      --text-secondary: #52525b; /* Zinc 600 */
+      --text-muted: #71717a; /* Zinc 500 */
+      --border-color: #e4e4e7; /* Zinc 200 */
+      --border-hover: #d4d4d8; /* Zinc 300 */
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(228, 228, 231, 0.7);
+      --shadow-color: rgba(0, 0, 0, 0.03);
+      --accent-glow: rgba(37, 99, 235, 0.02);
+      --code-bg: #f4f4f5;
+      --input-bg: #ffffff;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -357,6 +373,14 @@
         <a href="#featured-project" class="nav-link">Proyecto</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#contact" class="nav-link">Contacto</a>
+
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo día/noche">
+          <div class="theme-toggle-ball">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </div>
+        </button>
       </div>
 
       <!-- Mobile Hamburger Button -->
@@ -542,7 +566,7 @@
           <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Sobre Mí</span>
           <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2 mb-6">
             Arquitectura que transforma negocios
-          </h2>
+          </h2>Base
 
           <div class="space-y-6 text-zinc-500 dark:text-zinc-400 text-base leading-relaxed">
             <p>
@@ -1414,7 +1438,20 @@
       offset: 60
     });
 
+    // ===== MODO DÍA/NOCHE TOGGLE =====
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
 
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+      html.classList.add('light-mode');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('light-mode');
+      const isLight = html.classList.contains('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
 
     // ===== SCROLL PROGRESS BAR =====
     const scrollProgress = document.getElementById('scroll-progress');
@@ -1512,7 +1549,20 @@
       window.location.href = 'mailto:cardenaswalker1@gmail.com?subject=Contacto desde Portfolio&body=Hola Luis Alejandro, vi tu portfolio y me gustaría contactarte...';
     });
 
+    // ===== THEME TOGGLE MOBILE =====
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileThemeToggle = document.createElement('button');
+    mobileThemeToggle.className = 'theme-toggle mt-4';
+    mobileThemeToggle.innerHTML = '<div class="theme-toggle-ball"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></div>';
+    mobileThemeToggle.addEventListener('click', () => {
+      html.classList.toggle('light-mode');
+      const isLight = html.classList.contains('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
 
+    if (!document.querySelector('.mobile-menu .theme-toggle')) {
+      mobileMenu.appendChild(mobileThemeToggle);
+    }
   </script>
 </body>
 
