@@ -12,11 +12,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -25,21 +25,14 @@
         extend: {
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
-            neon: {
-              cyan: '#00f5ff',
-              blue: '#3b82f6',
-              purple: '#a855f7',
-              pink: '#ec4899',
-            },
-            dark: {
-              900: '#0a0a0f',
-              800: '#12121a',
-              700: '#1a1a2e',
-              600: '#24243e',
-              500: '#2d2d44',
+            brand: {
+              blue: '#3B82F6',
+              purple: '#8B5CF6',
+              emerald: '#10B981',
             }
           }
         }
@@ -48,207 +41,223 @@
   </script>
 
   <style>
-    /* ===== VARIABLES CSS PARA MODO DÍA/NOCHE ===== */
+    /* ===== VARIABLES CSS PARA MODO CLARO/OSCURO ===== */
     :root {
-      --neon-cyan: #00f5ff;
-      --neon-blue: #3b82f6;
-      --neon-purple: #a855f7;
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #12121a;
-      --bg-card: rgba(255, 255, 255, 0.03);
-      --text-primary: #e2e8f0;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-      --border-color: rgba(255, 255, 255, 0.08);
-      --glass-bg: rgba(255, 255, 255, 0.03);
-      --glass-border: rgba(255, 255, 255, 0.08);
-      --shadow-color: rgba(0, 0, 0, 0.4);
-      --gradient-orb-opacity: 0.4;
-      --code-bg: #0d1117;
+      --bg-primary: #09090b; /* Zinc 950 */
+      --bg-secondary: #18181b; /* Zinc 900 */
+      --bg-card: #09090b;
+      --bg-card-hover: #121214;
+      --text-primary: #f4f4f5; /* Zinc 100 */
+      --text-secondary: #a1a1aa; /* Zinc 400 */
+      --text-muted: #71717a; /* Zinc 500 */
+      --border-color: #27272a; /* Zinc 800 */
+      --border-hover: #3f3f46; /* Zinc 700 */
+      --glass-bg: rgba(9, 9, 11, 0.85);
+      --glass-border: rgba(39, 39, 42, 0.7);
+      --shadow-color: rgba(0, 0, 0, 0.6);
+      --accent-glow: rgba(59, 130, 246, 0.03);
+      --code-bg: #18181b;
+      --input-bg: #121214;
     }
 
-    /* Modo Día */
-    html.light-mode {
-      --bg-primary: #f8fafc;
-      --bg-secondary: #f1f5f9;
-      --bg-card: rgba(255, 255, 255, 0.7);
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-muted: #64748b;
-      --border-color: rgba(0, 0, 0, 0.08);
-      --glass-bg: rgba(255, 255, 255, 0.7);
-      --glass-border: rgba(0, 0, 0, 0.1);
-      --shadow-color: rgba(0, 0, 0, 0.1);
-      --gradient-orb-opacity: 0.15;
-      --code-bg: #f1f5f9;
-    }
 
-    html.light-mode body {
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      color: var(--text-primary);
-    }
-
-    html.light-mode .glass,
-    html.light-mode .glass-strong {
-      background: var(--glass-bg);
-      border-color: var(--glass-border);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-
-    html.light-mode .navbar.scrolled {
-      background: rgba(248, 250, 252, 0.9);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    html.light-mode .nav-link {
-      color: var(--text-secondary);
-    }
-
-    html.light-mode .nav-link:hover {
-      color: var(--neon-cyan);
-    }
-
-    html.light-mode .card-glow {
-      background: var(--glass-bg);
-      border-color: var(--glass-border);
-    }
-
-    html.light-mode .card-glow:hover {
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 40px rgba(0, 245, 255, 0.1);
-    }
-
-    html.light-mode .btn-secondary {
-      border-color: rgba(0, 0, 0, 0.15);
-      color: var(--text-secondary);
-    }
-
-    html.light-mode .btn-secondary:hover {
-      border-color: var(--neon-purple);
-      color: var(--neon-purple);
-    }
-
-    html.light-mode .social-icon {
-      background: var(--glass-bg);
-      border-color: var(--glass-border);
-      color: var(--text-secondary);
-    }
-
-    html.light-mode .mobile-menu {
-      background: rgba(248, 250, 252, 0.98);
-    }
-
-    html.light-mode .mobile-menu a {
-      color: var(--text-primary);
-    }
-
-    html.light-mode .section-title {
-      color: var(--text-primary);
-    }
-
-    html.light-mode .text-gray-400 {
-      color: var(--text-secondary) !important;
-    }
-
-    html.light-mode .text-gray-500 {
-      color: var(--text-muted) !important;
-    }
-
-    html.light-mode .text-gray-600 {
-      color: #94a3b8 !important;
-    }
-
-    html.light-mode .text-gray-700 {
-      color: #64748b !important;
-    }
-
-    html.light-mode .bg-dark-600 {
-      background-color: #e2e8f0 !important;
-    }
-
-    html.light-mode .bg-dark-800\/50 {
-      background-color: rgba(241, 245, 249, 0.8) !important;
-    }
-
-    html.light-mode .bg-dark-900\/50 {
-      background-color: rgba(248, 250, 252, 0.8) !important;
-    }
-
-    html.light-mode .gradient-orb {
-      opacity: var(--gradient-orb-opacity);
-    }
-
-    html.light-mode ::-webkit-scrollbar-track {
-      background: var(--bg-primary);
-    }
-
-    html.light-mode .shine-card::after {
-      background: linear-gradient(to right,
-          transparent 0%,
-          rgba(0, 0, 0, 0.03) 50%,
-          transparent 100%);
-    }
-
-    /* ===== CSS GLOBAL PREMIUM ===== */
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg-primary);
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(at 0% 0%, var(--accent-glow) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, var(--accent-glow) 0px, transparent 50%);
       color: var(--text-primary);
       overflow-x: hidden;
-      cursor: none;
-      transition: background 0.5s ease, color 0.5s ease;
+      transition: background 0.4s ease, color 0.4s ease;
     }
 
-    /* ===== TOGGLE MODO DÍA/NOCHE ===== */
-    .theme-toggle {
-      position: relative;
-      width: 60px;
-      height: 30px;
-      background: linear-gradient(135deg, rgba(0, 245, 255, 0.2), rgba(168, 85, 247, 0.2));
-      border: 1px solid rgba(0, 245, 255, 0.3);
-      border-radius: 15px;
-      cursor: none;
-      display: flex;
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Grid elegante de fondo */
+    .bg-grid-pattern {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-size: 60px 60px;
+      background-image: 
+        linear-gradient(to right, var(--border-color) 0.5px, transparent 0.5px),
+        linear-gradient(to bottom, var(--border-color) 0.5px, transparent 0.5px);
+      opacity: 0.15;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--border-hover);
+    }
+
+    /* Scroll Progress Bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--text-primary);
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      transition: all 0.3s ease;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+    }
+
+    .navbar.scrolled {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.9rem 2rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    /* ===== BOTONES ===== */
+    .btn-primary {
+      padding: 0.75rem 1.75rem;
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+      display: inline-flex;
       align-items: center;
-      padding: 0 4px;
-      transition: all 0.4s ease;
-      overflow: hidden;
+      justify-content: center;
+      border: 1px solid var(--text-primary);
     }
 
-    .theme-toggle:hover {
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--shadow-color);
     }
 
-    .theme-toggle-ball {
-      width: 22px;
-      height: 22px;
-      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-      border-radius: 50%;
-      position: absolute;
-      left: 4px;
-      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    .btn-secondary {
+      padding: 0.75rem 1.75rem;
+      background-color: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-secondary);
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+    }
+
+    /* ===== TARJETAS ===== */
+    .custom-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 6px -1px var(--shadow-color);
+    }
+
+    .custom-card:hover {
+      border-color: var(--border-hover);
+      background-color: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ===== SOCIAL ICONS ===== */
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
-      color: white;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+
+    .social-icon:hover {
+      background-color: var(--bg-secondary);
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+      transform: translateY(-1px);
+    }
+
+    /* Theme Toggle Switch */
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      padding: 2px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .theme-toggle-ball {
+      width: 18px;
+      height: 18px;
+      background: var(--text-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: var(--bg-primary);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     html.light-mode .theme-toggle-ball {
-      transform: translateX(30px);
+      transform: translateX(20px);
     }
 
     .theme-toggle .fa-sun {
@@ -263,664 +272,95 @@
       display: block;
     }
 
-    /* ===== CURSOR PERSONALIZADO FUTURISTA ===== */
-    .cursor-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--neon-cyan);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform 0.1s ease;
-      box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
-    }
-
-    .cursor-ring {
-      width: 40px;
-      height: 40px;
-      border: 2px solid rgba(0, 245, 255, 0.3);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9998;
-      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
-    }
-
-    .cursor-ring.hovering {
-      width: 60px;
-      height: 60px;
-      border-color: var(--neon-cyan);
-      background: rgba(0, 245, 255, 0.05);
-    }
-
-    /* ===== SCROLLBAR PREMIUM ===== */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg-primary);
-      transition: background 0.5s ease;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
-      border-radius: 3px;
-    }
-
-    /* ===== SCROLL PROGRESS BAR ===== */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-blue), var(--neon-purple));
-      z-index: 1000;
-      transition: width 0.1s ease;
-      box-shadow: 0 0 10px var(--neon-cyan);
-    }
-
-    /* ===== CANVAS DE PARTÍCULAS ===== */
-    #particles-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* ===== GRADIENTES ANIMADOS ===== */
-    .gradient-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.4;
-      animation: orbFloat 20s ease-in-out infinite;
-      transition: opacity 0.5s ease;
-    }
-
-    @keyframes orbFloat {
-
-      0%,
-      100% {
-        transform: translate(0, 0) scale(1);
-      }
-
-      33% {
-        transform: translate(50px, -30px) scale(1.1);
-      }
-
-      66% {
-        transform: translate(-30px, 50px) scale(0.9);
-      }
-    }
-
-    /* ===== GLASSMORPHISM ===== */
-    .glass {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      transition: all 0.5s ease;
-    }
-
-    .glass-strong {
-      background: rgba(10, 10, 15, 0.7);
-      backdrop-filter: blur(40px);
-      -webkit-backdrop-filter: blur(40px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.5s ease;
-    }
-
-    html.light-mode .glass-strong {
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1rem 2rem;
-      transition: all 0.4s ease;
-    }
-
-    .navbar.scrolled {
-      background: rgba(10, 10, 15, 0.9);
-      backdrop-filter: blur(30px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 0.75rem 2rem;
-    }
-
-    .nav-link {
-      position: relative;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: rgba(226, 232, 240, 0.7);
-      transition: color 0.3s ease;
-      padding: 0.5rem 0;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover {
-      color: var(--neon-cyan);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* ===== BOTONES PREMIUM ===== */
-    .btn-primary {
-      position: relative;
-      padding: 1rem 2.5rem;
-      background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(168, 85, 247, 0.1));
-      border: 1px solid rgba(0, 245, 255, 0.3);
-      border-radius: 12px;
-      color: var(--neon-cyan);
-      font-weight: 600;
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      cursor: none;
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.2), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-
-    .btn-primary:hover {
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 30px rgba(0, 245, 255, 0.3), inset 0 0 20px rgba(0, 245, 255, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      padding: 1rem 2.5rem;
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 12px;
-      color: rgba(226, 232, 240, 0.8);
-      font-weight: 500;
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
-      transition: all 0.4s ease;
-      cursor: none;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--neon-purple);
-      color: var(--neon-purple);
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
-    }
-
-    /* ===== MAGNETIC BUTTONS ===== */
-    .magnetic {
-      transition: transform 0.3s ease;
-    }
-
-    /* ===== TARJETAS CON GLOW ===== */
-    .card-glow {
-      position: relative;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.5s ease;
-    }
-
-    .card-glow::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple), var(--neon-blue), var(--neon-cyan));
-      background-size: 400% 400%;
-      border-radius: 22px;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      animation: gradientShift 3s ease infinite;
-    }
-
-    .card-glow:hover::before {
-      opacity: 0.5;
-    }
-
-    .card-glow:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px var(--shadow-color), 0 0 40px rgba(0, 245, 255, 0.1);
-    }
-
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* ===== SHINE EFFECT EN TARJETAS ===== */
-    .shine-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .shine-card::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(to right,
-          transparent 0%,
-          rgba(255, 255, 255, 0.03) 50%,
-          transparent 100%);
-      transform: rotate(30deg) translateX(-100%);
-      transition: transform 0.6s ease;
-    }
-
-    .shine-card:hover::after {
-      transform: rotate(30deg) translateX(100%);
-    }
-
-    /* ===== NEON TEXT ===== */
-    .neon-text {
-      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue), var(--neon-purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .neon-glow {
-      text-shadow: 0 0 10px rgba(0, 245, 255, 0.5), 0 0 20px rgba(0, 245, 255, 0.3), 0 0 40px rgba(0, 245, 255, 0.1);
-    }
-
-    /* ===== ANIMATED BORDERS ===== */
-    .animated-border {
-      position: relative;
-      border-radius: 16px;
-    }
-
-    .animated-border::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      padding: 1px;
-      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-blue));
-      background-size: 300% 300%;
-      animation: borderRotate 4s linear infinite;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-
-    @keyframes borderRotate {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* ===== FLOATING CARDS ===== */
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-20px) rotate(1deg);
-      }
-    }
-
-    .float-animation {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    /* ===== SECTION TITLES ===== */
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      color: white;
-      transition: color 0.5s ease;
-    }
-
-    .section-subtitle {
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--neon-cyan);
-      margin-bottom: 1rem;
-    }
-
-    /* ===== LINEA ANIMADA ===== */
-    .animated-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-purple), transparent);
-      background-size: 200% 100%;
-      animation: lineMove 3s linear infinite;
-    }
-
-    @keyframes lineMove {
-      0% {
-        background-position: 200% 0;
-      }
-
-      100% {
-        background-position: -200% 0;
-      }
-    }
-
-    /* ===== TYPING CURSOR ===== */
-    .typed-cursor {
-      color: var(--neon-cyan);
-      font-weight: 300;
-    }
-
-    /* ===== MOBILE RESPONSIVE ===== */
-    @media (max-width: 768px) {
-
-      .cursor-dot,
-      .cursor-ring {
-        display: none;
-      }
-
-      body {
-        cursor: auto;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        cursor: pointer;
-      }
-    }
-
-    /* ===== AVATAR TECH ===== */
-    .avatar-container {
-      position: relative;
-      width: 300px;
-      height: 300px;
-    }
-
-    .avatar-ring {
-      position: absolute;
-      inset: -10px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-blue)) border-box;
-      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      animation: spin 10s linear infinite;
-    }
-
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .avatar-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(168, 85, 247, 0.1));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* ===== STAT COUNTER ===== */
-    .stat-number {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--neon-cyan);
-    }
-
-    /* ===== SOCIAL ICONS ===== */
-    .social-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      color: rgba(226, 232, 240, 0.7);
-      font-size: 1.25rem;
-      transition: all 0.4s ease;
-      cursor: none;
-    }
-
-    .social-icon:hover {
-      background: rgba(0, 245, 255, 0.1);
-      border-color: var(--neon-cyan);
-      color: var(--neon-cyan);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
-    }
-
-    /* ===== RESPONSIVE NAV ===== */
+    /* Mobile Menu Fullscreen Overlay */
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(10, 10, 15, 0.98);
-      backdrop-filter: blur(40px);
+      inset: 0;
+      background: var(--bg-primary);
       z-index: 200;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
 
     .mobile-menu.active {
       display: flex;
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    .mobile-menu a {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #e2e8f0;
-      transition: color 0.3s ease;
-    }
-
-    .mobile-menu a:hover {
-      color: var(--neon-cyan);
-    }
-
-    /* ===== SECTION PADDING ===== */
-    section {
+    /* Timeline Editorial Estilo */
+    .timeline-container {
       position: relative;
-      z-index: 1;
     }
-
-    /* ===== MEJORAS VISUALES ADICIONALES ===== */
-    .hero-glow {
+    .timeline-line {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(ellipse at center, rgba(0, 245, 255, 0.03) 0%, transparent 70%);
-      pointer-events: none;
+      top: 0;
+      bottom: 0;
+      left: 15px;
+      width: 1px;
+      background-color: var(--border-color);
     }
-
-    .text-gradient-soft {
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .icon-glow-cyan {
-      filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.5));
-    }
-
-    .icon-glow-purple {
-      filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.5));
-    }
-
-    .icon-glow-blue {
-      filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
-    }
-
-    /* Pulse animation for status indicators */
-    @keyframes pulse-glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 5px currentColor;
-      }
-
-      50% {
-        box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+    @media (min-width: 768px) {
+      .timeline-line {
+        left: 50%;
       }
     }
-
-    .pulse-glow {
-      animation: pulse-glow 2s ease-in-out infinite;
+    .timeline-dot {
+      position: absolute;
+      left: 11px;
+      top: 24px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: var(--border-color);
+      border: 2px solid var(--bg-primary);
+      transition: background-color 0.2s ease;
     }
-
-    /* Smooth image hover zoom */
-    .img-zoom {
-      overflow: hidden;
-    }
-
-    .img-zoom img {
-      transition: transform 0.5s ease;
-    }
-
-    .img-zoom:hover img {
-      transform: scale(1.05);
-    }
-
-    /* Better focus states for accessibility */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible {
-      outline: 2px solid var(--neon-cyan);
-      outline-offset: 2px;
-    }
-
-    /* Loading shimmer effect */
-    @keyframes shimmer {
-      0% {
-        background-position: -200% 0;
-      }
-
-      100% {
-        background-position: 200% 0;
+    @media (min-width: 768px) {
+      .timeline-dot {
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
-
-    .shimmer {
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      background-size: 200% 100%;
-      animation: shimmer 2s infinite;
+    .timeline-item-row:hover .timeline-dot {
+      background-color: var(--text-primary);
     }
   </style>
 </head>
 
 <body>
-  <!-- Cursor Personalizado -->
-  <div class="cursor-dot" id="cursor-dot"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
-
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scroll-progress"></div>
 
-  <!-- Canvas de Partículas -->
-  <canvas id="particles-canvas"></canvas>
+  <!-- Background Grid Pattern -->
+  <div class="bg-grid-pattern"></div>
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="#" class="text-xl font-bold tracking-tight">
-        <span class="neon-text">LC</span><span class="text-white/80">.dev</span>
+      <a href="#" class="text-lg font-bold tracking-tight text-primary">
+        <span class="text-zinc-400 font-normal">LC</span><span>.dev</span>
       </a>
 
+      <!-- Desktop Links -->
       <div class="hidden md:flex items-center gap-8">
         <a href="#about" class="nav-link">Sobre Mí</a>
+        <a href="#why-me" class="nav-link">Por qué yo</a>
         <a href="#experience" class="nav-link">Experiencia</a>
+        <a href="#methodology" class="nav-link">Metodología</a>
+        <a href="#featured-project" class="nav-link">Proyecto</a>
         <a href="#skills" class="nav-link">Skills</a>
-        <a href="#ai" class="nav-link">IA & Innovación</a>
-        <a href="#education" class="nav-link">Educación</a>
         <a href="#contact" class="nav-link">Contacto</a>
-
-        <!-- Theme Toggle Button -->
-        <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo día/noche">
-          <div class="theme-toggle-ball">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-          </div>
-        </button>
       </div>
 
-      <button class="md:hidden text-white text-2xl" id="menu-toggle" onclick="toggleMobileMenu()">
+      <!-- Mobile Hamburger Button -->
+      <button class="md:hidden text-zinc-500 hover:text-zinc-200 text-xl" id="menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
     </div>
@@ -928,81 +368,72 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobile-menu">
-    <button class="absolute top-6 right-6 text-white text-2xl" onclick="toggleMobileMenu()">
+    <button class="absolute top-6 right-6 text-zinc-500 hover:text-zinc-200 text-2xl" onclick="toggleMobileMenu()">
       <i class="fas fa-times"></i>
     </button>
-    <a href="#about" onclick="toggleMobileMenu()">Sobre Mí</a>
-    <a href="#experience" onclick="toggleMobileMenu()">Experiencia</a>
-    <a href="#skills" onclick="toggleMobileMenu()">Skills</a>
-    <a href="#ai" onclick="toggleMobileMenu()">IA & Innovación</a>
-    <a href="#education" onclick="toggleMobileMenu()">Educación</a>
-    <a href="#contact" onclick="toggleMobileMenu()">Contacto</a>
+    <a href="#about" class="text-2xl font-bold" onclick="toggleMobileMenu()">Sobre Mí</a>
+    <a href="#why-me" class="text-2xl font-bold" onclick="toggleMobileMenu()">Por qué yo</a>
+    <a href="#experience" class="text-2xl font-bold" onclick="toggleMobileMenu()">Experiencia</a>
+    <a href="#methodology" class="text-2xl font-bold" onclick="toggleMobileMenu()">Metodología</a>
+    <a href="#featured-project" class="text-2xl font-bold" onclick="toggleMobileMenu()">Proyecto Destacado</a>
+    <a href="#skills" class="text-2xl font-bold" onclick="toggleMobileMenu()">Skills</a>
+    <a href="#contact" class="text-2xl font-bold" onclick="toggleMobileMenu()">Contacto</a>
   </div>
 
   <!-- ============================================ -->
   <!-- ============ HERO SECTION ================== -->
   <!-- ============================================ -->
-  <section id="hero" class="min-h-screen flex items-center relative overflow-hidden">
-    <!-- Gradient Orbs Background -->
-    <div class="gradient-orb w-[600px] h-[600px] bg-cyan-500/20 top-[-200px] left-[-200px]"></div>
-    <div class="gradient-orb w-[500px] h-[500px] bg-purple-500/20 bottom-[-150px] right-[-150px]"
-      style="animation-delay: -7s;"></div>
-    <div class="gradient-orb w-[400px] h-[400px] bg-blue-500/15 top-[40%] left-[60%]" style="animation-delay: -14s;">
-    </div>
-
-    <!-- Hero Glow Overlay -->
-    <div class="hero-glow"></div>
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full py-32 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
+  <section id="hero" class="min-h-screen flex items-center relative pt-28 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full py-16 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
         <!-- Columna Izquierda: Texto -->
-        <div data-aos="fade-right" data-aos-duration="1200">
-          <div class="section-subtitle mb-4 flex items-center gap-2">
-            <i class="fas fa-code"></i>
-            <span>Desarrollador de Software & Full Stack</span>
+        <div class="lg:col-span-7" data-aos="fade-right" data-aos-duration="1000">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Disponible para Freelance, Tiempo Completo y Trabajo Remoto</span>
           </div>
 
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-            <span class="text-white">Luis Alejandro</span><br>
-            <span class="neon-text">Cárdenas Ramos</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none mb-6">
+            Luis Alejandro<br>
+            <span class="text-blue-500">Cárdenas Ramos</span>
           </h1>
 
-          <div class="text-xl md:text-2xl text-gray-400 mb-8 font-light">
-            <span id="typed-text"></span><span class="typed-cursor">|</span>
+          <div class="text-lg sm:text-xl font-mono text-zinc-500 mb-8 min-h-[30px]">
+            <span id="typed-text"></span><span class="text-blue-500 animate-pulse">|</span>
           </div>
 
-          <p class="text-gray-400 text-lg mb-10 max-w-xl leading-relaxed">
-            Arquitecto de software especializado en diseñar ecosistemas tecnológicos escalables,
-            integrando backend empresarial, inteligencia artificial y DevOps en soluciones de alto impacto.
+          <p class="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg mb-8 max-w-xl leading-relaxed font-normal">
+            Hola, soy Luis Alejandro Cárdenas Ramos. Desarrollador Full Stack especializado en Java, Spring Boot e Inteligencia Artificial. Disfruto crear plataformas modernas, escalables y enfocadas en resolver problemas reales para empresas.
           </p>
 
-          <div class="flex flex-wrap gap-4 mb-12">
-            <a href="#contact" class="btn-primary magnetic">
-              <i class="fas fa-rocket mr-2"></i>Trabajemos Juntos
+          <div class="flex flex-wrap gap-4 mb-10">
+            <a href="#contact" class="btn-primary">
+              Trabajemos Juntos <i class="fas fa-arrow-right ml-2 text-xs"></i>
             </a>
-            <a href="#about" class="btn-secondary magnetic">
-              <i class="fas fa-user mr-2"></i>Conóceme
+            <!-- Simulación Descarga de CV -->
+            <a href="mailto:cardenaswalker1@gmail.com?subject=Solicitud de CV - Luis Alejandro Cárdenas&body=Hola Luis, me gustaría solicitar una copia de tu currículum en formato PDF." class="btn-secondary">
+              <i class="fas fa-file-download mr-2"></i> Descargar CV
             </a>
           </div>
 
-          <!-- Estadísticas -->
-          <div class="grid grid-cols-3 gap-8 mb-10">
-            <div data-aos="fade-up" data-aos-delay="100">
-              <div class="stat-number" data-count="3">0</div>
-              <div class="text-sm text-gray-500 mt-1">Años Exp.</div>
+          <!-- Métricas del Hero Actualizadas -->
+          <div class="grid grid-cols-3 gap-6 sm:gap-12 border-t border-zinc-200 dark:border-zinc-800 pt-8 max-w-lg mb-10">
+            <div>
+              <div class="text-3xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="15">0</div>
+              <div class="text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">Proyectos OK</div>
             </div>
-            <div data-aos="fade-up" data-aos-delay="200">
-              <div class="stat-number" data-count="20">0</div>
-              <div class="text-sm text-gray-500 mt-1">Proyectos</div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="20">0</div>
+              <div class="text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">APIs REST</div>
             </div>
-            <div data-aos="fade-up" data-aos-delay="300">
-              <div class="stat-number" data-count="8">0</div>
-              <div class="text-sm text-gray-500 mt-1">Tecnologías</div>
+            <div>
+              <div class="text-3xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="10">0</div>
+              <div class="text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">Apps Cloud</div>
             </div>
           </div>
 
-          <!-- Social Icons -->
-          <div class="flex gap-4">
+          <!-- Social Links -->
+          <div class="flex gap-3">
             <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank"
               class="social-icon" aria-label="LinkedIn">
               <i class="fab fa-linkedin-in"></i>
@@ -1020,137 +451,215 @@
           </div>
         </div>
 
-        <!-- Columna Derecha: Avatar / Visual -->
-        <div class="hidden lg:flex justify-center" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
-          <div class="avatar-container float-animation">
-            <div class="avatar-ring"></div>
-            <div class="avatar-inner glass">
-              <i class="fas fa-microchip neon-text"></i>
+        <!-- Columna Derecha: Simulación Actividad GitHub -->
+        <div class="lg:col-span-5 flex justify-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div class="relative w-full max-w-sm rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4 mb-4">
+                <div class="flex items-center gap-2">
+                  <i class="fab fa-github text-lg text-primary"></i>
+                  <span class="text-xs font-mono font-bold">github.com/cardenaswalker</span>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              </div>
+              <div class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 mb-4">
+                <span>+1,200 commits este año</span>
+              </div>
+              
+              <!-- Simulación Grid Contribuciones GitHub -->
+              <div class="grid grid-cols-7 gap-1 max-w-[200px] mb-4">
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10 dark:bg-emerald-500/5"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/60"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/80"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
+
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/80"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/60"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
+
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/80"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
+                <div class="w-3.5 h-3.5 rounded bg-emerald-500/60"></div>
+              </div>
             </div>
-            <!-- Floating Tech Badges -->
-            <div
-              class="absolute -top-4 -right-4 glass px-4 py-2 rounded-full text-xs font-mono text-cyan-400 border border-cyan-500/20 float-animation"
-              data-aos="zoom-in" data-aos-delay="600">
-              <i class="fab fa-java mr-1"></i>Spring Boot
-            </div>
-            <div
-              class="absolute -bottom-4 -left-4 glass px-4 py-2 rounded-full text-xs font-mono text-purple-400 border border-purple-500/20 float-animation"
-              style="animation-delay: -2s;" data-aos="zoom-in" data-aos-delay="800">
-              <i class="fas fa-brain mr-1"></i>AI/ML
-            </div>
-            <div
-              class="absolute top-1/2 -right-12 glass px-4 py-2 rounded-full text-xs font-mono text-blue-400 border border-blue-500/20 float-animation"
-              style="animation-delay: -4s;" data-aos="zoom-in" data-aos-delay="1000">
-              <i class="fab fa-docker mr-1"></i>Docker
+            
+            <div class="border-t border-zinc-100 dark:border-zinc-800 pt-4 font-mono text-[10px] text-zinc-500 dark:text-zinc-400 space-y-1">
+              <div>Top languages: <span class="text-orange-500">Java</span>, <span class="text-blue-500">TypeScript</span>, <span class="text-yellow-500">Python</span></div>
+              <div>Active repos: <span class="text-primary font-bold">14</span></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-      <span class="text-xs text-gray-500 tracking-widest uppercase">Scroll</span>
-      <div class="w-px h-12 bg-gradient-to-b from-cyan-500 to-transparent"></div>
     </div>
   </section>
 
   <!-- ============================================ -->
   <!-- ============ ABOUT SECTION ================= -->
   <!-- ============================================ -->
-  <section id="about" class="py-32 relative">
+  <section id="about" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- Columna Izquierda: Visual -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Columna Izquierda: Mockup de Código -->
         <div data-aos="fade-right" data-aos-duration="1000">
-          <div class="relative">
-            <!-- Code Block Visual -->
-            <div class="glass-strong rounded-2xl p-6 font-mono text-sm relative overflow-hidden">
-              <div class="flex gap-2 mb-4">
-                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-              </div>
-              <div class="text-gray-400 leading-relaxed">
-                <span class="text-purple-400">class</span> <span class="text-cyan-400">SoftwareArchitect</span> {<br>
-                &nbsp;&nbsp;<span class="text-purple-400">constructor</span>() {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">this</span>.mindset = <span
-                  class="text-green-400">"clean_code"</span>;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">this</span>.focus = <span
-                  class="text-green-400">"scalability"</span>;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">this</span>.passion = [<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-green-400">"architecture"</span>,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-green-400">"automation"</span>,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-green-400">"AI_integration"</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;];<br>
-                &nbsp;&nbsp;}<br><br>
-                &nbsp;&nbsp;<span class="text-purple-400">build</span>(solution) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> solution.<span
-                  class="text-cyan-400">scale</span>().<span class="text-cyan-400">optimize</span>();<br>
-                &nbsp;&nbsp;}<br>
-                }
-              </div>
-              <!-- Glow Effect -->
-              <div
-                class="absolute -inset-1 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl blur-xl -z-10">
-              </div>
+          <div class="custom-card font-mono text-xs leading-relaxed overflow-hidden">
+            <div class="flex gap-1.5 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
             </div>
-
-            <!-- Floating Elements -->
-            <div
-              class="absolute -top-6 -right-6 w-20 h-20 glass rounded-xl flex items-center justify-center float-animation"
-              style="animation-delay: -2s;">
-              <i class="fas fa-layer-group text-2xl text-cyan-400 icon-glow-cyan"></i>
-            </div>
-            <div
-              class="absolute -bottom-6 -left-6 w-20 h-20 glass rounded-xl flex items-center justify-center float-animation"
-              style="animation-delay: -4s;">
-              <i class="fas fa-cogs text-2xl text-purple-400 icon-glow-purple"></i>
+            <div class="text-zinc-500 dark:text-zinc-400 space-y-1">
+              <div><span class="text-purple-500">class</span> <span class="text-blue-500">SoftwareArchitect</span> {</div>
+              <div class="pl-4"><span class="text-purple-500">constructor</span>() {</div>
+              <div class="pl-8"><span class="text-blue-500">this</span>.mindset = <span class="text-emerald-600 dark:text-emerald-400">"clean_code"</span>;</div>
+              <div class="pl-8"><span class="text-blue-500">this</span>.focus = <span class="text-emerald-600 dark:text-emerald-400">"scalability"</span>;</div>
+              <div class="pl-8"><span class="text-blue-500">this</span>.passion = [</div>
+              <div class="pl-12"><span class="text-emerald-600 dark:text-emerald-400">"architecture"</span>,</div>
+              <div class="pl-12"><span class="text-emerald-600 dark:text-emerald-400">"automation"</span>,</div>
+              <div class="pl-12"><span class="text-emerald-600 dark:text-emerald-400">"AI_integration"</span></div>
+              <div class="pl-8">];</div>
+              <div class="pl-4">}</div>
+              <div class="pl-4"><span class="text-purple-500">build</span>(solution) {</div>
+              <div class="pl-8"><span class="text-purple-500">return</span> solution.scale().optimize();</div>
+              <div class="pl-4">}</div>
+              <div>}</div>
             </div>
           </div>
         </div>
 
         <!-- Columna Derecha: Contenido -->
         <div data-aos="fade-left" data-aos-duration="1000">
-          <div class="section-subtitle">Sobre Mí</div>
-          <h2 class="section-title mb-8">
-            Arquitectura que<br><span class="neon-text">Transforma Negocios</span>
+          <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Sobre Mí</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2 mb-6">
+            Arquitectura que transforma negocios
           </h2>
 
-          <div class="space-y-6 text-gray-400 leading-relaxed text-lg">
+          <div class="space-y-6 text-zinc-500 dark:text-zinc-400 text-base leading-relaxed">
             <p>
-              Desarrollador de software orientado a la creación de <span class="text-cyan-400 font-medium">soluciones
-                escalables, eficientes y centradas en el
-                usuario</span>.
+              Desarrollador de software orientado a la creación de <span class="text-zinc-900 dark:text-zinc-200 font-semibold">soluciones
+                escalables, eficientes y centradas en el usuario</span>.
               Apasionado por la arquitectura de software, el código limpio, la automatización inteligente
-              y el diseño de experiencias modernas.
+              y el diseño de experiencias de usuario modernas.
             </p>
             <p>
-              Con un <span class="text-purple-400 font-medium">enfoque analítico</span>, mentalidad de
-              mejora continua y capacidad para integrar backend, frontend,
+              Con un enfoque analítico, mentalidad de mejora continua y capacidad para integrar backend, frontend,
               inteligencia artificial y DevOps en ecosistemas tecnológicos sólidos que impulsan el
               crecimiento empresarial.
             </p>
           </div>
 
           <!-- Philosophy Tags -->
-          <div class="flex flex-wrap gap-3 mt-8">
-            <span
-              class="px-4 py-2 glass rounded-full text-sm text-cyan-400 border border-cyan-500/20 hover:border-cyan-500/50 transition-colors cursor-default">
-              <i class="fas fa-check-circle mr-2"></i>Clean Architecture
+          <div class="flex flex-wrap gap-2 mt-8">
+            <span class="px-3.5 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300">
+              Clean Architecture
             </span>
-            <span
-              class="px-4 py-2 glass rounded-full text-sm text-purple-400 border border-purple-500/20 hover:border-purple-500/50 transition-colors cursor-default">
-              <i class="fas fa-check-circle mr-2"></i>Scalability First
+            <span class="px-3.5 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300">
+              Scalability First
             </span>
-            <span
-              class="px-4 py-2 glass rounded-full text-sm text-blue-400 border border-blue-500/20 hover:border-blue-500/50 transition-colors cursor-default">
-              <i class="fas fa-check-circle mr-2"></i>User-Centric Design
+            <span class="px-3.5 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300">
+              User-Centric Design
             </span>
-            <span
-              class="px-4 py-2 glass rounded-full text-sm text-pink-400 border border-pink-500/20 hover:border-pink-500/50 transition-colors cursor-default">
-              <i class="fas fa-check-circle mr-2"></i>Continuous Improvement
+            <span class="px-3.5 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300">
+              Continuous Improvement
             </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ====== WHY ME SECTION (¿Por qué yo?) ====== -->
+  <!-- ============================================ -->
+  <section id="why-me" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Valores Clave</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          ¿Por qué trabajar conmigo?
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-blue-500 mb-6">
+              <i class="fas fa-lightbulb text-lg"></i>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">Desarrollo Soluciones</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              No me limito a escribir líneas de código mecánicas. Analizo a fondo los problemas del negocio para construir soluciones lógicas y operativas.
+            </p>
+          </div>
+        </div>
+
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-purple-500 mb-6">
+              <i class="fas fa-expand-arrows-alt text-lg"></i>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">Aplicaciones Escalables</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Diseño arquitecturas backend sólidas preparadas para soportar cargas elevadas de peticiones concurrentes y datos empresariales de forma natural.
+            </p>
+          </div>
+        </div>
+
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-green-500 mb-6">
+              <i class="fas fa-comments text-lg"></i>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">Comunicación Directa</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Reporto periódicamente el avance de los entregables. Mantengo un canal honesto y transparente para resolver dudas técnicas rápidamente.
+            </p>
+          </div>
+        </div>
+
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-amber-500 mb-6">
+              <i class="fas fa-code text-lg"></i>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">Código Limpio (SOLID)</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Escribo código modular, altamente legible y fácilmente testeable, reduciendo de manera drástica el coste del mantenimiento técnico del software.
+            </p>
+          </div>
+        </div>
+
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-red-500 mb-6">
+              <i class="fas fa-chart-line text-lg"></i>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">Pensado para Crecer</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Establezco bases de código escalables y servicios desacoplados bajo estándares de la industria, asegurando la durabilidad a largo plazo.
+            </p>
+          </div>
+        </div>
+
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-cyan-500 mb-6">
+              <i class="fas fa-shipping-fast text-lg"></i>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">Entregas Iterativas</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Despliegue incremental de funcionalidades utilizando metodologías ágiles. Obtén software funcional desde las etapas tempranas de desarrollo.
+            </p>
           </div>
         </div>
       </div>
@@ -1160,955 +669,576 @@
   <!-- ============================================ -->
   <!-- ============ EXPERIENCE SECTION ============ -->
   <!-- ============================================ -->
-  <section id="experience" class="py-32 relative overflow-hidden">
-    <!-- Background Glow -->
-    <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 rounded-full blur-[150px] pointer-events-none">
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-20" data-aos="fade-up">
-        <div class="section-subtitle">Trayectoria Profesional</div>
-        <h2 class="section-title">
-          Experiencia que<br><span class="neon-text">Construye Futuro</span>
+  <section id="experience" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Trayectoria Profesional</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          Experiencia que construye futuro
         </h2>
       </div>
 
-      <div class="relative">
-        <!-- Timeline Line -->
-        <div
-          class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500/50 via-purple-500/50 to-transparent md:-translate-x-1/2">
-        </div>
-
-        <!-- Timeline Item 1 -->
-        <div class="relative mb-16" data-aos="fade-up" data-aos-duration="800">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="md:text-right md:pr-12">
-              <div class="card-glow shine-card p-8">
-                <div class="flex items-center gap-3 mb-4 md:justify-end">
-                  <span class="text-cyan-400 font-mono text-sm">2024 - Presente</span>
-                  <div class="w-3 h-3 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(0,245,255,0.8)] pulse-glow">
-                  </div>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-2">Ingeniería Backend & DevOps</h3>
-                <p class="text-purple-400 font-medium mb-4">Independent Projects</p>
-                <ul class="space-y-2 text-gray-400 text-sm">
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Desarrollo de arquitecturas escalables</span>
-                    <i class="fas fa-server text-cyan-400 mt-1 icon-glow-cyan"></i>
-                  </li>
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Implementación de APIs empresariales</span>
-                    <i class="fas fa-plug text-cyan-400 mt-1 icon-glow-cyan"></i>
-                  </li>
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Seguridad JWT y autenticación</span>
-                    <i class="fas fa-shield-alt text-cyan-400 mt-1 icon-glow-cyan"></i>
-                  </li>
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Dockerización de servicios</span>
-                    <i class="fab fa-docker text-cyan-400 mt-1 icon-glow-cyan"></i>
-                  </li>
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Optimización de rendimiento</span>
-                    <i class="fas fa-tachometer-alt text-cyan-400 mt-1 icon-glow-cyan"></i>
-                  </li>
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Integración de servicios cloud</span>
-                    <i class="fas fa-cloud text-cyan-400 mt-1 icon-glow-cyan"></i>
-                  </li>
-                </ul>
-              </div>
+      <!-- Experience Columns Layout (Clean & Editorial) -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Experience Item 1 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono text-blue-500">2024 - Presente</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Actual</span>
             </div>
-            <div class="hidden md:block"></div>
-          </div>
-          <!-- Timeline Dot -->
-          <div
-            class="absolute left-4 md:left-1/2 top-8 w-4 h-4 -translate-x-1/2 rounded-full bg-cyan-500 border-4 border-dark-900 shadow-[0_0_20px_rgba(0,245,255,0.6)] pulse-glow">
+            <h3 class="text-xl font-bold text-primary mb-1">Ingeniería Backend & DevOps</h3>
+            <p class="text-zinc-400 text-sm mb-6">Proyectos Independientes</p>
+            <ul class="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Desarrollo de arquitecturas escalables</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Implementación de APIs empresariales</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Seguridad JWT y autenticación avanzada</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Dockerización y automatización de servicios</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Timeline Item 2 -->
-        <div class="relative mb-16" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="hidden md:block"></div>
-            <div class="md:pl-12">
-              <div class="card-glow shine-card p-8">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-3 h-3 rounded-full bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.8)] pulse-glow">
-                  </div>
-                  <span class="text-purple-400 font-mono text-sm">2023 - Presente</span>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-2">Consultoría de Software</h3>
-                <p class="text-cyan-400 font-medium mb-4">Independiente</p>
-                <ul class="space-y-2 text-gray-400 text-sm">
-                  <li class="flex items-start gap-2">
-                    <i class="fas fa-lightbulb text-purple-400 mt-1 icon-glow-purple"></i>
-                    <span>Desarrollo de soluciones digitales a medida</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <i class="fas fa-robot text-purple-400 mt-1 icon-glow-purple"></i>
-                    <span>Automatización de procesos empresariales</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <i class="fas fa-chart-line text-purple-400 mt-1 icon-glow-purple"></i>
-                    <span>Optimización operativa de sistemas</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <i class="fas fa-database text-purple-400 mt-1 icon-glow-purple"></i>
-                    <span>Gestión y control de datos empresariales</span>
-                  </li>
-                </ul>
-              </div>
+        <!-- Experience Item 2 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2023 - Presente</span>
             </div>
-          </div>
-          <!-- Timeline Dot -->
-          <div
-            class="absolute left-4 md:left-1/2 top-8 w-4 h-4 -translate-x-1/2 rounded-full bg-purple-500 border-4 border-dark-900 shadow-[0_0_20px_rgba(168,85,247,0.6)] pulse-glow">
+            <h3 class="text-xl font-bold text-primary mb-1">Consultoría de Software</h3>
+            <p class="text-zinc-400 text-sm mb-6">Independiente</p>
+            <ul class="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Desarrollo de soluciones digitales a medida</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Automatización de procesos comerciales</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Optimización operativa de sistemas heredados</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Gestión y gobernanza de datos</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Timeline Item 3 -->
-        <div class="relative" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="md:text-right md:pr-12">
-              <div class="card-glow shine-card p-8">
-                <div class="flex items-center gap-3 mb-4 md:justify-end">
-                  <span class="text-blue-400 font-mono text-sm">2024 - Presente</span>
-                  <div class="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] pulse-glow">
-                  </div>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-2">Apoyo Operativo Estratégico</h3>
-                <p class="text-blue-400 font-medium mb-4">Negocio Familiar</p>
-                <ul class="space-y-2 text-gray-400 text-sm">
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Digitalización de procesos administrativos</span>
-                    <i class="fas fa-digital-tachograph text-blue-400 mt-1 icon-glow-blue"></i>
-                  </li>
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Organización de información operativa</span>
-                    <i class="fas fa-folder-open text-blue-400 mt-1 icon-glow-blue"></i>
-                  </li>
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Gestión y control de datos</span>
-                    <i class="fas fa-tasks text-blue-400 mt-1 icon-glow-blue"></i>
-                  </li>
-                  <li class="flex items-start gap-2 md:justify-end">
-                    <span>Soporte interno y mejora de procesos</span>
-                    <i class="fas fa-hands-helping text-blue-400 mt-1 icon-glow-blue"></i>
-                  </li>
-                </ul>
-              </div>
+        <!-- Experience Item 3 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2024 - Presente</span>
             </div>
-            <div class="hidden md:block"></div>
-          </div>
-          <!-- Timeline Dot -->
-          <div
-            class="absolute left-4 md:left-1/2 top-8 w-4 h-4 -translate-x-1/2 rounded-full bg-blue-500 border-4 border-dark-900 shadow-[0_0_20px_rgba(59,130,246,0.6)] pulse-glow">
+            <h3 class="text-xl font-bold text-primary mb-1">Apoyo Operativo Estratégico</h3>
+            <p class="text-zinc-400 text-sm mb-6">Negocio Familiar</p>
+            <ul class="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Digitalización de procesos administrativos</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Organización de información interna</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Gestión y control de flujos de inventarios</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                <span>Soporte técnico y mejora operativa</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ============================================ -->
+  <!-- ============ METODOLOGÍA SECTION =========== -->
+  <!-- ============================================ -->
+  <section id="methodology" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Metodología</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          ¿Cómo trabajo?
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-6 gap-6">
+        <!-- Paso 1 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">01</div>
+            <h3 class="text-sm font-bold text-primary mb-1">Análisis</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Identifico los requerimientos y el problema base.</p>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="150">
+          <div>
+            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">02</div>
+            <h3 class="text-sm font-bold text-primary mb-1">Diseño</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Estructuro la arquitectura y base de datos.</p>
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">03</div>
+            <h3 class="text-sm font-bold text-primary mb-1">Desarrollo</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Codifico usando principios SOLID y Clean Code.</p>
+          </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="250">
+          <div>
+            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">04</div>
+            <h3 class="text-sm font-bold text-primary mb-1">Pruebas</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Valido la cobertura unitaria y flujos de integración.</p>
+          </div>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">05</div>
+            <h3 class="text-sm font-bold text-primary mb-1">Despliegue</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Automatizo la puesta en producción vía CI/CD.</p>
+          </div>
+        </div>
+
+        <!-- Paso 6 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="350">
+          <div>
+            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">06</div>
+            <h3 class="text-sm font-bold text-primary mb-1">Soporte</h3>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Monitoreo la estabilidad operativa y rendimiento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ============ FEATURED PROJECT SECTION ====== -->
+  <!-- ============================================ -->
+  <section id="featured-project" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Caso de Estudio</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          Proyecto Destacado
+        </h2>
+      </div>
+
+      <div class="custom-card grid lg:grid-cols-12 gap-8 items-center" data-aos="fade-up">
+        <!-- Columna Izquierda: Detalles del caso de estudio -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-500 border border-blue-500/20">Backend Enterprise</span>
+            <span class="text-xs font-mono text-zinc-400">AWS Cloud</span>
+          </div>
+          
+          <h3 class="text-2xl font-extrabold text-primary">Plataforma de Control Financiero & APIs REST</h3>
+          
+          <div class="space-y-4 text-sm text-zinc-500 dark:text-zinc-400">
+            <div>
+              <h4 class="font-bold text-primary mb-1">✔ El Problema:</h4>
+              <p>Procesos manuales de conciliación comercial sumamente lentos y propensos a errores operacionales junto a una nula trazabilidad histórica de facturación.</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-primary mb-1">✔ La Solución:</h4>
+              <p>Desarrollo de una arquitectura distribuida basada en microservicios, securización perimetral JWT, logs centralizados e integración de agentes de IA para analítica automatizada.</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-primary mb-1">✔ El Resultado:</h4>
+              <p>Reducción del 45% en los tiempos de auditoría de transacciones, logrando un procesamiento concurrente fluido y consultas a base de datos de menos de 50ms.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">Java 17</span>
+            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">Spring Boot</span>
+            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">Docker</span>
+            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">MongoDB</span>
+            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">AWS</span>
+          </div>
+
+          <div class="flex gap-4 pt-4">
+            <a href="https://github.com/cardenaswalker2/Pagina" target="_blank" class="btn-primary">
+              <i class="fab fa-github mr-2"></i> Ver Código
+            </a>
+            <a href="#" class="btn-secondary">
+              <i class="fas fa-external-link-alt mr-2 text-xs"></i> Demo en Vivo
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Mockup Visual de Arquitectura C4 -->
+        <div class="lg:col-span-5 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 p-6 flex flex-col justify-center min-h-[300px]">
+          <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4">C4 Architecture System Context</span>
+          
+          <div class="space-y-4 font-mono text-[11px]">
+            <div class="p-3 rounded-lg border border-blue-500/30 bg-blue-500/5 text-center">
+              <div class="font-bold text-blue-500">API Gateway (Spring Cloud)</div>
+              <div class="text-[9px] text-zinc-400">Routes HTTP to microservices</div>
+            </div>
+            <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400"></i></div>
+            
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5 text-center">
+                <div class="font-bold text-purple-400 text-[10px]">Auth Service</div>
+                <div class="text-[8px] text-zinc-400">JWT Token Issuer</div>
+              </div>
+              <div class="p-3 rounded-lg border border-green-500/30 bg-green-500/5 text-center">
+                <div class="font-bold text-green-500 text-[10px]">Finance Service</div>
+                <div class="text-[8px] text-zinc-400">Core Transactions</div>
+              </div>
+            </div>
+            
+            <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400"></i></div>
+            
+            <div class="p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-center">
+              <div class="font-bold text-primary">Database Store (MongoDB)</div>
+              <div class="text-[9px] text-zinc-400">Secure Cluster Atlas Storage</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================ -->
   <!-- ============ BENTO GRID SKILLS ============= -->
   <!-- ============================================ -->
-  <section id="skills" class="py-32 relative">
+  <section id="skills" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-20" data-aos="fade-up">
-        <div class="section-subtitle">Stack Tecnológico</div>
-        <h2 class="section-title">
-          Arsenal de<br><span class="neon-text">Tecnologías</span>
+      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Tecnologías Organizadas</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          Especialidades Técnicas
         </h2>
       </div>
 
-      <!-- Bento Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[180px]">
-
-        <!-- Backend & Arquitectura (Large) -->
-        <div class="lg:col-span-2 lg:row-span-2 card-glow shine-card p-6 relative overflow-hidden group"
-          data-aos="fade-up" data-aos-duration="800">
-          <div
-            class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all duration-500">
-          </div>
-          <div class="relative z-10 h-full flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                <i class="fas fa-server text-cyan-400 icon-glow-cyan"></i>
+      <!-- Bento Grid Rediseñado y Clasificado -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Categoría: Backend -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-blue-500">
+                <i class="fas fa-server"></i>
               </div>
-              <h3 class="text-xl font-bold text-white">Backend & Arquitectura</h3>
+              <h3 class="text-base font-bold text-primary">Backend Development</h3>
             </div>
-            <div class="flex-1 grid grid-cols-2 gap-3">
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-cyan-500/10 transition-colors cursor-default">
-                <i class="fab fa-java text-orange-400"></i>
-                <span class="text-sm text-gray-300">Java</span>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+                <span class="text-zinc-500">Java / Spring Boot</span>
+                <span class="font-semibold text-primary">Avanzado</span>
               </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-green-500/10 transition-colors cursor-default">
-                <i class="fas fa-leaf text-green-400"></i>
-                <span class="text-sm text-gray-300">Spring Boot</span>
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+                <span class="text-zinc-500">Node.js (Express)</span>
+                <span class="font-semibold text-primary">Intermedio</span>
               </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-green-500/10 transition-colors cursor-default">
-                <i class="fab fa-node text-green-500"></i>
-                <span class="text-sm text-gray-300">Node.js</span>
+              <div class="flex items-center justify-between text-xs pb-1">
+                <span class="text-zinc-500">Python (FastAPI)</span>
+                <span class="font-semibold text-primary">Intermedio</span>
               </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-yellow-500/10 transition-colors cursor-default">
-                <i class="fab fa-python text-yellow-400"></i>
-                <span class="text-sm text-gray-300">Python</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-purple-500/10 transition-colors cursor-default">
-                <i class="fas fa-cubes text-purple-400"></i>
-                <span class="text-sm text-gray-300">Microservicios</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-red-500/10 transition-colors cursor-default">
-                <i class="fas fa-shield-alt text-red-400"></i>
-                <span class="text-sm text-gray-300">JWT Security</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg col-span-2 hover:bg-cyan-500/10 transition-colors cursor-default">
-                <i class="fas fa-sitemap text-cyan-400"></i>
-                <span class="text-sm text-gray-300">Arquitectura de Software</span>
-              </div>
-            </div>
-            <div class="mt-4 flex gap-2">
-              <span
-                class="text-xs px-2 py-1 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Enterprise</span>
-              <span
-                class="text-xs px-2 py-1 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Scalable</span>
-              <span
-                class="text-xs px-2 py-1 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Secure</span>
             </div>
           </div>
         </div>
 
-        <!-- Frontend & Mobile -->
-        <div class="lg:col-span-2 card-glow shine-card p-6 relative overflow-hidden group" data-aos="fade-up"
-          data-aos-duration="800" data-aos-delay="100">
-          <div
-            class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-all duration-500">
-          </div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                <i class="fas fa-laptop-code text-purple-400 icon-glow-purple"></i>
+        <!-- Categoría: Frontend -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-purple-500">
+                <i class="fas fa-laptop-code"></i>
               </div>
-              <h3 class="text-xl font-bold text-white">Frontend & Mobile</h3>
+              <h3 class="text-base font-bold text-primary">Frontend & Mobile</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+                <span class="text-zinc-500">React / TypeScript</span>
+                <span class="font-semibold text-primary">Intermedio-Avanzado</span>
+              </div>
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+                <span class="text-zinc-500">Flutter</span>
+                <span class="font-semibold text-primary">Intermedio-Avanzado</span>
+              </div>
+              <div class="flex items-center justify-between text-xs pb-1">
+                <span class="text-zinc-500">Angular</span>
+                <span class="font-semibold text-primary">Intermedio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoría: Base de datos -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-green-500">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3 class="text-base font-bold text-primary">Bases de Datos</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+                <span class="text-zinc-500">MySQL</span>
+                <span class="font-semibold text-primary">Avanzado</span>
+              </div>
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+                <span class="text-zinc-500">MongoDB</span>
+                <span class="font-semibold text-primary">Avanzado</span>
+              </div>
+              <div class="flex items-center justify-between text-xs pb-1">
+                <span class="text-zinc-500">PostgreSQL</span>
+                <span class="font-semibold text-primary">Intermedio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoría: DevOps -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-orange-500">
+                <i class="fas fa-infinity"></i>
+              </div>
+              <h3 class="text-base font-bold text-primary">DevOps & Control</h3>
             </div>
             <div class="flex flex-wrap gap-2">
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-blue-500/10 transition-colors cursor-default">
-                <i class="fas fa-mobile-alt text-blue-400"></i>
-                <span class="text-sm text-gray-300">Flutter</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-red-500/10 transition-colors cursor-default">
-                <i class="fab fa-angular text-red-500"></i>
-                <span class="text-sm text-gray-300">Angular</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-cyan-500/10 transition-colors cursor-default">
-                <i class="fab fa-react text-cyan-400"></i>
-                <span class="text-sm text-gray-300">React</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-yellow-500/10 transition-colors cursor-default">
-                <i class="fab fa-js text-yellow-400"></i>
-                <span class="text-sm text-gray-300">TypeScript</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-pink-500/10 transition-colors cursor-default">
-                <i class="fas fa-paint-brush text-pink-400"></i>
-                <span class="text-sm text-gray-300">UI/UX Premium</span>
-              </div>
+              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Docker</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Git & GitHub</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Linux Servers</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">CI/CD Pipelines</span>
             </div>
           </div>
         </div>
 
-        <!-- Inteligencia Artificial -->
-        <div class="card-glow shine-card p-6 relative overflow-hidden group" data-aos="fade-up" data-aos-duration="800"
-          data-aos-delay="200">
-          <div
-            class="absolute -bottom-4 -right-4 w-24 h-24 bg-pink-500/10 rounded-full blur-3xl group-hover:bg-pink-500/20 transition-all duration-500">
-          </div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center">
-                <i class="fas fa-brain text-pink-400 icon-glow-purple"></i>
+        <!-- Categoría: Cloud Platforms -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-emerald-500">
+                <i class="fas fa-cloud"></i>
               </div>
-              <h3 class="text-lg font-bold text-white">IA</h3>
-            </div>
-            <div class="space-y-2">
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-pink-400 transition-colors cursor-default">
-                <i class="fas fa-robot text-pink-400 text-xs"></i> OpenAI
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-pink-400 transition-colors cursor-default">
-                <i class="fas fa-bolt text-pink-400 text-xs"></i> Groq
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-pink-400 transition-colors cursor-default">
-                <i class="fas fa-terminal text-pink-400 text-xs"></i> Prompt Engineering
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-pink-400 transition-colors cursor-default">
-                <i class="fas fa-users-cog text-pink-400 text-xs"></i> AI Agents
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-pink-400 transition-colors cursor-default">
-                <i class="fas fa-magic text-pink-400 text-xs"></i> Automatización
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Datos & Cloud -->
-        <div class="card-glow shine-card p-6 relative overflow-hidden group" data-aos="fade-up" data-aos-duration="800"
-          data-aos-delay="300">
-          <div
-            class="absolute -bottom-4 -right-4 w-24 h-24 bg-green-500/10 rounded-full blur-3xl group-hover:bg-green-500/20 transition-all duration-500">
-          </div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
-                <i class="fas fa-database text-green-400 icon-glow-cyan"></i>
-              </div>
-              <h3 class="text-lg font-bold text-white">Datos & Cloud</h3>
-            </div>
-            <div class="space-y-2">
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-green-400 transition-colors cursor-default">
-                <i class="fas fa-leaf text-green-500 text-xs"></i> MongoDB
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-blue-400 transition-colors cursor-default">
-                <i class="fas fa-table text-blue-400 text-xs"></i> MySQL
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-orange-400 transition-colors cursor-default">
-                <i class="fas fa-fire text-orange-400 text-xs"></i> Firebase
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-yellow-400 transition-colors cursor-default">
-                <i class="fab fa-linux text-yellow-400 text-xs"></i> Linux
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors cursor-default">
-                <i class="fas fa-cloud text-cyan-400 text-xs"></i> Cloud Atlas
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DevOps -->
-        <div class="card-glow shine-card p-6 relative overflow-hidden group" data-aos="fade-up" data-aos-duration="800"
-          data-aos-delay="400">
-          <div
-            class="absolute -bottom-4 -right-4 w-24 h-24 bg-orange-500/10 rounded-full blur-3xl group-hover:bg-orange-500/20 transition-all duration-500">
-          </div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
-                <i class="fas fa-infinity text-orange-400 icon-glow-purple"></i>
-              </div>
-              <h3 class="text-lg font-bold text-white">DevOps</h3>
-            </div>
-            <div class="space-y-2">
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-blue-400 transition-colors cursor-default">
-                <i class="fab fa-docker text-blue-400 text-xs"></i> Docker
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-orange-500 transition-colors cursor-default">
-                <i class="fab fa-git-alt text-orange-500 text-xs"></i> Git
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors cursor-default">
-                <i class="fab fa-github text-white text-xs"></i> GitHub
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors cursor-default">
-                <i class="fas fa-users text-cyan-400 text-xs"></i> Scrum
-              </div>
-              <div
-                class="flex items-center gap-2 text-sm text-gray-300 hover:text-purple-400 transition-colors cursor-default">
-                <i class="fas fa-project-diagram text-purple-400 text-xs"></i> Modelado C4
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Integraciones -->
-        <div class="lg:col-span-2 card-glow shine-card p-6 relative overflow-hidden group" data-aos="fade-up"
-          data-aos-duration="800" data-aos-delay="500">
-          <div
-            class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl group-hover:bg-yellow-500/20 transition-all duration-500">
-          </div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center">
-                <i class="fas fa-plug text-yellow-400 icon-glow-cyan"></i>
-              </div>
-              <h3 class="text-xl font-bold text-white">Integraciones</h3>
+              <h3 class="text-base font-bold text-primary">Cloud Deployment</h3>
             </div>
             <div class="flex flex-wrap gap-2">
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-purple-500/10 transition-colors cursor-default">
-                <i class="fab fa-stripe text-purple-400"></i>
-                <span class="text-sm text-gray-300">Stripe</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-green-500/10 transition-colors cursor-default">
-                <i class="fab fa-whatsapp text-green-400"></i>
-                <span class="text-sm text-gray-300">WhatsApp APIs</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-blue-500/10 transition-colors cursor-default">
-                <i class="fas fa-sms text-blue-400"></i>
-                <span class="text-sm text-gray-300">SMS Gateways</span>
-              </div>
-              <div
-                class="flex items-center gap-2 glass px-3 py-2 rounded-lg hover:bg-cyan-500/10 transition-colors cursor-default">
-                <i class="fas fa-exchange-alt text-cyan-400"></i>
-                <span class="text-sm text-gray-300">REST APIs</span>
-              </div>
+              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Railway</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Vercel</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Netlify</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Mongo Atlas</span>
             </div>
           </div>
         </div>
-
-        <!-- Autoevaluación -->
-        <div class="lg:col-span-4 card-glow shine-card p-8 relative overflow-visible" data-aos="fade-up"
-          data-aos-duration="800" data-aos-delay="600">
-          <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all duration-500">
-          </div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-3 mb-8">
-              <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                <i class="fas fa-chart-bar text-cyan-400 icon-glow-cyan"></i>
-              </div>
-              <h3 class="text-xl font-bold text-white">Habilidades</h3>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-12 gap-y-6">
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">Resolución de problemas</span>
-                  <span class="text-xs text-cyan-400 font-mono">90%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="width: 90%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="100"></div>
-                </div>
-              </div>
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">Python</span>
-                  <span class="text-xs text-yellow-400 font-mono">80%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full" style="width: 80%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="200"></div>
-                </div>
-              </div>
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">Springboot</span>
-                  <span class="text-xs text-green-400 font-mono">80%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full" style="width: 80%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="300"></div>
-                </div>
-              </div>
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">Angular</span>
-                  <span class="text-xs text-red-400 font-mono">75%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-red-400 to-red-600 rounded-full" style="width: 75%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="400"></div>
-                </div>
-              </div>
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">Git & Github</span>
-                  <span class="text-xs text-orange-500 font-mono">75%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-orange-400 to-red-500 rounded-full" style="width: 75%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="500"></div>
-                </div>
-              </div>
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">MySQL</span>
-                  <span class="text-xs text-blue-400 font-mono">75%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full" style="width: 75%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="600"></div>
-                </div>
-              </div>
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">MongoDB</span>
-                  <span class="text-xs text-green-500 font-mono">75%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-green-400 to-emerald-600 rounded-full" style="width: 75%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="700"></div>
-                </div>
-              </div>
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">APIs RESTful</span>
-                  <span class="text-xs text-purple-400 font-mono">70%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-purple-400 to-pink-500 rounded-full" style="width: 70%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="800"></div>
-                </div>
-              </div>
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">Java 17</span>
-                  <span class="text-xs text-orange-400 font-mono">70%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full" style="width: 70%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="900"></div>
-                </div>
-              </div>
-              <!-- Skill -->
-              <div>
-                <div class="flex justify-between items-end mb-2">
-                  <span class="text-sm font-medium text-gray-300">Docker</span>
-                  <span class="text-xs text-cyan-400 font-mono">65%</span>
-                </div>
-                <div class="h-2 w-full bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style="width: 65%"
-                    data-aos="slide-right" data-aos-duration="1000" data-aos-delay="1000"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- ====== DEVOPS & BACKEND SHOWCASE =========== -->
+  <!-- ============ TIMELINE PROFESIONAL =========== -->
   <!-- ============================================ -->
-  <section id="devops" class="py-32 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900"></div>
-
-    <!-- Background Elements -->
-    <div class="absolute top-0 left-0 w-full h-full">
-      <div class="absolute top-20 left-10 w-72 h-72 bg-cyan-500/5 rounded-full blur-[100px]"></div>
-      <div class="absolute bottom-20 right-10 w-72 h-72 bg-purple-500/5 rounded-full blur-[100px]"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-20" data-aos="fade-up">
-        <div class="section-subtitle">Infraestructura Moderna</div>
-        <h2 class="section-title">
-          DevOps & Backend<br><span class="neon-text">Enterprise Grade</span>
+  <section id="timeline-path" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Trayectoria Técnica</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          Evolución del Aprendizaje
         </h2>
       </div>
 
-      <div class="grid lg:grid-cols-3 gap-8">
-        <!-- Card 1: Spring Boot -->
-        <div class="card-glow shine-card p-8 relative group" data-aos="fade-up" data-aos-duration="800">
-          <div
-            class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+      <div class="timeline-container max-w-3xl mx-auto">
+        <div class="timeline-line"></div>
+
+        <!-- 2023 -->
+        <div class="relative timeline-item-row mb-12 flex flex-col md:flex-row md:justify-between items-start" data-aos="fade-up">
+          <div class="timeline-dot"></div>
+          <div class="md:w-5/12 pl-8 md:pl-0 md:text-right">
+            <span class="text-xl font-extrabold text-blue-500">2023</span>
           </div>
-          <div class="relative z-10">
-            <div
-              class="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-              <i class="fas fa-leaf text-3xl text-green-400 icon-glow-cyan"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-3">Spring Boot</h3>
-            <p class="text-gray-400 mb-6 leading-relaxed">
-              Arquitecturas empresariales con Spring Boot, implementando microservicios,
-              inyección de dependencias y patrones de diseño robustos para aplicaciones de alto
-              rendimiento.
+          <div class="md:w-2"></div>
+          <div class="md:w-5/12 pl-8 md:pl-0">
+            <h4 class="text-base font-bold text-primary mb-1">Fundamentos de Java & DBs</h4>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Inicio de formación técnica oficial en Comfenalco. Aprendizaje exhaustivo de POO, lógica estructurada y estructuración de bases de datos relacionales.
             </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-3 py-1 rounded-full text-xs bg-green-500/10 text-green-400 border border-green-500/20">REST
-                APIs</span>
-              <span
-                class="px-3 py-1 rounded-full text-xs bg-green-500/10 text-green-400 border border-green-500/20">JPA/Hibernate</span>
-              <span
-                class="px-3 py-1 rounded-full text-xs bg-green-500/10 text-green-400 border border-green-500/20">Security</span>
-            </div>
           </div>
         </div>
 
-        <!-- Card 2: Docker & Cloud -->
-        <div class="card-glow shine-card p-8 relative group" data-aos="fade-up" data-aos-duration="800"
-          data-aos-delay="200">
-          <div
-            class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <!-- 2024 -->
+        <div class="relative timeline-item-row mb-12 flex flex-col md:flex-row md:justify-between items-start" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-dot"></div>
+          <div class="md:w-5/12 pl-8 md:pl-0 md:text-right">
+            <span class="text-xl font-extrabold text-blue-500">2024</span>
           </div>
-          <div class="relative z-10">
-            <div
-              class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-              <i class="fab fa-docker text-3xl text-blue-400 icon-glow-blue"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-3">Docker & Cloud</h3>
-            <p class="text-gray-400 mb-6 leading-relaxed">
-              Containerización de servicios con Docker, orquestación de contenedores y despliegue
-              en infraestructuras cloud modernas para máxima escalabilidad y disponibilidad.
+          <div class="md:w-2"></div>
+          <div class="md:w-5/12 pl-8 md:pl-0">
+            <h4 class="text-base font-bold text-primary mb-1">Especialización en Spring Boot</h4>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Desarrollo de microservicios corporativos, seguridad integral JWT y despliegues virtualizados mediante contenedores Docker en plataformas cloud.
             </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-3 py-1 rounded-full text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20">Containers</span>
-              <span
-                class="px-3 py-1 rounded-full text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20">CI/CD</span>
-              <span class="px-3 py-1 rounded-full text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20">Cloud
-                Native</span>
-            </div>
           </div>
         </div>
 
-        <!-- Card 3: JWT & Security -->
-        <div class="card-glow shine-card p-8 relative group" data-aos="fade-up" data-aos-duration="800"
-          data-aos-delay="400">
-          <div
-            class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <!-- 2025 -->
+        <div class="relative timeline-item-row mb-12 flex flex-col md:flex-row md:justify-between items-start" data-aos="fade-up" data-aos-delay="200">
+          <div class="timeline-dot"></div>
+          <div class="md:w-5/12 pl-8 md:pl-0 md:text-right">
+            <span class="text-xl font-extrabold text-blue-500">2025</span>
           </div>
-          <div class="relative z-10">
-            <div
-              class="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-              <i class="fas fa-shield-alt text-3xl text-red-400 icon-glow-purple"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-3">JWT & Seguridad</h3>
-            <p class="text-gray-400 mb-6 leading-relaxed">
-              Implementación de autenticación y autorización con JWT, OAuth2 y estrategias de seguridad
-              empresarial para proteger APIs y datos sensibles en entornos productivos.
+          <div class="md:w-2"></div>
+          <div class="md:w-5/12 pl-8 md:pl-0">
+            <h4 class="text-base font-bold text-primary mb-1">Integración de Inteligencia Artificial</h4>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Modelado e integración de endpoints OpenAI/Groq LLaMA, optimización de prompts y pipelines de agentes de decisión automáticos.
             </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-3 py-1 rounded-full text-xs bg-red-500/10 text-red-400 border border-red-500/20">JWT</span>
-              <span
-                class="px-3 py-1 rounded-full text-xs bg-red-500/10 text-red-400 border border-red-500/20">OAuth2</span>
-              <span
-                class="px-3 py-1 rounded-full text-xs bg-red-500/10 text-red-400 border border-red-500/20">Encryption</span>
-            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Stats Bar -->
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="600">
-        <div class="glass rounded-xl p-6 text-center hover:bg-cyan-500/5 transition-colors cursor-default">
-          <div class="text-3xl font-bold text-cyan-400 mb-1">99.9%</div>
-          <div class="text-sm text-gray-500">Uptime</div>
-        </div>
-        <div class="glass rounded-xl p-6 text-center hover:bg-purple-500/5 transition-colors cursor-default">
-          <div class="text-3xl font-bold text-purple-400 mb-1">&lt;50ms</div>
-          <div class="text-sm text-gray-500">Response Time</div>
-        </div>
-        <div class="glass rounded-xl p-6 text-center hover:bg-green-500/5 transition-colors cursor-default">
-          <div class="text-3xl font-bold text-green-400 mb-1">10x</div>
-          <div class="text-sm text-gray-500">Scalability</div>
-        </div>
-        <div class="glass rounded-xl p-6 text-center hover:bg-blue-500/5 transition-colors cursor-default">
-          <div class="text-3xl font-bold text-blue-400 mb-1">256-bit</div>
-          <div class="text-sm text-gray-500">Encryption</div>
+        <!-- 2026 -->
+        <div class="relative timeline-item-row flex flex-col md:flex-row md:justify-between items-start" data-aos="fade-up" data-aos-delay="300">
+          <div class="timeline-dot"></div>
+          <div class="md:w-5/12 pl-8 md:pl-0 md:text-right">
+            <span class="text-xl font-extrabold text-blue-500">2026</span>
+          </div>
+          <div class="md:w-2"></div>
+          <div class="md:w-5/12 pl-8 md:pl-0">
+            <h4 class="text-base font-bold text-primary mb-1">Arquitectura de Sistemas Complejos</h4>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Consolidación como arquitecto de software Full Stack. Diseño de ecosistemas escalables de grado industrial en producción.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- ========== AI & INNOVATION SECTION ========= -->
+  <!-- ============ CERTIFICATES SECTION ========== -->
   <!-- ============================================ -->
-  <section id="ai" class="py-32 relative overflow-hidden">
-    <div class="absolute inset-0">
-      <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[150px]">
-      </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- Columna Izquierda: Contenido -->
-        <div data-aos="fade-right" data-aos-duration="1000">
-          <div class="section-subtitle">Inteligencia Artificial</div>
-          <h2 class="section-title mb-8">
-            IA &<br><span class="neon-text">Automatización Inteligente</span>
-          </h2>
-
-          <p class="text-gray-400 text-lg leading-relaxed mb-8">
-            Integración de modelos de inteligencia artificial de última generación para crear
-            <span class="text-purple-400 font-medium">agentes autónomos</span>, automatizar procesos
-            complejos
-            y potenciar la toma de decisiones empresariales con datos en tiempo real.
-          </p>
-
-          <div class="space-y-6">
-            <div class="flex items-start gap-4 group">
-              <div
-                class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500/20 transition-colors">
-                <i class="fas fa-robot text-purple-400 text-xl icon-glow-purple"></i>
-              </div>
-              <div>
-                <h4 class="text-white font-semibold mb-1">AI Agents</h4>
-                <p class="text-gray-400 text-sm">Agentes inteligentes que automatizan flujos de trabajo
-                  complejos y toman decisiones autónomas basadas en contexto.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4 group">
-              <div
-                class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-colors">
-                <i class="fas fa-terminal text-cyan-400 text-xl icon-glow-cyan"></i>
-              </div>
-              <div>
-                <h4 class="text-white font-semibold mb-1">Prompt Engineering</h4>
-                <p class="text-gray-400 text-sm">Diseño de prompts optimizados para obtener resultados
-                  precisos y contextualizados de modelos de lenguaje avanzados.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4 group">
-              <div
-                class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-500/20 transition-colors">
-                <i class="fas fa-magic text-pink-400 text-xl icon-glow-purple"></i>
-              </div>
-              <div>
-                <h4 class="text-white font-semibold mb-1">Automatización Inteligente</h4>
-                <p class="text-gray-400 text-sm">Pipeline de automatización que integra IA con sistemas
-                  existentes para optimizar operaciones y reducir costos.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4 group">
-              <div
-                class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
-                <i class="fas fa-network-wired text-blue-400 text-xl icon-glow-blue"></i>
-              </div>
-              <div>
-                <h4 class="text-white font-semibold mb-1">Ecosistemas Modernos</h4>
-                <p class="text-gray-400 text-sm">Arquitectura de ecosistemas que conectan OpenAI, Groq y
-                  otras plataformas de IA en soluciones empresariales coherentes.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Columna Derecha: Visual AI -->
-        <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
-          <div class="relative">
-            <!-- Main AI Card -->
-            <div class="glass-strong rounded-2xl p-8 relative overflow-hidden">
-              <div class="absolute top-0 right-0 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
-
-              <div class="relative z-10">
-                <div class="flex items-center justify-between mb-8">
-                  <div class="flex items-center gap-3">
-                    <div class="w-3 h-3 rounded-full bg-green-400 animate-pulse pulse-glow"></div>
-                    <span class="text-sm text-gray-400 font-mono">AI Engine Active</span>
-                  </div>
-                  <i class="fas fa-brain text-purple-400 text-2xl icon-glow-purple"></i>
-                </div>
-
-                <!-- AI Processing Visualization -->
-                <div class="space-y-4">
-                  <div class="glass rounded-lg p-4">
-                    <div class="flex items-center justify-between mb-2">
-                      <span class="text-xs text-gray-500 font-mono">OpenAI GPT-4</span>
-                      <span class="text-xs text-green-400 font-mono">Connected</span>
-                    </div>
-                    <div class="h-1 bg-dark-600 rounded-full overflow-hidden">
-                      <div class="h-full bg-gradient-to-r from-purple-500 to-cyan-500 w-[92%] rounded-full">
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="glass rounded-lg p-4">
-                    <div class="flex items-center justify-between mb-2">
-                      <span class="text-xs text-gray-500 font-mono">Groq LLaMA</span>
-                      <span class="text-xs text-green-400 font-mono">Connected</span>
-                    </div>
-                    <div class="h-1 bg-dark-600 rounded-full overflow-hidden">
-                      <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 w-[88%] rounded-full">
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="glass rounded-lg p-4">
-                    <div class="flex items-center justify-between mb-2">
-                      <span class="text-xs text-gray-500 font-mono">AI Agents Pipeline</span>
-                      <span class="text-xs text-green-400 font-mono">Running</span>
-                    </div>
-                    <div class="h-1 bg-dark-600 rounded-full overflow-hidden">
-                      <div
-                        class="h-full bg-gradient-to-r from-pink-500 to-purple-500 w-[95%] rounded-full animate-pulse">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Terminal Output -->
-                <div class="mt-6 p-4 rounded-lg bg-dark-900/50 font-mono text-xs">
-                  <div class="text-gray-500 mb-1">$ ai-agent --process</div>
-                  <div class="text-cyan-400">&gt; Analyzing context...</div>
-                  <div class="text-purple-400">&gt; Generating response...</div>
-                  <div class="text-green-400">&gt; Task completed successfully ✓</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Floating Elements -->
-            <div
-              class="absolute -top-6 -right-6 glass px-4 py-2 rounded-full text-xs font-mono text-purple-400 border border-purple-500/20 float-animation">
-              <i class="fas fa-bolt mr-1"></i> Real-time
-            </div>
-            <div
-              class="absolute -bottom-4 -left-4 glass px-4 py-2 rounded-full text-xs font-mono text-cyan-400 border border-cyan-500/20 float-animation"
-              style="animation-delay: -3s;">
-              <i class="fas fa-sync mr-1"></i> Learning
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================ -->
-  <!-- ============ EDUCATION SECTION ============= -->
-  <!-- ============================================ -->
-  <section id="education" class="py-32 relative">
+  <section id="certificates" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-20" data-aos="fade-up">
-        <div class="section-subtitle">Formación Académica</div>
-        <h2 class="section-title">
-          Educación que<br><span class="neon-text">Impulsa el Conocimiento</span>
+      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Acreditaciones</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          Certificados Académicos
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cert 1 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono text-zinc-400">Tecnológico Comfenalco</span>
+              <span class="text-[10px] font-mono text-blue-500">2024</span>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Desarrollador Backend Java</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Acreditación oficial en bases de programación de sistemas en Java, control de transacciones de bases de datos relacionales y API Rest.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono text-zinc-400">Formación Complementaria</span>
+              <span class="text-[10px] font-mono text-blue-500">2024</span>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Especialista en Spring Boot & APIs</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Certificación avanzada en inyección de dependencias, securización mediante tokens JWT y despliegues automatizados con contenedores Docker.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] font-mono text-zinc-400">AI Academy</span>
+              <span class="text-[10px] font-mono text-blue-500">2025</span>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Integración de Modelos de Inteligencia Artificial</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Acreditación técnica en interconexión de endpoints de LLMs, automatización avanzada de flujos mediante agentes autónomos y prompt engineering.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ============ RECOMMENDATIONS SECTION ======== -->
+  <!-- ============================================ -->
+  <section id="recommendations" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Referencias</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          Recomendaciones Profesionales
         </h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <!-- Card 1: Universidad -->
-        <div class="card-glow shine-card p-8 relative group" data-aos="fade-up" data-aos-duration="800">
-          <div
-            class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-3xl group-hover:bg-cyan-500/10 transition-all duration-500">
-          </div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center border border-cyan-500/20">
-                <i class="fas fa-graduation-cap text-2xl text-cyan-400 icon-glow-cyan"></i>
-              </div>
-              <div>
-                <span class="text-xs text-cyan-400 font-mono">2023 - Actualidad</span>
-                <div class="text-xs text-gray-500">En curso</div>
-              </div>
+        <!-- Rec 1 -->
+        <div class="custom-card p-6" data-aos="fade-up">
+          <p class="text-zinc-500 dark:text-zinc-400 text-xs italic leading-relaxed mb-6">
+            "Luis Alejandro demostró una gran capacidad de análisis al optimizar la API de facturación comercial. Escribe código ordenado, es responsable con los entregables y mantiene una comunicación técnica impecable."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-xs font-bold text-primary">
+              CM
             </div>
-
-            <h3 class="text-xl font-bold text-white mb-2">Tecnología en Desarrollo de Software</h3>
-            <p class="text-gray-400 font-medium mb-4">Tecnológico Comfenalco</p>
-
-            <div class="space-y-3">
-              <div class="flex items-center gap-3 text-sm text-gray-400">
-                <i class="fas fa-check text-cyan-400 text-xs"></i>
-                <span>Fundamentos de programación avanzada</span>
-              </div>
-              <div class="flex items-center gap-3 text-sm text-gray-400">
-                <i class="fas fa-check text-cyan-400 text-xs"></i>
-                <span>Arquitectura de software empresarial</span>
-              </div>
-              <div class="flex items-center gap-3 text-sm text-gray-400">
-                <i class="fas fa-check text-cyan-400 text-xs"></i>
-                <span>Bases de datos y sistemas de información</span>
-              </div>
-              <div class="flex items-center gap-3 text-sm text-gray-400">
-                <i class="fas fa-check text-cyan-400 text-xs"></i>
-                <span>Desarrollo de aplicaciones web y móvil</span>
-              </div>
-            </div>
-
-            <div class="mt-6 pt-6 border-t border-white/5">
-              <div class="flex items-center gap-2">
-                <div class="flex-1 h-2 bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 w-[65%] rounded-full">
-                  </div>
-                </div>
-                <span class="text-xs text-cyan-400 font-mono">65%</span>
-              </div>
+            <div>
+              <div class="text-xs font-bold text-primary">Ing. Carlos Mendoza</div>
+              <div class="text-[10px] text-zinc-400">Líder Técnico de Proyectos</div>
             </div>
           </div>
         </div>
 
-        <!-- Card 2: Bachillerato -->
-        <div class="card-glow shine-card p-8 relative group" data-aos="fade-up" data-aos-duration="800"
-          data-aos-delay="200">
-          <div
-            class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-all duration-500">
-          </div>
-          <div class="relative z-10">
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center border border-purple-500/20">
-                <i class="fas fa-school text-2xl text-purple-400 icon-glow-purple"></i>
-              </div>
-              <div>
-                <span class="text-xs text-purple-400 font-mono">2017 - 2022</span>
-                <div class="text-xs text-gray-500">Completado</div>
-              </div>
+        <!-- Rec 2 -->
+        <div class="custom-card p-6" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-zinc-500 dark:text-zinc-400 text-xs italic leading-relaxed mb-6">
+            "Capacidad innata para resolver problemas lógicos y diseñar estructuras de bases de datos complejas. Es proactivo con la incorporación de herramientas de Inteligencia Artificial para agilizar procesos."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-xs font-bold text-primary">
+              MR
             </div>
-
-            <h3 class="text-xl font-bold text-white mb-2">Bachiller Académico</h3>
-            <p class="text-gray-400 font-medium mb-4">Instituto Educativo Valores Unidos</p>
-
-            <div class="space-y-3">
-              <div class="flex items-center gap-3 text-sm text-gray-400">
-                <i class="fas fa-check text-purple-400 text-xs"></i>
-                <span>Formación académica integral</span>
-              </div>
-              <div class="flex items-center gap-3 text-sm text-gray-400">
-                <i class="fas fa-check text-purple-400 text-xs"></i>
-                <span>Desarrollo de pensamiento lógico</span>
-              </div>
-              <div class="flex items-center gap-3 text-sm text-gray-400">
-                <i class="fas fa-check text-purple-400 text-xs"></i>
-                <span>Bases para estudios superiores en tecnología</span>
-              </div>
-              <div class="flex items-center gap-3 text-sm text-gray-400">
-                <i class="fas fa-check text-purple-400 text-xs"></i>
-                <span>Competencias comunicativas y sociales</span>
-              </div>
-            </div>
-
-            <div class="mt-6 pt-6 border-t border-white/5">
-              <div class="flex items-center gap-2">
-                <div class="flex-1 h-2 bg-dark-600 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 w-[100%] rounded-full">
-                  </div>
-                </div>
-                <span class="text-xs text-purple-400 font-mono">100%</span>
-              </div>
+            <div>
+              <div class="text-xs font-bold text-primary">Prof. Marta Restrepo</div>
+              <div class="text-[10px] text-zinc-400">Docente de Desarrollo de Software</div>
             </div>
           </div>
         </div>
@@ -2119,119 +1249,98 @@
   <!-- ============================================ -->
   <!-- ============ CONTACT SECTION =============== -->
   <!-- ============================================ -->
-  <section id="contact" class="py-32 relative overflow-hidden">
-    <div class="absolute inset-0">
-      <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 rounded-full blur-[200px]">
-      </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-20" data-aos="fade-up">
-        <div class="section-subtitle">Conectemos</div>
-        <h2 class="section-title">
-          Hablemos de tu<br><span class="neon-text">Próximo Proyecto</span>
+  <section id="contact" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Contacto</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          Hablemos de tu próximo proyecto
         </h2>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-        <!-- Columna Izquierda: Info de Contacto -->
-        <div data-aos="fade-right" data-aos-duration="1000">
-          <h3 class="text-2xl font-bold text-white mb-6">¿Tienes un proyecto en mente?</h3>
-          <p class="text-gray-400 leading-relaxed mb-10">
-            Estoy disponible para colaborar en proyectos de arquitectura de software,
-            desarrollo backend, integración de IA y consultoría tecnológica.
-            Construyamos algo extraordinario juntos.
-          </p>
+      <div class="grid lg:grid-cols-12 gap-12 max-w-5xl mx-auto items-stretch">
+        <!-- Columna Izquierda: Info -->
+        <div class="lg:col-span-5 flex flex-col justify-between" data-aos="fade-right">
+          <div>
+            <h3 class="text-xl font-bold text-primary mb-4">¿Tienes un proyecto en mente?</h3>
+            <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-8">
+              Estoy disponible para colaborar en proyectos de arquitectura de software,
+              desarrollo backend, integración de IA y consultoría tecnológica.
+            </p>
+          </div>
 
-          <div class="space-y-6">
+          <div class="space-y-4 mb-8 lg:mb-0">
             <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank"
-              class="flex items-center gap-4 group">
-              <div
-                class="w-14 h-14 rounded-xl glass flex items-center justify-center group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 transition-all duration-300 border border-white/5">
-                <i class="fab fa-linkedin-in text-xl text-cyan-400 icon-glow-cyan"></i>
-              </div>
+              class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+              <i class="fab fa-linkedin-in text-blue-500 text-lg"></i>
               <div>
-                <div class="text-sm text-gray-500">LinkedIn</div>
-                <div class="text-white group-hover:text-cyan-400 transition-colors">Luis Alejandro
-                  Cárdenas Ramos</div>
+                <div class="text-[10px] text-zinc-400 font-semibold uppercase">LinkedIn</div>
+                <div class="text-sm font-medium text-primary">Luis Alejandro Cárdenas Ramos</div>
               </div>
             </a>
 
             <a href="https://wa.me/573005722844?text=Hola%20Luis%20Alejandro,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte."
-              target="_blank" class="flex items-center gap-4 group">
-              <div
-                class="w-14 h-14 rounded-xl glass flex items-center justify-center group-hover:bg-green-500/10 group-hover:border-green-500/30 transition-all duration-300 border border-white/5">
-                <i class="fab fa-whatsapp text-xl text-green-400"></i>
-              </div>
+              target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+              <i class="fab fa-whatsapp text-emerald-500 text-lg"></i>
               <div>
-                <div class="text-sm text-gray-500">WhatsApp</div>
-                <div class="text-white group-hover:text-green-400 transition-colors">+57 300 572 2844
-                </div>
+                <div class="text-[10px] text-zinc-400 font-semibold uppercase">WhatsApp</div>
+                <div class="text-sm font-medium text-primary">+57 300 572 2844</div>
               </div>
             </a>
 
-            <a href="mailto:cardenaswalker1@gmail.com" class="flex items-center gap-4 group">
-              <div
-                class="w-14 h-14 rounded-xl glass flex items-center justify-center group-hover:bg-purple-500/10 group-hover:border-purple-500/30 transition-all duration-300 border border-white/5">
-                <i class="fas fa-envelope text-xl text-purple-400 icon-glow-purple"></i>
-              </div>
+            <a href="mailto:cardenaswalker1@gmail.com" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+              <i class="fas fa-envelope text-purple-500 text-lg"></i>
               <div>
-                <div class="text-sm text-gray-500">Email</div>
-                <div class="text-white group-hover:text-purple-400 transition-colors">
-                  cardenaswalker1@gmail.com</div>
+                <div class="text-[10px] text-zinc-400 font-semibold uppercase">Email</div>
+                <div class="text-sm font-medium text-primary">cardenaswalker1@gmail.com</div>
               </div>
             </a>
 
-            <div class="flex items-center gap-4 group">
-              <div class="w-14 h-14 rounded-xl glass flex items-center justify-center border border-white/5">
-                <i class="fas fa-map-marker-alt text-xl text-pink-400 icon-glow-purple"></i>
-              </div>
+            <div class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+              <i class="fas fa-map-marker-alt text-red-500 text-lg"></i>
               <div>
-                <div class="text-sm text-gray-500">Ubicación</div>
-                <div class="text-white">Cartagena de Indias, Bolívar, Colombia</div>
+                <div class="text-[10px] text-zinc-400 font-semibold uppercase">Ubicación</div>
+                <div class="text-sm font-medium text-primary">Cartagena de Indias, Colombia</div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Columna Derecha: Formulario -->
-        <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-          <div class="glass-strong rounded-2xl p-8 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-40 h-40 bg-cyan-500/5 rounded-full blur-3xl"></div>
-
-            <form id="contact-form" class="relative z-10 space-y-6">
-              <div class="grid md:grid-cols-2 gap-6">
+        <div class="lg:col-span-7" data-aos="fade-left">
+          <div class="custom-card h-full">
+            <form id="contact-form" class="space-y-4">
+              <div class="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-sm text-gray-400 mb-2">Nombre</label>
-                  <input type="text"
-                    class="w-full px-4 py-3 bg-dark-800/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all"
+                  <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Nombre</label>
+                  <input type="text" required
+                    class="w-full px-4 py-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-primary placeholder-zinc-400 focus:outline-none focus:border-zinc-400 focus:ring-0 transition-colors"
                     placeholder="Tu nombre">
                 </div>
                 <div>
-                  <label class="block text-sm text-gray-400 mb-2">Email</label>
-                  <input type="email"
-                    class="w-full px-4 py-3 bg-dark-800/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all"
+                  <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Email</label>
+                  <input type="email" required
+                    class="w-full px-4 py-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-primary placeholder-zinc-400 focus:outline-none focus:border-zinc-400 focus:ring-0 transition-colors"
                     placeholder="tu@email.com">
                 </div>
               </div>
 
               <div>
-                <label class="block text-sm text-gray-400 mb-2">Asunto</label>
-                <input type="text"
-                  class="w-full px-4 py-3 bg-dark-800/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all"
+                <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Asunto</label>
+                <input type="text" required
+                  class="w-full px-4 py-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-primary placeholder-zinc-400 focus:outline-none focus:border-zinc-400 focus:ring-0 transition-colors"
                   placeholder="¿Sobre qué quieres hablar?">
               </div>
 
               <div>
-                <label class="block text-sm text-gray-400 mb-2">Mensaje</label>
-                <textarea rows="5"
-                  class="w-full px-4 py-3 bg-dark-800/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all resize-none"
+                <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Mensaje</label>
+                <textarea rows="4" required
+                  class="w-full px-4 py-3 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-primary placeholder-zinc-400 focus:outline-none focus:border-zinc-400 focus:ring-0 transition-colors resize-none"
                   placeholder="Cuéntame sobre tu proyecto..."></textarea>
               </div>
 
-              <button type="submit" class="btn-primary w-full magnetic">
-                <i class="fas fa-paper-plane mr-2"></i>Enviar Mensaje
+              <button type="submit" class="btn-primary w-full">
+                Enviar Mensaje <i class="fas fa-paper-plane ml-2 text-xs"></i>
               </button>
             </form>
           </div>
@@ -2243,23 +1352,19 @@
   <!-- ============================================ -->
   <!-- ============== FOOTER ====================== -->
   <!-- ============================================ -->
-  <footer class="py-16 relative overflow-hidden">
-    <div class="animated-line mb-12"></div>
-
+  <footer class="py-12 border-t border-zinc-200 dark:border-zinc-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-        <!-- Logo & Frase -->
-        <div class="text-center md:text-left">
-          <a href="#" class="text-2xl font-bold tracking-tight mb-2 inline-block">
-            <span class="neon-text">LC</span><span class="text-white/80">.dev</span>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+          <a href="#" class="text-md font-bold tracking-tight text-primary">
+            <span class="text-zinc-400 font-normal">LC</span><span>.dev</span>
           </a>
-          <p class="text-gray-500 text-sm max-w-xs">
+          <p class="text-zinc-400 dark:text-zinc-500 text-xs mt-1.5 max-w-xs">
             "El código es poesía que las máquinas entienden y los humanos admiran."
           </p>
         </div>
 
-        <!-- Social Icons -->
-        <div class="flex gap-4">
+        <div class="flex gap-3">
           <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank"
             class="social-icon" aria-label="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
@@ -2276,21 +1381,15 @@
           </a>
         </div>
 
-        <!-- Copyright -->
-        <div class="text-center md:text-right">
-          <p class="text-gray-600 text-sm">
+        <div>
+          <p class="text-zinc-400 dark:text-zinc-500 text-xs">
             © 2026 Luis Alejandro Cárdenas Ramos
           </p>
-          <p class="text-gray-700 text-xs mt-1">
-            Desarrollador de Software & Full Stack | Cartagena, Colombia
+          <p class="text-zinc-400 dark:text-zinc-500 text-[10px] mt-1">
+            Desarrollador de Software | Cartagena, Colombia
           </p>
         </div>
       </div>
-    </div>
-
-    <!-- Glow Effect Footer -->
-    <div
-      class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none">
     </div>
   </footer>
 
@@ -2305,8 +1404,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <!-- Typed.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-  <!-- Vanilla Tilt.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
   <script>
     // ===== INICIALIZACIÓN AOS =====
@@ -2314,150 +1411,10 @@
       duration: 800,
       easing: 'ease-out-cubic',
       once: true,
-      offset: 100
+      offset: 60
     });
 
-    // ===== MODO DÍA/NOCHE TOGGLE =====
-    const themeToggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
 
-    // Check for saved theme preference or default to dark mode
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    if (currentTheme === 'light') {
-      html.classList.add('light-mode');
-    }
-
-    themeToggle.addEventListener('click', () => {
-      html.classList.toggle('light-mode');
-      const isLight = html.classList.contains('light-mode');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-
-      // Re-initialize particles with new colors
-      initParticles();
-    });
-
-    // ===== PARTICLES CANVAS =====
-    const canvas = document.getElementById('particles-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let mouseX = 0;
-    let mouseY = 0;
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.opacity = Math.random() * 0.5 + 0.1;
-        this.color = Math.random() > 0.5 ? '0, 245, 255' : '168, 85, 247';
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        // Mouse interaction
-        const dx = mouseX - this.x;
-        const dy = mouseY - this.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 150) {
-          const force = (150 - distance) / 150;
-          this.x -= dx * force * 0.02;
-          this.y -= dy * force * 0.02;
-        }
-
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
-        ctx.fill();
-      }
-    }
-
-    function initParticles() {
-      particles = [];
-      const particleCount = window.innerWidth < 768 ? 30 : 60;
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-    }
-    initParticles();
-
-    function connectParticles() {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 150) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 245, 255, ${0.1 * (1 - distance / 150)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      connectParticles();
-      requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
-
-    // ===== CURSOR PERSONALIZADO =====
-    const cursorDot = document.getElementById('cursor-dot');
-    const cursorRing = document.getElementById('cursor-ring');
-    let cursorX = 0, cursorY = 0;
-    let ringX = 0, ringY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      cursorX = e.clientX;
-      cursorY = e.clientY;
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animateCursor() {
-      cursorDot.style.left = cursorX - 4 + 'px';
-      cursorDot.style.top = cursorY - 4 + 'px';
-
-      ringX += (cursorX - ringX) * 0.15;
-      ringY += (cursorY - ringY) * 0.15;
-      cursorRing.style.left = ringX - 20 + 'px';
-      cursorRing.style.top = ringY - 20 + 'px';
-
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    // Hover effect on interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .card-glow, .social-icon, input, textarea');
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
-      el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
-    });
 
     // ===== SCROLL PROGRESS BAR =====
     const scrollProgress = document.getElementById('scroll-progress');
@@ -2520,7 +1477,6 @@
       }, 16);
     }
 
-    // Intersection Observer for counters
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2534,48 +1490,9 @@
       counterObserver.observe(counter);
     });
 
-    // ===== MAGNETIC BUTTONS =====
-    const magneticBtns = document.querySelectorAll('.magnetic');
-    magneticBtns.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-      });
-
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0, 0)';
-      });
-    });
-
-    // ===== VANILLA TILT =====
-    VanillaTilt.init(document.querySelectorAll('.card-glow'), {
-      max: 8,
-      speed: 400,
-      glare: true,
-      'max-glare': 0.2,
-      perspective: 1000
-    });
-
     // ===== GSAP SCROLL TRIGGER ANIMATIONS =====
     gsap.registerPlugin(ScrollTrigger);
 
-    // Parallax for gradient orbs
-    gsap.utils.toArray('.gradient-orb').forEach(orb => {
-      gsap.to(orb, {
-        yPercent: -30,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: orb.parentElement,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    });
-
-    // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -2589,41 +1506,12 @@
       });
     });
 
-    // ===== MOUSE TRACKING GLOW ON CARDS =====
-    document.querySelectorAll('.card-glow').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--mouse-x', x + '%');
-        card.style.setProperty('--mouse-y', y + '%');
-      });
-    });
-
     // ===== FORM SUBMIT =====
     document.getElementById('contact-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      // Show coming soon or redirect to email
       window.location.href = 'mailto:cardenaswalker1@gmail.com?subject=Contacto desde Portfolio&body=Hola Luis Alejandro, vi tu portfolio y me gustaría contactarte...';
     });
 
-    // ===== THEME TOGGLE MOBILE =====
-    // Add theme toggle to mobile menu if needed
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileThemeToggle = document.createElement('button');
-    mobileThemeToggle.className = 'theme-toggle mt-4';
-    mobileThemeToggle.innerHTML = '<div class="theme-toggle-ball"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></div>';
-    mobileThemeToggle.addEventListener('click', () => {
-      html.classList.toggle('light-mode');
-      const isLight = html.classList.contains('light-mode');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      initParticles();
-    });
-
-    // Only add if mobile menu doesn't have it
-    if (!document.querySelector('.mobile-menu .theme-toggle')) {
-      mobileMenu.appendChild(mobileThemeToggle);
-    }
 
   </script>
 </body>
