@@ -141,10 +141,16 @@
       left: 0;
       right: 0;
       z-index: 100;
-      padding: 1.25rem 2rem;
+      padding: 1rem 1.25rem;
       transition: all 0.3s ease;
       background: transparent;
       border-bottom: 1px solid transparent;
+    }
+
+    @media (min-width: 768px) {
+      .navbar {
+        padding: 1.25rem 2rem;
+      }
     }
 
     .navbar.scrolled {
@@ -152,7 +158,13 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-color);
-      padding: 0.9rem 2rem;
+      padding: 0.8rem 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .navbar.scrolled {
+        padding: 0.9rem 2rem;
+      }
     }
 
     .nav-link {
@@ -168,17 +180,26 @@
 
     /* ===== BOTONES ===== */
     .btn-primary {
-      padding: 0.75rem 1.75rem;
+      padding: 0.85rem 1.75rem;
       background-color: var(--text-primary);
       color: var(--bg-primary);
       border-radius: 8px;
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: 0.95rem;
       transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border: 1px solid var(--text-primary);
+      min-height: 52px;
+    }
+
+    @media (min-width: 768px) {
+      .btn-primary {
+        font-size: 0.875rem;
+        min-height: 44px;
+        padding: 0.75rem 1.75rem;
+      }
     }
 
     .btn-primary:hover {
@@ -188,17 +209,26 @@
     }
 
     .btn-secondary {
-      padding: 0.75rem 1.75rem;
+      padding: 0.85rem 1.75rem;
       background-color: transparent;
       color: var(--text-primary);
       border: 1px solid var(--border-color);
       border-radius: 8px;
       font-weight: 500;
-      font-size: 0.875rem;
+      font-size: 0.95rem;
       transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      min-height: 52px;
+    }
+
+    @media (min-width: 768px) {
+      .btn-secondary {
+        font-size: 0.875rem;
+        min-height: 44px;
+        padding: 0.75rem 1.75rem;
+      }
     }
 
     .btn-secondary:hover {
@@ -212,9 +242,15 @@
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 16px;
-      padding: 2rem;
+      padding: 1.5rem;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 4px 6px -1px var(--shadow-color);
+    }
+
+    @media (min-width: 768px) {
+      .custom-card {
+        padding: 2rem;
+      }
     }
 
     .custom-card:hover {
@@ -225,8 +261,8 @@
 
     /* ===== SOCIAL ICONS ===== */
     .social-icon {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -234,8 +270,16 @@
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       transition: all 0.2s ease;
+    }
+
+    @media (min-width: 768px) {
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+      }
     }
 
     .social-icon:hover {
@@ -288,28 +332,6 @@
       display: block;
     }
 
-    /* Mobile Menu Fullscreen Overlay */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: var(--bg-primary);
-      z-index: 200;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-menu.active {
-      display: flex;
-      opacity: 1;
-      pointer-events: auto;
-    }
-
     /* Timeline Editorial Estilo */
     .timeline-container {
       position: relative;
@@ -359,7 +381,7 @@
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <div class="max-w-7xl mx-auto flex items-center justify-between w-full">
       <a href="#" class="text-lg font-bold tracking-tight text-primary">
         <span class="text-zinc-400 font-normal">LC</span><span>.dev</span>
       </a>
@@ -383,81 +405,106 @@
         </button>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button class="md:hidden text-zinc-500 hover:text-zinc-200 text-xl" id="menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+      <!-- Mobile Hamburger Button (Always visible on mobile) -->
+      <button class="md:hidden text-zinc-500 hover:text-zinc-200 text-xl w-12 h-12 flex items-center justify-center" id="menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="absolute top-6 right-6 text-zinc-500 hover:text-zinc-200 text-2xl" onclick="toggleMobileMenu()">
-      <i class="fas fa-times"></i>
-    </button>
-    <a href="#about" class="text-2xl font-bold" onclick="toggleMobileMenu()">Sobre Mí</a>
-    <a href="#why-me" class="text-2xl font-bold" onclick="toggleMobileMenu()">Por qué yo</a>
-    <a href="#experience" class="text-2xl font-bold" onclick="toggleMobileMenu()">Experiencia</a>
-    <a href="#methodology" class="text-2xl font-bold" onclick="toggleMobileMenu()">Metodología</a>
-    <a href="#featured-project" class="text-2xl font-bold" onclick="toggleMobileMenu()">Proyecto Destacado</a>
-    <a href="#skills" class="text-2xl font-bold" onclick="toggleMobileMenu()">Skills</a>
-    <a href="#contact" class="text-2xl font-bold" onclick="toggleMobileMenu()">Contacto</a>
+  <!-- Mobile Menu Drawer (Sliding from right) -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-[150] translate-x-full transition-transform duration-300 ease-in-out pointer-events-none">
+    <!-- Backdrop overlay -->
+    <div id="drawer-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-in-out pointer-events-auto"></div>
+    <!-- Drawer content -->
+    <div class="absolute right-0 top-0 bottom-0 w-80 bg-zinc-950 border-l border-zinc-800 p-8 flex flex-col justify-between pointer-events-auto shadow-2xl overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-4 mb-8">
+          <span class="text-sm font-bold text-zinc-200">Navegación</span>
+          <!-- Mode switch in drawer -->
+          <button class="theme-toggle" id="drawer-theme-toggle" aria-label="Cambiar modo día/noche">
+            <div class="theme-toggle-ball">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+            </div>
+          </button>
+          <button onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-zinc-200 text-lg w-10 h-10 flex items-center justify-center" aria-label="Cerrar">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="flex flex-col gap-6 font-display">
+          <a href="#about" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Sobre Mí</a>
+          <a href="#why-me" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Por qué yo</a>
+          <a href="#experience" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Experiencia</a>
+          <a href="#methodology" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Metodología</a>
+          <a href="#featured-project" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Proyecto Destacado</a>
+          <a href="#skills" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Skills</a>
+          <a href="#contact" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Contacto</a>
+        </div>
+      </div>
+      
+      <div class="border-t border-zinc-900 pt-6">
+        <a href="mailto:cardenaswalker1@gmail.com?subject=Solicitud de CV - Luis Alejandro Cárdenas&body=Hola Luis, me gustaría solicitar una copia de tu currículum en formato PDF." class="btn-primary w-full py-4 text-center font-bold flex items-center justify-center gap-2" onclick="toggleMobileMenu()">
+          <i class="fas fa-file-download text-sm"></i> Descargar CV
+        </a>
+      </div>
+    </div>
   </div>
 
   <!-- ============================================ -->
   <!-- ============ HERO SECTION ================== -->
   <!-- ============================================ -->
-  <section id="hero" class="min-h-screen flex items-center relative pt-28 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full py-16 relative z-10">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
-        <!-- Columna Izquierda: Texto -->
-        <div class="lg:col-span-7" data-aos="fade-right" data-aos-duration="1000">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-6">
+  <section id="hero" class="min-h-screen flex items-center relative pt-24 pb-12 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full py-8 md:py-16 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Columna Izquierda: Texto (Centrado en móvil, alineado a la izquierda en lg) -->
+        <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-6">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>Disponible para Freelance, Tiempo Completo y Trabajo Remoto</span>
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none mb-6">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4 font-display">
             Luis Alejandro<br>
             <span class="text-blue-500">Cárdenas Ramos</span>
           </h1>
 
-          <div class="text-lg sm:text-xl font-mono text-zinc-500 mb-8 min-h-[30px]">
+          <div class="text-base sm:text-xl font-mono text-zinc-500 mb-6 min-h-[30px]">
             <span id="typed-text"></span><span class="text-blue-500 animate-pulse">|</span>
           </div>
 
-          <p class="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg mb-8 max-w-xl leading-relaxed font-normal">
+          <p class="text-zinc-500 dark:text-zinc-400 text-sm sm:text-base lg:text-lg mb-8 max-w-xl leading-relaxed font-normal">
             Hola, soy Luis Alejandro Cárdenas Ramos. Desarrollador Full Stack especializado en Java, Spring Boot e Inteligencia Artificial. Disfruto crear plataformas modernas, escalables y enfocadas en resolver problemas reales para empresas.
           </p>
 
-          <div class="flex flex-wrap gap-4 mb-10">
-            <a href="#contact" class="btn-primary">
+          <!-- Botones Apilados Verticalmente en Móvil (w-full), en Línea en md+ -->
+          <div class="flex flex-col md:flex-row gap-4 mb-8 w-full sm:max-w-md lg:max-w-none">
+            <a href="#contact" class="btn-primary w-full md:w-auto h-[52px] flex items-center justify-center font-bold">
               Trabajemos Juntos <i class="fas fa-arrow-right ml-2 text-xs"></i>
             </a>
-            <!-- Simulación Descarga de CV -->
-            <a href="mailto:cardenaswalker1@gmail.com?subject=Solicitud de CV - Luis Alejandro Cárdenas&body=Hola Luis, me gustaría solicitar una copia de tu currículum en formato PDF." class="btn-secondary">
+            <a href="mailto:cardenaswalker1@gmail.com?subject=Solicitud de CV - Luis Alejandro Cárdenas&body=Hola Luis, me gustaría solicitar una copia de tu currículum en formato PDF." class="btn-secondary w-full md:w-auto h-[52px] flex items-center justify-center font-bold">
               <i class="fas fa-file-download mr-2"></i> Descargar CV
             </a>
           </div>
 
-          <!-- Métricas del Hero Actualizadas -->
-          <div class="grid grid-cols-3 gap-6 sm:gap-12 border-t border-zinc-200 dark:border-zinc-800 pt-8 max-w-lg mb-10">
+          <!-- Métricas del Hero Actualizadas (2 columnas en móvil, 3 en sm+) -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-zinc-200 dark:border-zinc-800 pt-8 w-full sm:max-w-md lg:max-w-lg mb-8">
             <div>
-              <div class="text-3xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="15">0</div>
-              <div class="text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">Proyectos OK</div>
+              <div class="text-2xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="15">0</div>
+              <div class="text-[9px] sm:text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">Proyectos OK</div>
             </div>
             <div>
-              <div class="text-3xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="20">0</div>
-              <div class="text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">APIs REST</div>
+              <div class="text-2xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="20">0</div>
+              <div class="text-[9px] sm:text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">APIs REST</div>
             </div>
-            <div>
-              <div class="text-3xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="10">0</div>
-              <div class="text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">Apps Cloud</div>
+            <div class="col-span-2 sm:col-span-1">
+              <div class="text-2xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="10">0</div>
+              <div class="text-[9px] sm:text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">Apps Cloud</div>
             </div>
           </div>
 
           <!-- Social Links -->
-          <div class="flex gap-3">
+          <div class="flex gap-4 justify-center lg:justify-start w-full lg:w-auto">
             <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank"
               class="social-icon" aria-label="LinkedIn">
               <i class="fab fa-linkedin-in"></i>
@@ -476,7 +523,7 @@
         </div>
 
         <!-- Columna Derecha: Simulación Actividad GitHub -->
-        <div class="lg:col-span-5 flex justify-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <div class="lg:col-span-5 flex justify-center w-full" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
           <div class="relative w-full max-w-sm rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl p-6 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4 mb-4">
@@ -531,18 +578,18 @@
   <!-- ============================================ -->
   <!-- ============ ABOUT SECTION ================= -->
   <!-- ============================================ -->
-  <section id="about" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+  <section id="about" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Columna Izquierda: Mockup de Código -->
-        <div data-aos="fade-right" data-aos-duration="1000">
+        <div class="w-full" data-aos="fade-right" data-aos-duration="1000">
           <div class="custom-card font-mono text-xs leading-relaxed overflow-hidden">
             <div class="flex gap-1.5 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
               <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
               <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
               <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
             </div>
-            <div class="text-zinc-500 dark:text-zinc-400 space-y-1">
+            <div class="text-zinc-500 dark:text-zinc-400 space-y-1 overflow-x-auto">
               <div><span class="text-purple-500">class</span> <span class="text-blue-500">SoftwareArchitect</span> {</div>
               <div class="pl-4"><span class="text-purple-500">constructor</span>() {</div>
               <div class="pl-8"><span class="text-blue-500">this</span>.mindset = <span class="text-emerald-600 dark:text-emerald-400">"clean_code"</span>;</div>
@@ -562,13 +609,13 @@
         </div>
 
         <!-- Columna Derecha: Contenido -->
-        <div data-aos="fade-left" data-aos-duration="1000">
+        <div class="text-center lg:text-left flex flex-col items-center lg:items-start" data-aos="fade-left" data-aos-duration="1000">
           <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Sobre Mí</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2 mb-6">
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2 mb-6">
             Arquitectura que transforma negocios
           </h2>
 
-          <div class="space-y-6 text-zinc-500 dark:text-zinc-400 text-base leading-relaxed">
+          <div class="space-y-6 text-zinc-500 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
             <p>
               Desarrollador de software orientado a la creación de <span class="text-zinc-900 dark:text-zinc-200 font-semibold">soluciones
                 escalables, eficientes y centradas en el usuario</span>.
@@ -583,7 +630,7 @@
           </div>
 
           <!-- Philosophy Tags -->
-          <div class="flex flex-wrap gap-2 mt-8">
+          <div class="flex flex-wrap gap-2 mt-8 justify-center lg:justify-start">
             <span class="px-3.5 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300">
               Clean Architecture
             </span>
@@ -605,23 +652,24 @@
   <!-- ============================================ -->
   <!-- ====== WHY ME SECTION (¿Por qué yo?) ====== -->
   <!-- ============================================ -->
-  <section id="why-me" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="why-me" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Valores Clave</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           ¿Por qué trabajar conmigo?
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 1 columna en móvil, 2 en tablet/sm, 3 en desktop -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
           <div>
             <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-blue-500 mb-6">
               <i class="fas fa-lightbulb text-lg"></i>
             </div>
             <h3 class="text-lg font-bold text-primary mb-2">Desarrollo Soluciones</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               No me limito a escribir líneas de código mecánicas. Analizo a fondo los problemas del negocio para construir soluciones lógicas y operativas.
             </p>
           </div>
@@ -633,7 +681,7 @@
               <i class="fas fa-expand-arrows-alt text-lg"></i>
             </div>
             <h3 class="text-lg font-bold text-primary mb-2">Aplicaciones Escalables</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               Diseño arquitecturas backend sólidas preparadas para soportar cargas elevadas de peticiones concurrentes y datos empresariales de forma natural.
             </p>
           </div>
@@ -645,7 +693,7 @@
               <i class="fas fa-comments text-lg"></i>
             </div>
             <h3 class="text-lg font-bold text-primary mb-2">Comunicación Directa</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               Reporto periódicamente el avance de los entregables. Mantengo un canal honesto y transparente para resolver dudas técnicas rápidamente.
             </p>
           </div>
@@ -657,7 +705,7 @@
               <i class="fas fa-code text-lg"></i>
             </div>
             <h3 class="text-lg font-bold text-primary mb-2">Código Limpio (SOLID)</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               Escribo código modular, altamente legible y fácilmente testeable, reduciendo de manera drástica el coste del mantenimiento técnico del software.
             </p>
           </div>
@@ -669,7 +717,7 @@
               <i class="fas fa-chart-line text-lg"></i>
             </div>
             <h3 class="text-lg font-bold text-primary mb-2">Pensado para Crecer</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               Establezco bases de código escalables y servicios desacoplados bajo estándares de la industria, asegurando la durabilidad a largo plazo.
             </p>
           </div>
@@ -681,7 +729,7 @@
               <i class="fas fa-shipping-fast text-lg"></i>
             </div>
             <h3 class="text-lg font-bold text-primary mb-2">Entregas Iterativas</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               Despliegue incremental de funcionalidades utilizando metodologías ágiles. Obtén software funcional desde las etapas tempranas de desarrollo.
             </p>
           </div>
@@ -693,25 +741,25 @@
   <!-- ============================================ -->
   <!-- ============ EXPERIENCE SECTION ============ -->
   <!-- ============================================ -->
-  <section id="experience" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="experience" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Trayectoria Profesional</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Experiencia que construye futuro
         </h2>
       </div>
 
-      <!-- Experience Columns Layout (Clean & Editorial) -->
-      <div class="grid md:grid-cols-3 gap-8">
+      <!-- Experience Columns Layout (1 col on mobile, 3 on md+) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Experience Item 1 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="100">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono text-blue-500">2024 - Presente</span>
               <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Actual</span>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-1">Ingeniería Backend & DevOps</h3>
+            <h3 class="text-lg sm:text-xl font-bold text-primary mb-1">Ingeniería Backend & DevOps</h3>
             <p class="text-zinc-400 text-sm mb-6">Proyectos Independientes</p>
             <ul class="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
               <li class="flex items-start gap-2">
@@ -735,12 +783,12 @@
         </div>
 
         <!-- Experience Item 2 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="200">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2023 - Presente</span>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-1">Consultoría de Software</h3>
+            <h3 class="text-lg sm:text-xl font-bold text-primary mb-1">Consultoría de Software</h3>
             <p class="text-zinc-400 text-sm mb-6">Independiente</p>
             <ul class="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
               <li class="flex items-start gap-2">
@@ -764,12 +812,12 @@
         </div>
 
         <!-- Experience Item 3 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="300">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2024 - Presente</span>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-1">Apoyo Operativo Estratégico</h3>
+            <h3 class="text-lg sm:text-xl font-bold text-primary mb-1">Apoyo Operativo Estratégico</h3>
             <p class="text-zinc-400 text-sm mb-6">Negocio Familiar</p>
             <ul class="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
               <li class="flex items-start gap-2">
@@ -798,22 +846,23 @@
   <!-- ============================================ -->
   <!-- ============ METODOLOGÍA SECTION =========== -->
   <!-- ============================================ -->
-  <section id="methodology" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="methodology" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Metodología</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           ¿Cómo trabajo?
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-6 gap-6">
+      <!-- 1 col en móvil, 2 en tablet/sm, 6 en desktop -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
         <!-- Paso 1 -->
         <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
           <div>
             <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">01</div>
             <h3 class="text-sm font-bold text-primary mb-1">Análisis</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Identifico los requerimientos y el problema base.</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Identifico los requerimientos y el problema base.</p>
           </div>
         </div>
 
@@ -822,7 +871,7 @@
           <div>
             <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">02</div>
             <h3 class="text-sm font-bold text-primary mb-1">Diseño</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Estructuro la arquitectura y base de datos.</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Estructuro la arquitectura y base de datos.</p>
           </div>
         </div>
 
@@ -831,7 +880,7 @@
           <div>
             <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">03</div>
             <h3 class="text-sm font-bold text-primary mb-1">Desarrollo</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Codifico usando principios SOLID y Clean Code.</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Codifico usando principios SOLID y Clean Code.</p>
           </div>
         </div>
 
@@ -840,7 +889,7 @@
           <div>
             <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">04</div>
             <h3 class="text-sm font-bold text-primary mb-1">Pruebas</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Valido la cobertura unitaria y flujos de integración.</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Valido la cobertura unitaria y flujos de integración.</p>
           </div>
         </div>
 
@@ -849,7 +898,7 @@
           <div>
             <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">05</div>
             <h3 class="text-sm font-bold text-primary mb-1">Despliegue</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Automatizo la puesta en producción vía CI/CD.</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Automatizo la puesta en producción vía CI/CD.</p>
           </div>
         </div>
 
@@ -858,7 +907,7 @@
           <div>
             <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">06</div>
             <h3 class="text-sm font-bold text-primary mb-1">Soporte</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Monitoreo la estabilidad operativa y rendimiento.</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Monitoreo la estabilidad operativa y rendimiento.</p>
           </div>
         </div>
       </div>
@@ -868,16 +917,16 @@
   <!-- ============================================ -->
   <!-- ============ FEATURED PROJECT SECTION ====== -->
   <!-- ============================================ -->
-  <section id="featured-project" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="featured-project" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Caso de Estudio</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Proyecto Destacado
         </h2>
       </div>
 
-      <div class="custom-card grid lg:grid-cols-12 gap-8 items-center" data-aos="fade-up">
+      <div class="custom-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" data-aos="fade-up">
         <!-- Columna Izquierda: Detalles del caso de estudio -->
         <div class="lg:col-span-7 space-y-6">
           <div class="flex items-center gap-3">
@@ -885,9 +934,9 @@
             <span class="text-xs font-mono text-zinc-400">AWS Cloud</span>
           </div>
           
-          <h3 class="text-2xl font-extrabold text-primary">Plataforma de Control Financiero & APIs REST</h3>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-primary">Plataforma de Control Financiero & APIs REST</h3>
           
-          <div class="space-y-4 text-sm text-zinc-500 dark:text-zinc-400">
+          <div class="space-y-4 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
             <div>
               <h4 class="font-bold text-primary mb-1">✔ El Problema:</h4>
               <p>Procesos manuales de conciliación comercial sumamente lentos y propensos a errores operacionales junto a una nula trazabilidad histórica de facturación.</p>
@@ -910,21 +959,22 @@
             <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">AWS</span>
           </div>
 
-          <div class="flex gap-4 pt-4">
-            <a href="https://github.com/cardenaswalker2/Pagina" target="_blank" class="btn-primary">
+          <!-- Botones de Acción (Apilados en móvil, línea en sm+) -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-4 w-full">
+            <a href="https://github.com/cardenaswalker2/Pagina" target="_blank" class="btn-primary w-full sm:w-auto h-[52px] flex items-center justify-center font-bold">
               <i class="fab fa-github mr-2"></i> Ver Código
             </a>
-            <a href="#" class="btn-secondary">
+            <a href="#" class="btn-secondary w-full sm:w-auto h-[52px] flex items-center justify-center font-bold">
               <i class="fas fa-external-link-alt mr-2 text-xs"></i> Demo en Vivo
             </a>
           </div>
         </div>
 
         <!-- Columna Derecha: Mockup Visual de Arquitectura C4 -->
-        <div class="lg:col-span-5 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 p-6 flex flex-col justify-center min-h-[300px]">
+        <div class="lg:col-span-5 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 p-6 flex flex-col justify-center min-h-[300px] w-full">
           <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4">C4 Architecture System Context</span>
           
-          <div class="space-y-4 font-mono text-[11px]">
+          <div class="space-y-4 font-mono text-[11px] w-full">
             <div class="p-3 rounded-lg border border-blue-500/30 bg-blue-500/5 text-center">
               <div class="font-bold text-blue-500">API Gateway (Spring Cloud)</div>
               <div class="text-[9px] text-zinc-400">Routes HTTP to microservices</div>
@@ -958,19 +1008,19 @@
   <!-- ============ BENTO GRID SKILLS ============= -->
   <!-- ============================================ -->
   <section id="skills" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Tecnologías Organizadas</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Especialidades Técnicas
         </h2>
       </div>
 
-      <!-- Bento Grid Rediseñado y Clasificado -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Bento Grid Rediseñado y Clasificado (1 col en móvil, 3 en md+) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Categoría: Backend -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up">
           <div>
             <div class="flex items-center gap-3 mb-6">
               <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-blue-500">
@@ -978,12 +1028,12 @@
               </div>
               <h3 class="text-base font-bold text-primary">Backend Development</h3>
             </div>
-            <div class="space-y-2">
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+            <div class="space-y-2 font-normal">
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
                 <span class="text-zinc-500">Java / Spring Boot</span>
                 <span class="font-semibold text-primary">Avanzado</span>
               </div>
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
                 <span class="text-zinc-500">Node.js (Express)</span>
                 <span class="font-semibold text-primary">Intermedio</span>
               </div>
@@ -996,7 +1046,7 @@
         </div>
 
         <!-- Categoría: Frontend -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="100">
           <div>
             <div class="flex items-center gap-3 mb-6">
               <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-purple-500">
@@ -1004,12 +1054,12 @@
               </div>
               <h3 class="text-base font-bold text-primary">Frontend & Mobile</h3>
             </div>
-            <div class="space-y-2">
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+            <div class="space-y-2 font-normal">
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
                 <span class="text-zinc-500">React / TypeScript</span>
                 <span class="font-semibold text-primary">Intermedio-Avanzado</span>
               </div>
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
                 <span class="text-zinc-500">Flutter</span>
                 <span class="font-semibold text-primary">Intermedio-Avanzado</span>
               </div>
@@ -1022,7 +1072,7 @@
         </div>
 
         <!-- Categoría: Base de datos -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="200">
           <div>
             <div class="flex items-center gap-3 mb-6">
               <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-green-500">
@@ -1030,12 +1080,12 @@
               </div>
               <h3 class="text-base font-bold text-primary">Bases de Datos</h3>
             </div>
-            <div class="space-y-2">
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+            <div class="space-y-2 font-normal">
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
                 <span class="text-zinc-500">MySQL</span>
                 <span class="font-semibold text-primary">Avanzado</span>
               </div>
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-900 pb-2">
+              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
                 <span class="text-zinc-500">MongoDB</span>
                 <span class="font-semibold text-primary">Avanzado</span>
               </div>
@@ -1048,7 +1098,7 @@
         </div>
 
         <!-- Categoría: DevOps -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up">
           <div>
             <div class="flex items-center gap-3 mb-6">
               <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-orange-500">
@@ -1066,7 +1116,7 @@
         </div>
 
         <!-- Categoría: Cloud Platforms -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="100">
           <div>
             <div class="flex items-center gap-3 mb-6">
               <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-emerald-500">
@@ -1089,73 +1139,74 @@
   <!-- ============================================ -->
   <!-- ============ TIMELINE PROFESIONAL =========== -->
   <!-- ============================================ -->
-  <section id="timeline-path" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="timeline-path" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Trayectoria Técnica</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Evolución del Aprendizaje
         </h2>
       </div>
 
-      <div class="timeline-container max-w-3xl mx-auto">
-        <div class="timeline-line"></div>
+      <div class="timeline-container max-w-3xl mx-auto w-full">
+        <!-- Timeline vertical line (hidden on mobile) -->
+        <div class="timeline-line hidden md:block"></div>
 
         <!-- 2023 -->
-        <div class="relative timeline-item-row mb-12 flex flex-col md:flex-row md:justify-between items-start" data-aos="fade-up">
-          <div class="timeline-dot"></div>
-          <div class="md:w-5/12 pl-8 md:pl-0 md:text-right">
+        <div class="relative timeline-item-row mb-8 flex flex-col md:flex-row md:justify-between items-start w-full" data-aos="fade-up">
+          <div class="timeline-dot hidden md:block"></div>
+          <div class="md:w-5/12 w-full md:text-right mb-2 md:mb-0">
             <span class="text-xl font-extrabold text-blue-500">2023</span>
           </div>
           <div class="md:w-2"></div>
-          <div class="md:w-5/12 pl-8 md:pl-0">
+          <div class="md:w-5/12 w-full custom-card">
             <h4 class="text-base font-bold text-primary mb-1">Fundamentos de Java & DBs</h4>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               Inicio de formación técnica oficial en Comfenalco. Aprendizaje exhaustivo de POO, lógica estructurada y estructuración de bases de datos relacionales.
             </p>
           </div>
         </div>
 
         <!-- 2024 -->
-        <div class="relative timeline-item-row mb-12 flex flex-col md:flex-row md:justify-between items-start" data-aos="fade-up" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="md:w-5/12 pl-8 md:pl-0 md:text-right">
+        <div class="relative timeline-item-row mb-8 flex flex-col md:flex-row md:justify-between items-start w-full" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-dot hidden md:block"></div>
+          <div class="md:w-5/12 w-full md:text-right mb-2 md:mb-0">
             <span class="text-xl font-extrabold text-blue-500">2024</span>
           </div>
           <div class="md:w-2"></div>
-          <div class="md:w-5/12 pl-8 md:pl-0">
+          <div class="md:w-5/12 w-full custom-card">
             <h4 class="text-base font-bold text-primary mb-1">Especialización en Spring Boot</h4>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               Desarrollo de microservicios corporativos, seguridad integral JWT y despliegues virtualizados mediante contenedores Docker en plataformas cloud.
             </p>
           </div>
         </div>
 
         <!-- 2025 -->
-        <div class="relative timeline-item-row mb-12 flex flex-col md:flex-row md:justify-between items-start" data-aos="fade-up" data-aos-delay="200">
-          <div class="timeline-dot"></div>
-          <div class="md:w-5/12 pl-8 md:pl-0 md:text-right">
+        <div class="relative timeline-item-row mb-8 flex flex-col md:flex-row md:justify-between items-start w-full" data-aos="fade-up" data-aos-delay="200">
+          <div class="timeline-dot hidden md:block"></div>
+          <div class="md:w-5/12 w-full md:text-right mb-2 md:mb-0">
             <span class="text-xl font-extrabold text-blue-500">2025</span>
           </div>
           <div class="md:w-2"></div>
-          <div class="md:w-5/12 pl-8 md:pl-0">
+          <div class="md:w-5/12 w-full custom-card">
             <h4 class="text-base font-bold text-primary mb-1">Integración de Inteligencia Artificial</h4>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               Modelado e integración de endpoints OpenAI/Groq LLaMA, optimización de prompts y pipelines de agentes de decisión automáticos.
             </p>
           </div>
         </div>
 
         <!-- 2026 -->
-        <div class="relative timeline-item-row flex flex-col md:flex-row md:justify-between items-start" data-aos="fade-up" data-aos-delay="300">
-          <div class="timeline-dot"></div>
-          <div class="md:w-5/12 pl-8 md:pl-0 md:text-right">
+        <div class="relative timeline-item-row flex flex-col md:flex-row md:justify-between items-start w-full" data-aos="fade-up" data-aos-delay="300">
+          <div class="timeline-dot hidden md:block"></div>
+          <div class="md:w-5/12 w-full md:text-right mb-2 md:mb-0">
             <span class="text-xl font-extrabold text-blue-500">2026</span>
           </div>
           <div class="md:w-2"></div>
-          <div class="md:w-5/12 pl-8 md:pl-0">
+          <div class="md:w-5/12 w-full custom-card">
             <h4 class="text-base font-bold text-primary mb-1">Arquitectura de Sistemas Complejos</h4>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
               Consolidación como arquitecto de software Full Stack. Diseño de ecosistemas escalables de grado industrial en producción.
             </p>
           </div>
@@ -1167,18 +1218,19 @@
   <!-- ============================================ -->
   <!-- ============ CERTIFICATES SECTION ========== -->
   <!-- ============================================ -->
-  <section id="certificates" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="certificates" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Acreditaciones</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Certificados Académicos
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 1 col on mobile, 3 on lg -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Cert 1 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-[10px] font-mono text-zinc-400">Tecnológico Comfenalco</span>
@@ -1192,7 +1244,7 @@
         </div>
 
         <!-- Cert 2 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="100">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-[10px] font-mono text-zinc-400">Formación Complementaria</span>
@@ -1206,7 +1258,7 @@
         </div>
 
         <!-- Cert 3 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="200">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-[10px] font-mono text-zinc-400">AI Academy</span>
@@ -1225,19 +1277,19 @@
   <!-- ============================================ -->
   <!-- ============ RECOMMENDATIONS SECTION ======== -->
   <!-- ============================================ -->
-  <section id="recommendations" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="recommendations" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Referencias</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Recomendaciones Profesionales
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto w-full">
         <!-- Rec 1 -->
-        <div class="custom-card p-6" data-aos="fade-up">
-          <p class="text-zinc-500 dark:text-zinc-400 text-xs italic leading-relaxed mb-6">
+        <div class="custom-card p-6 w-full" data-aos="fade-up">
+          <p class="text-zinc-500 dark:text-zinc-400 text-xs italic leading-relaxed mb-6 font-normal">
             "Luis Alejandro demostró una gran capacidad de análisis al optimizar la API de facturación comercial. Escribe código ordenado, es responsable con los entregables y mantiene una comunicación técnica impecable."
           </p>
           <div class="flex items-center gap-3">
@@ -1252,8 +1304,8 @@
         </div>
 
         <!-- Rec 2 -->
-        <div class="custom-card p-6" data-aos="fade-up" data-aos-delay="100">
-          <p class="text-zinc-500 dark:text-zinc-400 text-xs italic leading-relaxed mb-6">
+        <div class="custom-card p-6 w-full" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-zinc-500 dark:text-zinc-400 text-xs italic leading-relaxed mb-6 font-normal">
             "Capacidad innata para resolver problemas lógicos y diseñar estructuras de bases de datos complejas. Es proactivo con la incorporación de herramientas de Inteligencia Artificial para agilizar procesos."
           </p>
           <div class="flex items-center gap-3">
@@ -1273,19 +1325,19 @@
   <!-- ============================================ -->
   <!-- ============ CONTACT SECTION =============== -->
   <!-- ============================================ -->
-  <section id="contact" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <section id="contact" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Contacto</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Hablemos de tu próximo proyecto
         </h2>
       </div>
 
-      <div class="grid lg:grid-cols-12 gap-12 max-w-5xl mx-auto items-stretch">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto items-stretch w-full">
         <!-- Columna Izquierda: Info -->
-        <div class="lg:col-span-5 flex flex-col justify-between" data-aos="fade-right">
-          <div>
+        <div class="lg:col-span-5 flex flex-col justify-between w-full" data-aos="fade-right">
+          <div class="text-center lg:text-left">
             <h3 class="text-xl font-bold text-primary mb-4">¿Tienes un proyecto en mente?</h3>
             <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-8">
               Estoy disponible para colaborar en proyectos de arquitectura de software,
@@ -1293,9 +1345,9 @@
             </p>
           </div>
 
-          <div class="space-y-4 mb-8 lg:mb-0">
+          <div class="space-y-4 mb-8 lg:mb-0 w-full">
             <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank"
-              class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+              class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors w-full">
               <i class="fab fa-linkedin-in text-blue-500 text-lg"></i>
               <div>
                 <div class="text-[10px] text-zinc-400 font-semibold uppercase">LinkedIn</div>
@@ -1304,7 +1356,7 @@
             </a>
 
             <a href="https://wa.me/573005722844?text=Hola%20Luis%20Alejandro,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte."
-              target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+              target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors w-full">
               <i class="fab fa-whatsapp text-emerald-500 text-lg"></i>
               <div>
                 <div class="text-[10px] text-zinc-400 font-semibold uppercase">WhatsApp</div>
@@ -1312,7 +1364,7 @@
               </div>
             </a>
 
-            <a href="mailto:cardenaswalker1@gmail.com" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+            <a href="mailto:cardenaswalker1@gmail.com" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors w-full">
               <i class="fas fa-envelope text-purple-500 text-lg"></i>
               <div>
                 <div class="text-[10px] text-zinc-400 font-semibold uppercase">Email</div>
@@ -1320,7 +1372,7 @@
               </div>
             </a>
 
-            <div class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+            <div class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 w-full">
               <i class="fas fa-map-marker-alt text-red-500 text-lg"></i>
               <div>
                 <div class="text-[10px] text-zinc-400 font-semibold uppercase">Ubicación</div>
@@ -1331,10 +1383,10 @@
         </div>
 
         <!-- Columna Derecha: Formulario -->
-        <div class="lg:col-span-7" data-aos="fade-left">
-          <div class="custom-card h-full">
-            <form id="contact-form" class="space-y-4">
-              <div class="grid md:grid-cols-2 gap-4">
+        <div class="lg:col-span-7 w-full" data-aos="fade-left">
+          <div class="custom-card h-full w-full">
+            <form id="contact-form" class="space-y-4 w-full">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Nombre</label>
                   <input type="text" required
@@ -1363,7 +1415,7 @@
                   placeholder="Cuéntame sobre tu proyecto..."></textarea>
               </div>
 
-              <button type="submit" class="btn-primary w-full">
+              <button type="submit" class="btn-primary w-full h-[52px] flex items-center justify-center font-bold">
                 Enviar Mensaje <i class="fas fa-paper-plane ml-2 text-xs"></i>
               </button>
             </form>
@@ -1377,18 +1429,18 @@
   <!-- ============== FOOTER ====================== -->
   <!-- ============================================ -->
   <footer class="py-12 border-t border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div>
           <a href="#" class="text-md font-bold tracking-tight text-primary">
             <span class="text-zinc-400 font-normal">LC</span><span>.dev</span>
           </a>
-          <p class="text-zinc-400 dark:text-zinc-500 text-xs mt-1.5 max-w-xs">
+          <p class="text-zinc-400 dark:text-zinc-500 text-xs mt-1.5 max-w-xs mx-auto md:mx-0">
             "El código es poesía que las máquinas entienden y los humanos admiran."
           </p>
         </div>
 
-        <div class="flex gap-3">
+        <div class="flex gap-4 justify-center">
           <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank"
             class="social-icon" aria-label="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
@@ -1430,16 +1482,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 
   <script>
-    // ===== INICIALIZACIÓN AOS =====
+    // ===== INICIALIZACIÓN AOS (desactivado en pantallas de móviles pequeños para máximo rendimiento) =====
+    const isMobile = window.innerWidth < 768;
     AOS.init({
-      duration: 800,
+      duration: isMobile ? 400 : 800,
       easing: 'ease-out-cubic',
       once: true,
-      offset: 60
+      offset: 40,
+      disable: isMobile
     });
 
-    // ===== MODO DÍA/NOCHE TOGGLE =====
+    // ===== MODO DÍA/NOCHE TOGGLE (Sincronizado Escritorio y Móvil Drawer) =====
     const themeToggle = document.getElementById('theme-toggle');
+    const drawerThemeToggle = document.getElementById('drawer-theme-toggle');
     const html = document.documentElement;
 
     const currentTheme = localStorage.getItem('theme') || 'dark';
@@ -1447,11 +1502,14 @@
       html.classList.add('light-mode');
     }
 
-    themeToggle.addEventListener('click', () => {
+    function toggleTheme() {
       html.classList.toggle('light-mode');
       const isLight = html.classList.contains('light-mode');
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    });
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (drawerThemeToggle) drawerThemeToggle.addEventListener('click', toggleTheme);
 
     // ===== SCROLL PROGRESS BAR =====
     const scrollProgress = document.getElementById('scroll-progress');
@@ -1465,18 +1523,36 @@
     // ===== NAVBAR SCROLL EFFECT =====
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 30) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
     });
 
-    // ===== MOBILE MENU =====
+    // ===== MOBILE MENU DRAWER TOGGLE =====
     function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('active');
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+      const isClosed = drawer.classList.contains('translate-x-full');
+      
+      if (isClosed) {
+        drawer.classList.remove('translate-x-full');
+        drawer.classList.remove('pointer-events-none');
+        overlay.classList.remove('opacity-0');
+        overlay.classList.add('opacity-100');
+        document.body.style.overflow = 'hidden'; // Evita scroll de fondo
+      } else {
+        drawer.classList.add('translate-x-full');
+        drawer.classList.add('pointer-events-none');
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('opacity-0');
+        document.body.style.overflow = ''; // Restaura scroll
+      }
     }
+
+    // Cerrar al tocar el backdrop overlay
+    document.getElementById('drawer-overlay').addEventListener('click', toggleMobileMenu);
 
     // ===== TYPED.JS =====
     const typed = new Typed('#typed-text', {
@@ -1548,21 +1624,6 @@
       e.preventDefault();
       window.location.href = 'mailto:cardenaswalker1@gmail.com?subject=Contacto desde Portfolio&body=Hola Luis Alejandro, vi tu portfolio y me gustaría contactarte...';
     });
-
-    // ===== THEME TOGGLE MOBILE =====
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileThemeToggle = document.createElement('button');
-    mobileThemeToggle.className = 'theme-toggle mt-4';
-    mobileThemeToggle.innerHTML = '<div class="theme-toggle-ball"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></div>';
-    mobileThemeToggle.addEventListener('click', () => {
-      html.classList.toggle('light-mode');
-      const isLight = html.classList.contains('light-mode');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    });
-
-    if (!document.querySelector('.mobile-menu .theme-toggle')) {
-      mobileMenu.appendChild(mobileThemeToggle);
-    }
   </script>
 </body>
 
