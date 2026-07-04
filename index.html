@@ -379,22 +379,27 @@
   <!-- Background Grid Pattern -->
   <div class="bg-grid-pattern"></div>
 
+  <!-- Banner Superior de Disponibilidad arriba de la Navbar (Fijado) -->
+  <div class="w-full bg-zinc-900 border-b border-zinc-800 text-[10px] sm:text-xs font-semibold py-2 px-4 flex justify-center items-center gap-2 text-zinc-300 relative z-[101]">
+    <span>🟢 Disponible para prácticas • Tiempo completo • Trabajo remoto</span>
+  </div>
+
   <!-- Navbar -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar mt-8" id="navbar">
     <div class="max-w-7xl mx-auto flex items-center justify-between w-full">
       <a href="#" class="text-lg font-bold tracking-tight text-primary font-display">
         <span class="text-zinc-400 font-normal">LC</span><span>.dev</span>
       </a>
 
       <!-- Desktop Links -->
-      <div class="hidden md:flex items-center gap-6 lg:gap-8">
+      <div class="hidden md:flex items-center gap-5 lg:gap-8">
         <a href="#featured-projects" class="nav-link">Proyectos</a>
         <a href="#technologies" class="nav-link">Tecnologías</a>
         <a href="#about" class="nav-link">Sobre Mí</a>
         <a href="#experience" class="nav-link">Experiencia</a>
         <a href="#education" class="nav-link">Educación</a>
         <a href="#github-section" class="nav-link">GitHub</a>
-        <a href="#why-me" class="nav-link">¿Por qué yo?</a>
+        <a href="#why-me" class="nav-link">¿Aporte?</a>
         <a href="#lifecycle" class="nav-link">Proceso</a>
         <a href="#contact" class="nav-link">Contacto</a>
 
@@ -441,7 +446,7 @@
           <a href="#experience" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Experiencia</a>
           <a href="#education" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Educación</a>
           <a href="#github-section" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">GitHub</a>
-          <a href="#why-me" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">¿Por qué yo?</a>
+          <a href="#why-me" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">¿Qué Aporto?</a>
           <a href="#lifecycle" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Proceso de Desarrollo</a>
           <a href="#contact" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Contacto</a>
         </div>
@@ -458,16 +463,12 @@
   <!-- ============================================ -->
   <!-- ============ HERO SECTION ================== -->
   <!-- ============================================ -->
-  <section id="hero" class="min-h-screen flex items-center relative pt-24 pb-12 overflow-hidden">
+  <section id="hero" class="min-h-screen flex items-center relative pt-32 pb-12 overflow-hidden">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full py-8 md:py-16 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <!-- Columna Izquierda: Texto -->
         <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Disponible para prácticas, empleo de tiempo completo y trabajo remoto</span>
-          </div>
-
+          
           <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-2 font-display">
             Luis Alejandro Cárdenas Ramos
           </h1>
@@ -479,7 +480,7 @@
           </div>
 
           <p class="text-zinc-500 dark:text-zinc-400 text-sm sm:text-base mb-8 max-w-xl leading-relaxed font-normal">
-            Desarrollo aplicaciones web modernas, escalables y enfocadas en resolver problemas reales mediante Java, Spring Boot e Inteligencia Artificial.
+            Desarrollo aplicaciones web modernas, scalables y enfocadas en resolver problemas reales mediante Java, Spring Boot e Inteligencia Artificial.
           </p>
 
           <!-- 5 Botones de Acción Rápida (Apilados en móvil, rejilla/flex en md+) -->
@@ -491,7 +492,7 @@
               <i class="fas fa-file-pdf mr-2"></i> Descargar CV
             </a>
             <div class="flex gap-2 w-full sm:w-auto">
-              <a href="https://github.com/" target="_blank" class="social-icon flex-1 sm:flex-initial h-[52px] md:h-10 flex items-center justify-center" aria-label="GitHub">
+              <a href="https://github.com/cardenaswalker2" target="_blank" class="social-icon flex-1 sm:flex-initial h-[52px] md:h-10 flex items-center justify-center" aria-label="GitHub">
                 <i class="fab fa-github"></i>
               </a>
               <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank" class="social-icon flex-1 sm:flex-initial h-[52px] md:h-10 flex items-center justify-center" aria-label="LinkedIn">
@@ -532,19 +533,47 @@
   </section>
 
   <!-- ============================================ -->
+  <!-- ============ ¿POR QUÉ VISITAR MI PORTAFOLIO?  -->
+  <!-- ============================================ -->
+  <section id="why-visit" class="py-12 relative border-t border-zinc-200 dark:border-zinc-800 bg-blue-500/[0.01]">
+    <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="custom-card border border-blue-500/20 bg-blue-500/[0.02] p-6 sm:p-8">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-primary mb-4 flex items-center gap-2">
+          🚀 ¿Por qué visitar mi portafolio?
+        </h3>
+        <p class="text-sm text-zinc-400 mb-6">En menos de 3 minutos podrás conocer:</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mb-8">
+          <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Aplicaciones Full Stack desarrolladas por mí.</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Proyectos con Java y Spring Boot.</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Integraciones con Inteligencia Artificial.</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Arquitecturas de software.</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Paneles administrativos.</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Tecnologías que utilizo.</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Capturas reales de cada proyecto.</div>
+          <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Código y demostraciones.</div>
+        </div>
+
+        <a href="#featured-projects" class="btn-primary w-full sm:w-auto h-[50px] flex items-center justify-center font-bold">
+          👉 Explorar proyectos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
   <!-- ============ PROYECTOS DESTACADOS ⭐ ======= -->
   <!-- ============================================ -->
   <section id="featured-projects" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Portafolio Práctico</span>
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Casos de Estudio</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Proyectos Destacados ⭐
         </h2>
-        <p class="text-xs sm:text-sm text-zinc-500 mt-2">Respuestas rápidas a qué problemas resuelvo y con qué tecnologías.</p>
       </div>
 
-      <div class="space-y-12">
+      <div class="space-y-16">
         <!-- Proyecto 1: Plataforma de Gestión Financiera -->
         <div class="custom-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch w-full">
           <!-- Detalles -->
@@ -557,9 +586,19 @@
               <h3 class="text-xl sm:text-2xl font-extrabold text-primary">Plataforma de Gestión Financiera</h3>
               
               <div class="space-y-3 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-b border-zinc-800 pb-3">
+                  <div>
+                    <h4 class="font-bold text-primary mb-0.5">👤 Mi Rol:</h4>
+                    <p class="text-[11px] sm:text-xs">Desarrollador Full-Stack Lead (Planificación, Arquitectura DB, Seguridad JWT y Despliegue CI/CD).</p>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-0.5">📈 Resultado:</h4>
+                    <p class="text-[11px] sm:text-xs">Procesamiento automático de préstamos, latencias base inferiores a 50ms y 100% de conciliación segura de saldos.</p>
+                  </div>
+                </div>
                 <div>
                   <h4 class="font-bold text-primary mb-0.5">✔ Problema:</h4>
-                  <p>Las pequeñas empresas necesitaban administrar préstamos, controlar flujos de caja y finanzas en una sola plataforma sin complejidades.</p>
+                  <p>Las pequeñas empresas necesitaban administrar préstamos, controlar flujos de caja y finanzas en una sola plataforma sin complejidades operativas.</p>
                 </div>
                 <div>
                   <h4 class="font-bold text-primary mb-0.5">✔ Solución:</h4>
@@ -603,24 +642,34 @@
             </div>
           </div>
 
-          <!-- Mockup Visual -->
-          <div class="lg:col-span-5 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 p-6 flex flex-col justify-center min-h-[300px] w-full">
-            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4">C4 System Architecture</span>
-            <div class="space-y-4 font-mono text-[11px] w-full">
-              <div class="p-3 rounded-lg border border-blue-500/30 bg-blue-500/5 text-center">
-                <div class="font-bold text-blue-500">API Gateway (Spring Cloud)</div>
-                <div class="text-[9px] text-zinc-400">Routes HTTP requests</div>
+          <!-- Capturas Múltiples de Interfaz Simuladas (Grid) -->
+          <div class="lg:col-span-5 flex flex-col gap-4 justify-between w-full">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">📷 Capturas del Sistema (Mockups)</span>
+            <div class="grid grid-cols-2 gap-3 w-full">
+              <!-- Vista 1 -->
+              <div class="border border-zinc-200 dark:border-zinc-800 rounded-lg p-3 bg-white dark:bg-zinc-900 text-[10px] font-mono">
+                <div class="text-blue-500 font-bold mb-1">📊 Dashboard</div>
+                <div class="text-zinc-400">Total Capital: $450K<br>Tasa Mora: 1.2%</div>
               </div>
-              <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400"></i></div>
-              <div class="p-3 rounded-lg border border-green-500/30 bg-green-500/5 text-center">
-                <div class="font-bold text-green-500">Finance Service (Spring Boot)</div>
-                <div class="text-[9px] text-zinc-400">Calculates interest and amortization</div>
+              <!-- Vista 2 -->
+              <div class="border border-zinc-200 dark:border-zinc-800 rounded-lg p-3 bg-white dark:bg-zinc-900 text-[10px] font-mono">
+                <div class="text-blue-500 font-bold mb-1">🔐 Auth Module</div>
+                <div class="text-zinc-400">JWT Token Validated<br>Role: ADMIN</div>
               </div>
-              <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400"></i></div>
-              <div class="p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-center">
-                <div class="font-bold text-primary">Database Store (MongoDB Cluster)</div>
-                <div class="text-[9px] text-zinc-400">Storage for users and loans</div>
+              <!-- Vista 3 -->
+              <div class="border border-zinc-200 dark:border-zinc-800 rounded-lg p-3 bg-white dark:bg-zinc-900 text-[10px] font-mono">
+                <div class="text-blue-500 font-bold mb-1">🤖 AI Advisor</div>
+                <div class="text-zinc-400">Analysis: Normal Risk<br>Score: 92/100</div>
               </div>
+              <!-- Vista 4 -->
+              <div class="border border-zinc-200 dark:border-zinc-800 rounded-lg p-3 bg-white dark:bg-zinc-900 text-[10px] font-mono">
+                <div class="text-blue-500 font-bold mb-1">📄 Reports API</div>
+                <div class="text-zinc-400">JSON/PDF generated<br>Time: 42ms</div>
+              </div>
+            </div>
+            <!-- Base de laptop SVG para enmarcar el panel visual -->
+            <div class="w-full border-t border-zinc-800 pt-3 text-center">
+              <span class="text-[9px] font-mono text-zinc-500">Diseño responsivo optimizado para tablet & móvil</span>
             </div>
           </div>
         </div>
@@ -637,6 +686,16 @@
               <h3 class="text-xl sm:text-2xl font-extrabold text-primary">Sistema de Gestión Veterinaria</h3>
               
               <div class="space-y-3 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-b border-zinc-800 pb-3">
+                  <div>
+                    <h4 class="font-bold text-primary mb-0.5">👤 Mi Rol:</h4>
+                    <p class="text-[11px] sm:text-xs">Desarrollador Lead (Diseño de base de datos relacional MySQL, Backend MVC y sistema de envío de e-mails).</p>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-primary mb-0.5">📈 Resultado:</h4>
+                    <p class="text-[11px] sm:text-xs">Digitalización de historiales médicos y reducción de ausentismo en citas del 30% gracias a recordatorios automáticos.</p>
+                  </div>
+                </div>
                 <div>
                   <h4 class="font-bold text-primary mb-0.5">✔ Problema:</h4>
                   <p>Las clínicas veterinarias requerían digitalizar expedientes médicos, agendar citas y controlar vacunas de mascotas de manera eficiente y multiusuario.</p>
@@ -683,24 +742,33 @@
             </div>
           </div>
 
-          <!-- Mockup Visual -->
-          <div class="lg:col-span-5 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 p-6 flex flex-col justify-center min-h-[300px] w-full">
-            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4">Database Schema Context</span>
-            <div class="space-y-3 font-mono text-[10px] w-full">
-              <div class="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5">
-                <div class="font-bold text-purple-400">TABLE: owner</div>
-                <div class="text-[9px] text-zinc-400">id (PK) • name • email • phone</div>
+          <!-- Capturas Múltiples del Proyecto 2 (Grid) -->
+          <div class="lg:col-span-5 flex flex-col gap-4 justify-between w-full">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">📷 Capturas del Sistema (Mockups)</span>
+            <div class="grid grid-cols-2 gap-3 w-full">
+              <!-- Vista 1 -->
+              <div class="border border-zinc-200 dark:border-zinc-800 rounded-lg p-3 bg-white dark:bg-zinc-900 text-[10px] font-mono">
+                <div class="text-purple-500 font-bold mb-1">🐾 Pet Records</div>
+                <div class="text-zinc-400">Total Pets: 120<br>Types: Canine, Feline</div>
               </div>
-              <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400 text-xs"></i></div>
-              <div class="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5">
-                <div class="font-bold text-purple-400">TABLE: pet</div>
-                <div class="text-[9px] text-zinc-400">id (PK) • owner_id (FK) • name • type</div>
+              <!-- Vista 2 -->
+              <div class="border border-zinc-200 dark:border-zinc-800 rounded-lg p-3 bg-white dark:bg-zinc-900 text-[10px] font-mono">
+                <div class="text-purple-500 font-bold mb-1">📅 Appointments</div>
+                <div class="text-zinc-400">Daily agenda view<br>Status: Confirmed</div>
               </div>
-              <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400 text-xs"></i></div>
-              <div class="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5">
-                <div class="font-bold text-purple-400">TABLE: clinical_record</div>
-                <div class="text-[9px] text-zinc-400">id (PK) • pet_id (FK) • symptoms • date</div>
+              <!-- Vista 3 -->
+              <div class="border border-zinc-200 dark:border-zinc-800 rounded-lg p-3 bg-white dark:bg-zinc-900 text-[10px] font-mono">
+                <div class="text-purple-500 font-bold mb-1">💉 Vaccines</div>
+                <div class="text-zinc-400">Tracking schedule<br>Rabies: OK</div>
               </div>
+              <!-- Vista 4 -->
+              <div class="border border-zinc-200 dark:border-zinc-800 rounded-lg p-3 bg-white dark:bg-zinc-900 text-[10px] font-mono">
+                <div class="text-purple-500 font-bold mb-1">✉ Mail Service</div>
+                <div class="text-zinc-400">Email alerts engine<br>SMTP Status: 200</div>
+              </div>
+            </div>
+            <div class="w-full border-t border-zinc-800 pt-3 text-center">
+              <span class="text-[9px] font-mono text-zinc-500">Despliegue ágil optimizado para producción</span>
             </div>
           </div>
         </div>
@@ -718,7 +786,6 @@
         <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Tecnologías
         </h2>
-        <p class="text-xs sm:text-sm text-zinc-500 mt-2">Listado estructurado de herramientas que utilizo y domino en producción.</p>
       </div>
 
       <!-- Bento Grid de Tecnologías (1 col en móvil, 3 en md+) -->
@@ -848,17 +915,17 @@
           </p>
         </div>
 
-        <!-- Columna Derecha: Lo que estoy aprendiendo actualmente -->
+        <!-- Columna Derecha: Actualmente aprendiendo -->
         <div class="custom-card border border-blue-500/25 bg-blue-500/[0.02]">
           <h3 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
-            <i class="fas fa-graduation-cap text-blue-500"></i> Actualmente profundizo en:
+            📚 Actualmente profundizo en:
           </h3>
-          <ul class="space-y-3 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
+          <ul class="space-y-3 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-semibold">
             <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Spring Security</li>
-            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Docker Container Optimization</li>
-            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Arquitectura de Microservicios</li>
-            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Inteligencia Artificial aplicada al desarrollo</li>
-            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Buenas prácticas de Clean Architecture</li>
+            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Docker</li>
+            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Microservicios</li>
+            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Clean Architecture</li>
+            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Inteligencia Artificial</li>
           </ul>
         </div>
       </div>
@@ -928,10 +995,11 @@
   <!-- ============================================ -->
   <!-- ============ EDUCACIÓN & CERTIFICADOS ====== -->
   <!-- ============================================ -->
-  <section id="education" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+  <section id="education"
+    class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        
+
         <!-- Columna Izquierda: Formación -->
         <div class="space-y-6">
           <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Educación</span>
@@ -942,20 +1010,22 @@
           <div class="space-y-4">
             <div class="custom-card">
               <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-mono text-blue-500">2023 - 2025</span>
+                <span class="text-xs font-mono text-blue-500">2023 - Presente</span>
                 <span class="text-[10px] font-mono text-zinc-400">Comfenalco</span>
               </div>
               <h3 class="text-base font-bold text-primary">Desarrollador Backend Java</h3>
-              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 font-normal">Formación integral en programación orientada a objetos, bases de datos y creación de servicios API REST.</p>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 font-normal">Formación integral en programación
+                orientada a objetos, bases de datos y creación de servicios API REST.</p>
             </div>
 
             <div class="custom-card">
               <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-mono text-blue-500">2024</span>
+                <span class="text-xs font-mono text-blue-500">2025</span>
                 <span class="text-[10px] font-mono text-zinc-400">Especialización</span>
               </div>
               <h3 class="text-base font-bold text-primary">Desarrollo Web & Nube</h3>
-              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 font-normal">Capacitación complementaria en lenguajes frontend, bases NoSQL e integraciones CI/CD.</p>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 font-normal">Capacitación complementaria en
+                lenguajes frontend, bases NoSQL e integraciones CI/CD.</p>
             </div>
           </div>
         </div>
@@ -1014,7 +1084,8 @@
                   <p class="text-xs text-zinc-500 font-mono">Últimas contribuciones & proyectos fijados</p>
                 </div>
               </div>
-              <a href="https://github.com/cardenaswalker2" target="_blank" class="btn-secondary h-10 px-4 flex items-center justify-center font-bold text-xs">
+              <a href="https://github.com/cardenaswalker2" target="_blank"
+                class="btn-secondary h-10 px-4 flex items-center justify-center font-bold text-xs">
                 Visitar Perfil <i class="fas fa-external-link-alt ml-2 text-[10px]"></i>
               </a>
             </div>
@@ -1026,14 +1097,16 @@
                   <span class="text-xs font-bold text-primary">📁 Profile</span>
                   <span class="text-[10px] font-mono text-zinc-400">Java</span>
                 </div>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400">Portafolio profesional interactivo adaptado para reclutadores.</p>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400">Portafolio profesional interactivo adaptado para
+                  reclutadores.</p>
               </div>
               <div class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
                 <div class="flex items-center justify-between mb-2">
                   <span class="text-xs font-bold text-primary">📁 Pagina</span>
                   <span class="text-[10px] font-mono text-zinc-400">Java / Thymeleaf</span>
                 </div>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400">Portal y servicios backend empresariales de la fintech destacada.</p>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400">Portal y servicios backend empresariales de la
+                  fintech destacada.</p>
               </div>
             </div>
 
@@ -1041,9 +1114,12 @@
             <div class="border-t border-zinc-200 dark:border-zinc-800 pt-4">
               <h4 class="text-xs font-bold text-primary uppercase mb-3">Estadísticas de Lenguaje:</h4>
               <div class="flex items-center gap-4 text-xs font-mono">
-                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-orange-500"></span> Java (74%)</div>
-                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-blue-500"></span> TypeScript (16%)</div>
-                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-yellow-500"></span> JavaScript (10%)</div>
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-orange-500"></span> Java
+                  (74%)</div>
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-blue-500"></span> TypeScript
+                  (16%)</div>
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                  JavaScript (10%)</div>
               </div>
             </div>
           </div>
@@ -1053,14 +1129,15 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- ============ ¿POR QUÉ TRABAJAR CONMIGO? ==== -->
+  <!-- ============ ¿QUÉ PUEDO APORTAR A TU EMPRESA? -->
   <!-- ============================================ -->
-  <section id="why-me" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+  <section id="why-me"
+    class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Valores Clave</span>
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Propuesta de Valor</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
-          ¿Por qué trabajar conmigo?
+          ¿Qué puedo aportar a tu empresa?
         </h2>
       </div>
 
@@ -1069,11 +1146,11 @@
         <div class="custom-card flex flex-col justify-between">
           <div>
             <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4">
-              <i class="fas fa-code"></i>
+              <i class="fas fa-server"></i>
             </div>
-            <h3 class="text-base font-bold text-primary mb-2">Código limpio</h3>
+            <h3 class="text-base font-bold text-primary mb-2">Desarrollo Backend</h3>
             <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Escribo código estructurado siguiendo principios SOLID para facilitar la mantenibilidad a largo plazo de tus sistemas.
+              Construcción de APIs robustas en Java y Spring Boot bajo buenas prácticas, seguridad JWT y modularidad limpia.
             </p>
           </div>
         </div>
@@ -1082,11 +1159,11 @@
         <div class="custom-card flex flex-col justify-between">
           <div>
             <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-500 flex items-center justify-center mb-4">
-              <i class="fas fa-project-diagram"></i>
+              <i class="fas fa-laptop-code"></i>
             </div>
-            <h3 class="text-base font-bold text-primary mb-2">Arquitectura escalable</h3>
+            <h3 class="text-base font-bold text-primary mb-2">Desarrollo Full Stack</h3>
             <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Diseño de sistemas distribuidos y APIs REST empresariales robustas y preparadas para soportar cargas concurrentes de forma natural.
+              Capacidad para integrar interfaces web modernas con React y Thymeleaf, garantizando despliegues correctos.
             </p>
           </div>
         </div>
@@ -1095,11 +1172,11 @@
         <div class="custom-card flex flex-col justify-between">
           <div>
             <div class="w-10 h-10 rounded-lg bg-green-500/10 text-green-500 flex items-center justify-center mb-4">
-              <i class="fas fa-graduation-cap"></i>
+              <i class="fas fa-brain"></i>
             </div>
-            <h3 class="text-base font-bold text-primary mb-2">Aprendizaje continuo</h3>
+            <h3 class="text-base font-bold text-primary mb-2">Integración con IA</h3>
             <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Investigo e incorporo proactivamente nuevas metodologías y tecnologías para aportar valor diferencial a tu empresa.
+              Conexión e implementación de APIs de modelos LLM (OpenAI, LLaMA) para automatización inteligente de flujos.
             </p>
           </div>
         </div>
@@ -1108,11 +1185,11 @@
         <div class="custom-card flex flex-col justify-between">
           <div>
             <div class="w-10 h-10 rounded-lg bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4">
-              <i class="fas fa-tools"></i>
+              <i class="fas fa-project-diagram"></i>
             </div>
-            <h3 class="text-base font-bold text-primary mb-2">Resolución de problemas</h3>
+            <h3 class="text-base font-bold text-primary mb-2">Arquitectura Escalable</h3>
             <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Mentalidad orientada a resolver las ineficiencias del negocio utilizando código robusto como canal primario de solución.
+              Modelado de bases de datos SQL/NoSQL y optimización del ciclo de vida del software con Docker y DevOps básico.
             </p>
           </div>
         </div>
@@ -1133,7 +1210,7 @@
         <p class="text-xs sm:text-sm text-zinc-500 mt-2">Entendimiento completo del flujo de ingeniería de software.</p>
       </div>
 
-      <!-- Diagrama de Flujo (Lista vertical en móvil, fila/grid horizontal en md+) -->
+      <!-- Diagrama de Flujo -->
       <div class="grid grid-cols-1 md:grid-cols-9 gap-4 text-center">
         <!-- Paso 1 -->
         <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
@@ -1187,7 +1264,8 @@
   <!-- ============================================ -->
   <!-- ============ CONTACT SECTION =============== -->
   <!-- ============================================ -->
-  <section id="contact" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+  <section id="contact"
+    class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Contacto</span>
@@ -1218,7 +1296,8 @@
             </a>
 
             <a href="https://wa.me/573005722844?text=Hola%20Luis%20Alejandro,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte."
-              target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors w-full">
+              target="_blank"
+              class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors w-full">
               <i class="fab fa-whatsapp text-emerald-500 text-lg"></i>
               <div>
                 <div class="text-[10px] text-zinc-400 font-semibold uppercase">WhatsApp</div>
@@ -1226,7 +1305,8 @@
               </div>
             </a>
 
-            <a href="mailto:cardenaswalker1@gmail.com" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors w-full">
+            <a href="mailto:cardenaswalker1@gmail.com"
+              class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors w-full">
               <i class="fas fa-envelope text-purple-500 text-lg"></i>
               <div>
                 <div class="text-[10px] text-zinc-400 font-semibold uppercase">Email</div>
@@ -1282,7 +1362,7 @@
   <!-- ============================================ -->
   <!-- ============== FOOTER ====================== -->
   <!-- ============================================ -->
-  <footer class="py-12 border-t border-zinc-200 dark:border-zinc-800">
+  <footer class="py-12 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div>
@@ -1294,21 +1374,12 @@
           </p>
         </div>
 
-        <div class="flex gap-4 justify-center">
-          <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank"
-            class="social-icon" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/" target="_blank" class="social-icon" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="mailto:cardenaswalker1@gmail.com" class="social-icon" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="https://wa.me/573005722844?text=Hola%20Luis%20Alejandro,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte."
-            target="_blank" class="social-icon" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-          </a>
+        <div class="flex flex-wrap gap-4 justify-center text-xs font-semibold text-zinc-400">
+          <a href="https://github.com/cardenaswalker2" target="_blank" class="hover:text-primary transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank" class="hover:text-primary transition-colors">LinkedIn</a>
+          <a href="mailto:cardenaswalker1@gmail.com" class="hover:text-primary transition-colors">Correo</a>
+          <a href="https://wa.me/573005722844" target="_blank" class="hover:text-primary transition-colors">WhatsApp</a>
+          <a href="#" class="hover:text-primary transition-colors">Portafolio</a>
         </div>
 
         <div>
@@ -1389,7 +1460,7 @@
       const drawer = document.getElementById('mobile-menu-drawer');
       const overlay = document.getElementById('drawer-overlay');
       const isClosed = drawer.classList.contains('translate-x-full');
-      
+
       if (isClosed) {
         drawer.classList.remove('translate-x-full');
         drawer.classList.remove('pointer-events-none');
