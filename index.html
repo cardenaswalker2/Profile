@@ -382,18 +382,20 @@
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="max-w-7xl mx-auto flex items-center justify-between w-full">
-      <a href="#" class="text-lg font-bold tracking-tight text-primary">
+      <a href="#" class="text-lg font-bold tracking-tight text-primary font-display">
         <span class="text-zinc-400 font-normal">LC</span><span>.dev</span>
       </a>
 
       <!-- Desktop Links -->
-      <div class="hidden md:flex items-center gap-8">
+      <div class="hidden md:flex items-center gap-6 lg:gap-8">
+        <a href="#featured-projects" class="nav-link">Proyectos</a>
+        <a href="#technologies" class="nav-link">Tecnologías</a>
         <a href="#about" class="nav-link">Sobre Mí</a>
-        <a href="#why-me" class="nav-link">Por qué yo</a>
         <a href="#experience" class="nav-link">Experiencia</a>
-        <a href="#methodology" class="nav-link">Metodología</a>
-        <a href="#featured-project" class="nav-link">Proyecto</a>
-        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#education" class="nav-link">Educación</a>
+        <a href="#github-section" class="nav-link">GitHub</a>
+        <a href="#why-me" class="nav-link">¿Por qué yo?</a>
+        <a href="#lifecycle" class="nav-link">Proceso</a>
         <a href="#contact" class="nav-link">Contacto</a>
 
         <!-- Theme Toggle Button -->
@@ -405,21 +407,21 @@
         </button>
       </div>
 
-      <!-- Mobile Hamburger Button (Always visible on mobile) -->
+      <!-- Mobile Hamburger Button -->
       <button class="md:hidden text-zinc-500 hover:text-zinc-200 text-xl w-12 h-12 flex items-center justify-center" id="menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
     </div>
   </nav>
 
-  <!-- Mobile Menu Drawer (Sliding from right) -->
+  <!-- Mobile Menu Drawer -->
   <div id="mobile-menu-drawer" class="fixed inset-0 z-[150] translate-x-full transition-transform duration-300 ease-in-out pointer-events-none">
     <!-- Backdrop overlay -->
     <div id="drawer-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-in-out pointer-events-auto"></div>
     <!-- Drawer content -->
     <div class="absolute right-0 top-0 bottom-0 w-80 bg-zinc-950 border-l border-zinc-800 p-8 flex flex-col justify-between pointer-events-auto shadow-2xl overflow-y-auto">
       <div>
-        <div class="flex items-center justify-between border-b border-zinc-800 pb-4 mb-8">
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-4 mb-6">
           <span class="text-sm font-bold text-zinc-200">Navegación</span>
           <!-- Mode switch in drawer -->
           <button class="theme-toggle" id="drawer-theme-toggle" aria-label="Cambiar modo día/noche">
@@ -432,18 +434,20 @@
             <i class="fas fa-times"></i>
           </button>
         </div>
-        <div class="flex flex-col gap-6 font-display">
-          <a href="#about" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Sobre Mí</a>
-          <a href="#why-me" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Por qué yo</a>
-          <a href="#experience" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Experiencia</a>
-          <a href="#methodology" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Metodología</a>
-          <a href="#featured-project" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Proyecto Destacado</a>
-          <a href="#skills" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Skills</a>
-          <a href="#contact" class="text-lg font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Contacto</a>
+        <div class="flex flex-col gap-5 font-display text-base">
+          <a href="#featured-projects" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Proyectos</a>
+          <a href="#technologies" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Tecnologías</a>
+          <a href="#about" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Sobre Mí</a>
+          <a href="#experience" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Experiencia</a>
+          <a href="#education" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Educación</a>
+          <a href="#github-section" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">GitHub</a>
+          <a href="#why-me" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">¿Por qué yo?</a>
+          <a href="#lifecycle" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Proceso de Desarrollo</a>
+          <a href="#contact" class="font-medium text-zinc-400 hover:text-white" onclick="toggleMobileMenu()">Contacto</a>
         </div>
       </div>
       
-      <div class="border-t border-zinc-900 pt-6">
+      <div class="border-t border-zinc-900 pt-4">
         <a href="mailto:cardenaswalker1@gmail.com?subject=Solicitud de CV - Luis Alejandro Cárdenas&body=Hola Luis, me gustaría solicitar una copia de tu currículum en formato PDF." class="btn-primary w-full py-4 text-center font-bold flex items-center justify-center gap-2" onclick="toggleMobileMenu()">
           <i class="fas fa-file-download text-sm"></i> Descargar CV
         </a>
@@ -457,117 +461,69 @@
   <section id="hero" class="min-h-screen flex items-center relative pt-24 pb-12 overflow-hidden">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full py-8 md:py-16 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <!-- Columna Izquierda: Texto (Centrado en móvil, alineado a la izquierda en lg) -->
-        <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+        <!-- Columna Izquierda: Texto -->
+        <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-6">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Disponible para Freelance, Tiempo Completo y Trabajo Remoto</span>
+            <span>Disponible para prácticas, empleo de tiempo completo y trabajo remoto</span>
           </div>
 
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4 font-display">
-            Luis Alejandro<br>
-            <span class="text-blue-500">Cárdenas Ramos</span>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-2 font-display">
+            Luis Alejandro Cárdenas Ramos
           </h1>
-
-          <div class="text-base sm:text-xl font-mono text-zinc-500 mb-6 min-h-[30px]">
-            <span id="typed-text"></span><span class="text-blue-500 animate-pulse">|</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-blue-500 mb-2">
+            Desarrollador Full Stack
+          </h2>
+          <div class="text-xs sm:text-sm font-semibold tracking-wider text-zinc-400 uppercase mb-6 flex flex-wrap gap-2 justify-center lg:justify-start">
+            <span>Java</span> • <span>Spring Boot</span> • <span>MongoDB</span> • <span>APIs REST</span> • <span>Inteligencia Artificial</span>
           </div>
 
-          <p class="text-zinc-500 dark:text-zinc-400 text-sm sm:text-base lg:text-lg mb-8 max-w-xl leading-relaxed font-normal">
-            Hola, soy Luis Alejandro Cárdenas Ramos. Desarrollador Full Stack especializado en Java, Spring Boot e Inteligencia Artificial. Disfruto crear plataformas modernas, escalables y enfocadas en resolver problemas reales para empresas.
+          <p class="text-zinc-500 dark:text-zinc-400 text-sm sm:text-base mb-8 max-w-xl leading-relaxed font-normal">
+            Desarrollo aplicaciones web modernas, escalables y enfocadas en resolver problemas reales mediante Java, Spring Boot e Inteligencia Artificial.
           </p>
 
-          <!-- Botones Apilados Verticalmente en Móvil (w-full), en Línea en md+ -->
-          <div class="flex flex-col md:flex-row gap-4 mb-8 w-full sm:max-w-md lg:max-w-none">
-            <a href="#contact" class="btn-primary w-full md:w-auto h-[52px] flex items-center justify-center font-bold">
-              Trabajemos Juntos <i class="fas fa-arrow-right ml-2 text-xs"></i>
+          <!-- 5 Botones de Acción Rápida (Apilados en móvil, rejilla/flex en md+) -->
+          <div class="flex flex-col sm:flex-row flex-wrap gap-3 mb-8 w-full sm:max-w-md lg:max-w-none">
+            <a href="#featured-projects" class="btn-primary h-[52px] flex items-center justify-center font-bold px-6">
+              <i class="fas fa-rocket mr-2 text-xs"></i> Ver proyectos
             </a>
-            <a href="mailto:cardenaswalker1@gmail.com?subject=Solicitud de CV - Luis Alejandro Cárdenas&body=Hola Luis, me gustaría solicitar una copia de tu currículum en formato PDF." class="btn-secondary w-full md:w-auto h-[52px] flex items-center justify-center font-bold">
-              <i class="fas fa-file-download mr-2"></i> Descargar CV
+            <a href="mailto:cardenaswalker1@gmail.com?subject=Solicitud de CV - Luis Alejandro Cárdenas&body=Hola Luis, me gustaría solicitar una copia de tu currículum en formato PDF." class="btn-secondary h-[52px] flex items-center justify-center font-bold px-6">
+              <i class="fas fa-file-pdf mr-2"></i> Descargar CV
             </a>
-          </div>
-
-          <!-- Métricas del Hero Actualizadas (2 columnas en móvil, 3 en sm+) -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-zinc-200 dark:border-zinc-800 pt-8 w-full sm:max-w-md lg:max-w-lg mb-8">
-            <div>
-              <div class="text-2xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="15">0</div>
-              <div class="text-[9px] sm:text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">Proyectos OK</div>
+            <div class="flex gap-2 w-full sm:w-auto">
+              <a href="https://github.com/" target="_blank" class="social-icon flex-1 sm:flex-initial h-[52px] md:h-10 flex items-center justify-center" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank" class="social-icon flex-1 sm:flex-initial h-[52px] md:h-10 flex items-center justify-center" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#contact" class="social-icon flex-1 sm:flex-initial h-[52px] md:h-10 flex items-center justify-center" aria-label="Contacto">
+                <i class="fas fa-envelope"></i>
+              </a>
             </div>
-            <div>
-              <div class="text-2xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="20">0</div>
-              <div class="text-[9px] sm:text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">APIs REST</div>
-            </div>
-            <div class="col-span-2 sm:col-span-1">
-              <div class="text-2xl sm:text-4xl font-bold tracking-tight text-primary stat-number" data-count="10">0</div>
-              <div class="text-[9px] sm:text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-semibold mt-1">Apps Cloud</div>
-            </div>
-          </div>
-
-          <!-- Social Links -->
-          <div class="flex gap-4 justify-center lg:justify-start w-full lg:w-auto">
-            <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank"
-              class="social-icon" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/" target="_blank" class="social-icon" aria-label="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:cardenaswalker1@gmail.com" class="social-icon" aria-label="Email">
-              <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://wa.me/573005722844?text=Hola%20Luis%20Alejandro,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte."
-              target="_blank" class="social-icon" aria-label="WhatsApp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
           </div>
         </div>
 
-        <!-- Columna Derecha: Simulación Actividad GitHub -->
-        <div class="lg:col-span-5 flex justify-center w-full" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-          <div class="relative w-full max-w-sm rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl p-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4 mb-4">
-                <div class="flex items-center gap-2">
-                  <i class="fab fa-github text-lg text-primary"></i>
-                  <span class="text-xs font-mono font-bold">github.com/cardenaswalker</span>
-                </div>
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              </div>
-              <div class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 mb-4">
-                <span>+1,200 commits este año</span>
-              </div>
-              
-              <!-- Simulación Grid Contribuciones GitHub -->
-              <div class="grid grid-cols-7 gap-1 max-w-[200px] mb-4">
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10 dark:bg-emerald-500/5"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/60"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/80"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
-
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/80"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/60"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
-
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/10"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/80"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/30"></div>
-                <div class="w-3.5 h-3.5 rounded bg-emerald-500/60"></div>
-              </div>
-            </div>
-            
-            <div class="border-t border-zinc-100 dark:border-zinc-800 pt-4 font-mono text-[10px] text-zinc-500 dark:text-zinc-400 space-y-1">
-              <div>Top languages: <span class="text-orange-500">Java</span>, <span class="text-blue-500">TypeScript</span>, <span class="text-yellow-500">Python</span></div>
-              <div>Active repos: <span class="text-primary font-bold">14</span></div>
+        <!-- Columna Derecha: Ilustración Profesional de Programador en SVG -->
+        <div class="lg:col-span-5 flex justify-center w-full">
+          <div class="relative w-full max-w-sm rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl p-6 flex flex-col items-center justify-center">
+            <svg class="w-48 h-48 text-blue-500 mb-4" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="80" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="2"/>
+              <!-- Pantalla de Laptop -->
+              <rect x="50" y="80" width="100" height="60" rx="4" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="2"/>
+              <!-- Base de Laptop -->
+              <path d="M40 140H160L150 148H50L40 140Z" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="2"/>
+              <!-- Código abstracto -->
+              <rect x="60" y="90" width="30" height="4" rx="2" fill="currentColor"/>
+              <rect x="60" y="100" width="50" height="4" rx="2" fill="currentColor" fill-opacity="0.6"/>
+              <rect x="60" y="110" width="40" height="4" rx="2" fill="currentColor" fill-opacity="0.6"/>
+              <!-- Engranaje / IA -->
+              <circle cx="130" cy="60" r="15" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" class="animate-spin" style="animation-duration: 20s;"/>
+              <circle cx="130" cy="60" r="6" fill="currentColor"/>
+            </svg>
+            <div class="text-center">
+              <span class="text-sm font-bold text-primary font-display">Luis Alejandro Cárdenas Ramos</span>
+              <p class="text-[10px] text-zinc-400 font-mono mt-1">Desarrollador de Software & Solucionador de Problemas</p>
             </div>
           </div>
         </div>
@@ -576,163 +532,334 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- ============ ABOUT SECTION ================= -->
+  <!-- ============ PROYECTOS DESTACADOS ⭐ ======= -->
+  <!-- ============================================ -->
+  <section id="featured-projects" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Portafolio Práctico</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          Proyectos Destacados ⭐
+        </h2>
+        <p class="text-xs sm:text-sm text-zinc-500 mt-2">Respuestas rápidas a qué problemas resuelvo y con qué tecnologías.</p>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Proyecto 1: Plataforma de Gestión Financiera -->
+        <div class="custom-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch w-full">
+          <!-- Detalles -->
+          <div class="lg:col-span-7 space-y-6 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-500 border border-blue-500/20">Fintech Enterprise</span>
+                <span class="text-xs font-mono text-zinc-400">AWS Cloud</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-primary">Plataforma de Gestión Financiera</h3>
+              
+              <div class="space-y-3 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
+                <div>
+                  <h4 class="font-bold text-primary mb-0.5">✔ Problema:</h4>
+                  <p>Las pequeñas empresas necesitaban administrar préstamos, controlar flujos de caja y finanzas en una sola plataforma sin complejidades.</p>
+                </div>
+                <div>
+                  <h4 class="font-bold text-primary mb-0.5">✔ Solución:</h4>
+                  <p>Desarrollé un sistema completo con autenticación segura JWT, panel administrativo, dashboard financiero de control en tiempo real y reportes automáticos.</p>
+                </div>
+              </div>
+
+              <!-- Funciones clave -->
+              <div class="border-t border-zinc-200 dark:border-zinc-800 pt-3">
+                <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Funcionalidades Implementadas:</h4>
+                <div class="grid grid-cols-2 gap-2 text-xs text-zinc-500 dark:text-zinc-400">
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-blue-500 text-[10px]"></i> Clientes</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-blue-500 text-[10px]"></i> Préstamos</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-blue-500 text-[10px]"></i> Dashboard</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-blue-500 text-[10px]"></i> IA Analytics</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-blue-500 text-[10px]"></i> Reportes</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-blue-500 text-[10px]"></i> Administración</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">Java</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">Spring Boot</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">MongoDB</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">JWT</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">Docker</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">Render</span>
+              </div>
+
+              <!-- Botones del Proyecto -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a href="#" class="btn-primary w-full sm:w-auto h-[50px] flex items-center justify-center font-bold text-xs">
+                  <i class="fas fa-external-link-alt mr-2 text-xs"></i> Ver Demo
+                </a>
+                <a href="https://github.com/cardenaswalker2/Pagina" target="_blank" class="btn-secondary w-full sm:w-auto h-[50px] flex items-center justify-center font-bold text-xs">
+                  <i class="fab fa-github mr-2"></i> GitHub Código
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mockup Visual -->
+          <div class="lg:col-span-5 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 p-6 flex flex-col justify-center min-h-[300px] w-full">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4">C4 System Architecture</span>
+            <div class="space-y-4 font-mono text-[11px] w-full">
+              <div class="p-3 rounded-lg border border-blue-500/30 bg-blue-500/5 text-center">
+                <div class="font-bold text-blue-500">API Gateway (Spring Cloud)</div>
+                <div class="text-[9px] text-zinc-400">Routes HTTP requests</div>
+              </div>
+              <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400"></i></div>
+              <div class="p-3 rounded-lg border border-green-500/30 bg-green-500/5 text-center">
+                <div class="font-bold text-green-500">Finance Service (Spring Boot)</div>
+                <div class="text-[9px] text-zinc-400">Calculates interest and amortization</div>
+              </div>
+              <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400"></i></div>
+              <div class="p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-center">
+                <div class="font-bold text-primary">Database Store (MongoDB Cluster)</div>
+                <div class="text-[9px] text-zinc-400">Storage for users and loans</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 2: Sistema de Gestión Veterinaria -->
+        <div class="custom-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch w-full">
+          <!-- Detalles -->
+          <div class="lg:col-span-7 space-y-6 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-500 border border-purple-500/20">Healthcare App</span>
+                <span class="text-xs font-mono text-zinc-400">PaaS Deployment</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-primary">Sistema de Gestión Veterinaria</h3>
+              
+              <div class="space-y-3 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
+                <div>
+                  <h4 class="font-bold text-primary mb-0.5">✔ Problema:</h4>
+                  <p>Las clínicas veterinarias requerían digitalizar expedientes médicos, agendar citas y controlar vacunas de mascotas de manera eficiente y multiusuario.</p>
+                </div>
+                <div>
+                  <h4 class="font-bold text-primary mb-0.5">✔ Solución:</h4>
+                  <p>Construcción de una aplicación web estructurada bajo el patrón MVC con Spring Boot, control de accesos basado en roles de seguridad y alertas automatizadas por correo electrónico.</p>
+                </div>
+              </div>
+
+              <!-- Funciones clave -->
+              <div class="border-t border-zinc-200 dark:border-zinc-800 pt-3">
+                <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Funcionalidades Implementadas:</h4>
+                <div class="grid grid-cols-2 gap-2 text-xs text-zinc-500 dark:text-zinc-400">
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-purple-500 text-[10px]"></i> Mascotas</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-purple-500 text-[10px]"></i> Citas Médicas</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-purple-500 text-[10px]"></i> Vacunas</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-purple-500 text-[10px]"></i> Historial Clínico</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-purple-500 text-[10px]"></i> Roles de Usuario</div>
+                  <div class="flex items-center gap-1.5"><i class="fas fa-check text-purple-500 text-[10px]"></i> Alertas Automatizadas</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">Java</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">Spring Boot</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">MySQL</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">Thymeleaf</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">Tailwind CSS</span>
+                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] font-medium">Render</span>
+              </div>
+
+              <!-- Botones del Proyecto -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a href="#" class="btn-primary w-full sm:w-auto h-[50px] flex items-center justify-center font-bold text-xs">
+                  <i class="fas fa-external-link-alt mr-2 text-xs"></i> Ver Demo
+                </a>
+                <a href="https://github.com/cardenaswalker2/Pagina" target="_blank" class="btn-secondary w-full sm:w-auto h-[50px] flex items-center justify-center font-bold text-xs">
+                  <i class="fab fa-github mr-2"></i> GitHub Código
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mockup Visual -->
+          <div class="lg:col-span-5 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 p-6 flex flex-col justify-center min-h-[300px] w-full">
+            <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4">Database Schema Context</span>
+            <div class="space-y-3 font-mono text-[10px] w-full">
+              <div class="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5">
+                <div class="font-bold text-purple-400">TABLE: owner</div>
+                <div class="text-[9px] text-zinc-400">id (PK) • name • email • phone</div>
+              </div>
+              <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400 text-xs"></i></div>
+              <div class="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5">
+                <div class="font-bold text-purple-400">TABLE: pet</div>
+                <div class="text-[9px] text-zinc-400">id (PK) • owner_id (FK) • name • type</div>
+              </div>
+              <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400 text-xs"></i></div>
+              <div class="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5">
+                <div class="font-bold text-purple-400">TABLE: clinical_record</div>
+                <div class="text-[9px] text-zinc-400">id (PK) • pet_id (FK) • symptoms • date</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ============ TECNOLOGÍAS =================== -->
+  <!-- ============================================ -->
+  <section id="technologies" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Ecosistema Profesional</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+          Tecnologías
+        </h2>
+        <p class="text-xs sm:text-sm text-zinc-500 mt-2">Listado estructurado de herramientas que utilizo y domino en producción.</p>
+      </div>
+
+      <!-- Bento Grid de Tecnologías (1 col en móvil, 3 en md+) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Backend -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center">
+                <i class="fas fa-server"></i>
+              </div>
+              <h3 class="text-lg font-bold text-primary">Backend</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Java</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Spring Boot</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Python</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-500 flex items-center justify-center">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3 class="text-lg font-bold text-primary">Frontend</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">HTML</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">CSS</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">JavaScript</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Bootstrap</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">React</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bases de datos -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-lg bg-green-500/10 text-green-500 flex items-center justify-center">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3 class="text-lg font-bold text-primary">Bases de datos</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">MongoDB</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">MySQL</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cloud -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <h3 class="text-lg font-bold text-primary">Cloud</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Render</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Vercel</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Railway</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DevOps -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-lg bg-orange-500/10 text-orange-500 flex items-center justify-center">
+                <i class="fas fa-infinity"></i>
+              </div>
+              <h3 class="text-lg font-bold text-primary">DevOps</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Docker</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Git</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">GitHub</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- IA & Automatización -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-500 flex items-center justify-center">
+                <i class="fas fa-brain"></i>
+              </div>
+              <h3 class="text-lg font-bold text-primary">IA & Automatización</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Prompt Engineering</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">LLMs Integration</span>
+              <span class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-semibold">Workflow Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ============ SOBRE MÍ & APRENDIZAJE ======== -->
   <!-- ============================================ -->
   <section id="about" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Columna Izquierda: Mockup de Código -->
-        <div class="w-full" data-aos="fade-right" data-aos-duration="1000">
-          <div class="custom-card font-mono text-xs leading-relaxed overflow-hidden">
-            <div class="flex gap-1.5 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
-              <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
-            </div>
-            <div class="text-zinc-500 dark:text-zinc-400 space-y-1 overflow-x-auto">
-              <div><span class="text-purple-500">class</span> <span class="text-blue-500">SoftwareArchitect</span> {</div>
-              <div class="pl-4"><span class="text-purple-500">constructor</span>() {</div>
-              <div class="pl-8"><span class="text-blue-500">this</span>.mindset = <span class="text-emerald-600 dark:text-emerald-400">"clean_code"</span>;</div>
-              <div class="pl-8"><span class="text-blue-500">this</span>.focus = <span class="text-emerald-600 dark:text-emerald-400">"scalability"</span>;</div>
-              <div class="pl-8"><span class="text-blue-500">this</span>.passion = [</div>
-              <div class="pl-12"><span class="text-emerald-600 dark:text-emerald-400">"architecture"</span>,</div>
-              <div class="pl-12"><span class="text-emerald-600 dark:text-emerald-400">"automation"</span>,</div>
-              <div class="pl-12"><span class="text-emerald-600 dark:text-emerald-400">"AI_integration"</span></div>
-              <div class="pl-8">];</div>
-              <div class="pl-4">}</div>
-              <div class="pl-4"><span class="text-purple-500">build</span>(solution) {</div>
-              <div class="pl-8"><span class="text-purple-500">return</span> solution.scale().optimize();</div>
-              <div class="pl-4">}</div>
-              <div>}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Columna Derecha: Contenido -->
-        <div class="text-center lg:text-left flex flex-col items-center lg:items-start" data-aos="fade-left" data-aos-duration="1000">
-          <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Sobre Mí</span>
-          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2 mb-6">
-            Arquitectura que transforma negocios
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Columna Izquierda: Sobre mí -->
+        <div class="space-y-6">
+          <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Perfil</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+            Sobre mí
           </h2>
-
-          <div class="space-y-6 text-zinc-500 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
-            <p>
-              Desarrollador de software orientado a la creación de <span class="text-zinc-900 dark:text-zinc-200 font-semibold">soluciones
-                escalables, eficientes y centradas en el usuario</span>.
-              Apasionado por la arquitectura de software, el código limpio, la automatización inteligente
-              y el diseño de experiencias de usuario modernas.
-            </p>
-            <p>
-              Con un enfoque analítico, mentalidad de mejora continua y capacidad para integrar backend, frontend,
-              inteligencia artificial y DevOps en ecosistemas tecnológicos sólidos que impulsan el
-              crecimiento empresarial.
-            </p>
-          </div>
-
-          <!-- Philosophy Tags -->
-          <div class="flex flex-wrap gap-2 mt-8 justify-center lg:justify-start">
-            <span class="px-3.5 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300">
-              Clean Architecture
-            </span>
-            <span class="px-3.5 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300">
-              Scalability First
-            </span>
-            <span class="px-3.5 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300">
-              User-Centric Design
-            </span>
-            <span class="px-3.5 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300">
-              Continuous Improvement
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- ====== WHY ME SECTION (¿Por qué yo?) ====== -->
-  <!-- ============================================ -->
-  <section id="why-me" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Valores Clave</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
-          ¿Por qué trabajar conmigo?
-        </h2>
-      </div>
-
-      <!-- 1 columna en móvil, 2 en tablet/sm, 3 en desktop -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-blue-500 mb-6">
-              <i class="fas fa-lightbulb text-lg"></i>
-            </div>
-            <h3 class="text-lg font-bold text-primary mb-2">Desarrollo Soluciones</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              No me limito a escribir líneas de código mecánicas. Analizo a fondo los problemas del negocio para construir soluciones lógicas y operativas.
-            </p>
-          </div>
+          <p class="text-zinc-500 dark:text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl">
+            Soy Luis Alejandro Cárdenas Ramos, apasionado por resolver problemas lógicos mediante el desarrollo de software estructurado y limpio. Mi enfoque técnico me permite diseñar arquitecturas backend robustas basadas en microservicios, securización perimetral avanzada y despliegues en contenedores Docker, integrando agentes inteligentes de IA para optimizar procesos comerciales.
+          </p>
         </div>
 
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-purple-500 mb-6">
-              <i class="fas fa-expand-arrows-alt text-lg"></i>
-            </div>
-            <h3 class="text-lg font-bold text-primary mb-2">Aplicaciones Escalables</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Diseño arquitecturas backend sólidas preparadas para soportar cargas elevadas de peticiones concurrentes y datos empresariales de forma natural.
-            </p>
-          </div>
-        </div>
-
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-green-500 mb-6">
-              <i class="fas fa-comments text-lg"></i>
-            </div>
-            <h3 class="text-lg font-bold text-primary mb-2">Comunicación Directa</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Reporto periódicamente el avance de los entregables. Mantengo un canal honesto y transparente para resolver dudas técnicas rápidamente.
-            </p>
-          </div>
-        </div>
-
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-amber-500 mb-6">
-              <i class="fas fa-code text-lg"></i>
-            </div>
-            <h3 class="text-lg font-bold text-primary mb-2">Código Limpio (SOLID)</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Escribo código modular, altamente legible y fácilmente testeable, reduciendo de manera drástica el coste del mantenimiento técnico del software.
-            </p>
-          </div>
-        </div>
-
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-red-500 mb-6">
-              <i class="fas fa-chart-line text-lg"></i>
-            </div>
-            <h3 class="text-lg font-bold text-primary mb-2">Pensado para Crecer</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Establezco bases de código escalables y servicios desacoplados bajo estándares de la industria, asegurando la durabilidad a largo plazo.
-            </p>
-          </div>
-        </div>
-
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-cyan-500 mb-6">
-              <i class="fas fa-shipping-fast text-lg"></i>
-            </div>
-            <h3 class="text-lg font-bold text-primary mb-2">Entregas Iterativas</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Despliegue incremental de funcionalidades utilizando metodologías ágiles. Obtén software funcional desde las etapas tempranas de desarrollo.
-            </p>
-          </div>
+        <!-- Columna Derecha: Lo que estoy aprendiendo actualmente -->
+        <div class="custom-card border border-blue-500/25 bg-blue-500/[0.02]">
+          <h3 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+            <i class="fas fa-graduation-cap text-blue-500"></i> Actualmente profundizo en:
+          </h3>
+          <ul class="space-y-3 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
+            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Spring Security</li>
+            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Docker Container Optimization</li>
+            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Arquitectura de Microservicios</li>
+            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Inteligencia Artificial aplicada al desarrollo</li>
+            <li class="flex items-center gap-2"><i class="fas fa-angle-right text-blue-500"></i> Buenas prácticas de Clean Architecture</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -741,102 +868,57 @@
   <!-- ============================================ -->
   <!-- ============ EXPERIENCE SECTION ============ -->
   <!-- ============================================ -->
-  <section id="experience" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+  <section id="experience" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Trayectoria Profesional</span>
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Trayectoria</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
-          Experiencia que construye futuro
+          Experiencia laboral
         </h2>
       </div>
 
-      <!-- Experience Columns Layout (1 col on mobile, 3 on md+) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Experience Item 1 -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="100">
+      <!-- Timeline Simplificado (1 col en móvil, 3 en md+) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Exp 1 -->
+        <div class="custom-card flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-mono text-blue-500">2024 - Presente</span>
               <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Actual</span>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-primary mb-1">Ingeniería Backend & DevOps</h3>
-            <p class="text-zinc-400 text-sm mb-6">Proyectos Independientes</p>
-            <ul class="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Desarrollo de arquitecturas escalables</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Implementación de APIs empresariales</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Seguridad JWT y autenticación avanzada</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Dockerización y automatización de servicios</span>
-              </li>
-            </ul>
+            <h3 class="text-base sm:text-lg font-bold text-primary">Ingeniería Backend & DevOps</h3>
+            <p class="text-[11px] text-zinc-400 font-mono mt-0.5 mb-4">Proyectos Independientes</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
+              Desarrollo de microservicios con Java y Spring Boot, Dockerización de entornos y despliegues automáticos.
+            </p>
           </div>
         </div>
 
-        <!-- Experience Item 2 -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="200">
+        <!-- Exp 2 -->
+        <div class="custom-card flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2023 - Presente</span>
+              <span class="text-xs font-mono text-zinc-400">2023 - Presente</span>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-primary mb-1">Consultoría de Software</h3>
-            <p class="text-zinc-400 text-sm mb-6">Independiente</p>
-            <ul class="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Desarrollo de soluciones digitales a medida</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Automatización de procesos comerciales</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Optimización operativa de sistemas heredados</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Gestión y gobernanza de datos</span>
-              </li>
-            </ul>
+            <h3 class="text-base sm:text-lg font-bold text-primary">Consultoría de Software</h3>
+            <p class="text-[11px] text-zinc-400 font-mono mt-0.5 mb-4">Independiente</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
+              Digitalización comercial y optimización de bases de datos para comercios locales.
+            </p>
           </div>
         </div>
 
-        <!-- Experience Item 3 -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="300">
+        <!-- Exp 3 -->
+        <div class="custom-card flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2024 - Presente</span>
+              <span class="text-xs font-mono text-zinc-400">2024 - Presente</span>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-primary mb-1">Apoyo Operativo Estratégico</h3>
-            <p class="text-zinc-400 text-sm mb-6">Negocio Familiar</p>
-            <ul class="space-y-3 text-sm text-zinc-500 dark:text-zinc-400">
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Digitalización de procesos administrativos</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Organización de información interna</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Gestión y control de flujos de inventarios</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
-                <span>Soporte técnico y mejora operativa</span>
-              </li>
-            </ul>
+            <h3 class="text-base sm:text-lg font-bold text-primary">Apoyo Operativo Estratégico</h3>
+            <p class="text-[11px] text-zinc-400 font-mono mt-0.5 mb-4">Negocio Familiar</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
+              Digitalización administrativa y control logístico interno mediante bases de datos.
+            </p>
           </div>
         </div>
       </div>
@@ -844,291 +926,71 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- ============ METODOLOGÍA SECTION =========== -->
+  <!-- ============ EDUCACIÓN & CERTIFICADOS ====== -->
   <!-- ============================================ -->
-  <section id="methodology" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+  <section id="education" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Metodología</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
-          ¿Cómo trabajo?
-        </h2>
-      </div>
-
-      <!-- 1 col en móvil, 2 en tablet/sm, 6 en desktop -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
-        <!-- Paso 1 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
-          <div>
-            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">01</div>
-            <h3 class="text-sm font-bold text-primary mb-1">Análisis</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Identifico los requerimientos y el problema base.</p>
-          </div>
-        </div>
-
-        <!-- Paso 2 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="150">
-          <div>
-            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">02</div>
-            <h3 class="text-sm font-bold text-primary mb-1">Diseño</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Estructuro la arquitectura y base de datos.</p>
-          </div>
-        </div>
-
-        <!-- Paso 3 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
-          <div>
-            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">03</div>
-            <h3 class="text-sm font-bold text-primary mb-1">Desarrollo</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Codifico usando principios SOLID y Clean Code.</p>
-          </div>
-        </div>
-
-        <!-- Paso 4 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="250">
-          <div>
-            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">04</div>
-            <h3 class="text-sm font-bold text-primary mb-1">Pruebas</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Valido la cobertura unitaria y flujos de integración.</p>
-          </div>
-        </div>
-
-        <!-- Paso 5 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
-          <div>
-            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">05</div>
-            <h3 class="text-sm font-bold text-primary mb-1">Despliegue</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Automatizo la puesta en producción vía CI/CD.</p>
-          </div>
-        </div>
-
-        <!-- Paso 6 -->
-        <div class="custom-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="350">
-          <div>
-            <div class="text-3xl font-extrabold text-blue-500/20 dark:text-blue-500/10 font-display mb-3">06</div>
-            <h3 class="text-sm font-bold text-primary mb-1">Soporte</h3>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal font-normal">Monitoreo la estabilidad operativa y rendimiento.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- ============ FEATURED PROJECT SECTION ====== -->
-  <!-- ============================================ -->
-  <section id="featured-project" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Caso de Estudio</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
-          Proyecto Destacado
-        </h2>
-      </div>
-
-      <div class="custom-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" data-aos="fade-up">
-        <!-- Columna Izquierda: Detalles del caso de estudio -->
-        <div class="lg:col-span-7 space-y-6">
-          <div class="flex items-center gap-3">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-500 border border-blue-500/20">Backend Enterprise</span>
-            <span class="text-xs font-mono text-zinc-400">AWS Cloud</span>
-          </div>
-          
-          <h3 class="text-xl sm:text-2xl font-extrabold text-primary">Plataforma de Control Financiero & APIs REST</h3>
-          
-          <div class="space-y-4 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-            <div>
-              <h4 class="font-bold text-primary mb-1">✔ El Problema:</h4>
-              <p>Procesos manuales de conciliación comercial sumamente lentos y propensos a errores operacionales junto a una nula trazabilidad histórica de facturación.</p>
-            </div>
-            <div>
-              <h4 class="font-bold text-primary mb-1">✔ La Solución:</h4>
-              <p>Desarrollo de una arquitectura distribuida basada en microservicios, securización perimetral JWT, logs centralizados e integración de agentes de IA para analítica automatizada.</p>
-            </div>
-            <div>
-              <h4 class="font-bold text-primary mb-1">✔ El Resultado:</h4>
-              <p>Reducción del 45% en los tiempos de auditoría de transacciones, logrando un procesamiento concurrente fluido y consultas a base de datos de menos de 50ms.</p>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap gap-2 pt-2">
-            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">Java 17</span>
-            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">Spring Boot</span>
-            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">Docker</span>
-            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">MongoDB</span>
-            <span class="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">AWS</span>
-          </div>
-
-          <!-- Botones de Acción (Apilados en móvil, línea en sm+) -->
-          <div class="flex flex-col sm:flex-row gap-4 pt-4 w-full">
-            <a href="https://github.com/cardenaswalker2/Pagina" target="_blank" class="btn-primary w-full sm:w-auto h-[52px] flex items-center justify-center font-bold">
-              <i class="fab fa-github mr-2"></i> Ver Código
-            </a>
-            <a href="#" class="btn-secondary w-full sm:w-auto h-[52px] flex items-center justify-center font-bold">
-              <i class="fas fa-external-link-alt mr-2 text-xs"></i> Demo en Vivo
-            </a>
-          </div>
-        </div>
-
-        <!-- Columna Derecha: Mockup Visual de Arquitectura C4 -->
-        <div class="lg:col-span-5 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/50 p-6 flex flex-col justify-center min-h-[300px] w-full">
-          <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4">C4 Architecture System Context</span>
-          
-          <div class="space-y-4 font-mono text-[11px] w-full">
-            <div class="p-3 rounded-lg border border-blue-500/30 bg-blue-500/5 text-center">
-              <div class="font-bold text-blue-500">API Gateway (Spring Cloud)</div>
-              <div class="text-[9px] text-zinc-400">Routes HTTP to microservices</div>
-            </div>
-            <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400"></i></div>
-            
-            <div class="grid grid-cols-2 gap-4">
-              <div class="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5 text-center">
-                <div class="font-bold text-purple-400 text-[10px]">Auth Service</div>
-                <div class="text-[8px] text-zinc-400">JWT Token Issuer</div>
-              </div>
-              <div class="p-3 rounded-lg border border-green-500/30 bg-green-500/5 text-center">
-                <div class="font-bold text-green-500 text-[10px]">Finance Service</div>
-                <div class="text-[8px] text-zinc-400">Core Transactions</div>
-              </div>
-            </div>
-            
-            <div class="flex justify-center"><i class="fas fa-arrow-down text-zinc-400"></i></div>
-            
-            <div class="p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-center">
-              <div class="font-bold text-primary">Database Store (MongoDB)</div>
-              <div class="text-[9px] text-zinc-400">Secure Cluster Atlas Storage</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- ============ BENTO GRID SKILLS ============= -->
-  <!-- ============================================ -->
-  <section id="skills" class="py-24 relative border-t border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Tecnologías Organizadas</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
-          Especialidades Técnicas
-        </h2>
-      </div>
-
-      <!-- Bento Grid Rediseñado y Clasificado (1 col en móvil, 3 en md+) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         
-        <!-- Categoría: Backend -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up">
-          <div>
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-blue-500">
-                <i class="fas fa-server"></i>
+        <!-- Columna Izquierda: Formación -->
+        <div class="space-y-6">
+          <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Educación</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+            Formación Académica
+          </h2>
+
+          <div class="space-y-4">
+            <div class="custom-card">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono text-blue-500">2023 - 2025</span>
+                <span class="text-[10px] font-mono text-zinc-400">Comfenalco</span>
               </div>
-              <h3 class="text-base font-bold text-primary">Backend Development</h3>
+              <h3 class="text-base font-bold text-primary">Desarrollador Backend Java</h3>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 font-normal">Formación integral en programación orientada a objetos, bases de datos y creación de servicios API REST.</p>
             </div>
-            <div class="space-y-2 font-normal">
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
-                <span class="text-zinc-500">Java / Spring Boot</span>
-                <span class="font-semibold text-primary">Avanzado</span>
+
+            <div class="custom-card">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono text-blue-500">2024</span>
+                <span class="text-[10px] font-mono text-zinc-400">Especialización</span>
               </div>
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
-                <span class="text-zinc-500">Node.js (Express)</span>
-                <span class="font-semibold text-primary">Intermedio</span>
-              </div>
-              <div class="flex items-center justify-between text-xs pb-1">
-                <span class="text-zinc-500">Python (FastAPI)</span>
-                <span class="font-semibold text-primary">Intermedio</span>
-              </div>
+              <h3 class="text-base font-bold text-primary">Desarrollo Web & Nube</h3>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 font-normal">Capacitación complementaria en lenguajes frontend, bases NoSQL e integraciones CI/CD.</p>
             </div>
           </div>
         </div>
 
-        <!-- Categoría: Frontend -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="100">
-          <div>
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-purple-500">
-                <i class="fas fa-laptop-code"></i>
-              </div>
-              <h3 class="text-base font-bold text-primary">Frontend & Mobile</h3>
-            </div>
-            <div class="space-y-2 font-normal">
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
-                <span class="text-zinc-500">React / TypeScript</span>
-                <span class="font-semibold text-primary">Intermedio-Avanzado</span>
-              </div>
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
-                <span class="text-zinc-500">Flutter</span>
-                <span class="font-semibold text-primary">Intermedio-Avanzado</span>
-              </div>
-              <div class="flex items-center justify-between text-xs pb-1">
-                <span class="text-zinc-500">Angular</span>
-                <span class="font-semibold text-primary">Intermedio</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Columna Derecha: Certificados Académicos -->
+        <div class="space-y-6">
+          <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Certificados</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
+            Acreditaciones Técnicas
+          </h2>
 
-        <!-- Categoría: Base de datos -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="200">
-          <div>
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-green-500">
-                <i class="fas fa-database"></i>
-              </div>
-              <h3 class="text-base font-bold text-primary">Bases de Datos</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+              <div class="text-[10px] font-bold text-blue-500 mb-1">Oracle</div>
+              <h4 class="text-xs font-bold text-primary">Java Developer Certificate</h4>
             </div>
-            <div class="space-y-2 font-normal">
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
-                <span class="text-zinc-500">MySQL</span>
-                <span class="font-semibold text-primary">Avanzado</span>
-              </div>
-              <div class="flex items-center justify-between text-xs border-b border-zinc-100 dark:border-zinc-800 pb-2">
-                <span class="text-zinc-500">MongoDB</span>
-                <span class="font-semibold text-primary">Avanzado</span>
-              </div>
-              <div class="flex items-center justify-between text-xs pb-1">
-                <span class="text-zinc-500">PostgreSQL</span>
-                <span class="font-semibold text-primary">Intermedio</span>
-              </div>
+            <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+              <div class="text-[10px] font-bold text-blue-500 mb-1">Cisco</div>
+              <h4 class="text-xs font-bold text-primary">Networking Essentials</h4>
             </div>
-          </div>
-        </div>
-
-        <!-- Categoría: DevOps -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up">
-          <div>
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-orange-500">
-                <i class="fas fa-infinity"></i>
-              </div>
-              <h3 class="text-base font-bold text-primary">DevOps & Control</h3>
+            <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+              <div class="text-[10px] font-bold text-blue-500 mb-1">Google Cloud</div>
+              <h4 class="text-xs font-bold text-primary">Cloud Fundamentals</h4>
             </div>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Docker</span>
-              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Git & GitHub</span>
-              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Linux Servers</span>
-              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">CI/CD Pipelines</span>
+            <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+              <div class="text-[10px] font-bold text-blue-500 mb-1">freeCodeCamp</div>
+              <h4 class="text-xs font-bold text-primary">Back End APIs & Databases</h4>
             </div>
-          </div>
-        </div>
-
-        <!-- Categoría: Cloud Platforms -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="100">
-          <div>
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-emerald-500">
-                <i class="fas fa-cloud"></i>
-              </div>
-              <h3 class="text-base font-bold text-primary">Cloud Deployment</h3>
+            <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+              <div class="text-[10px] font-bold text-blue-500 mb-1">Udemy</div>
+              <h4 class="text-xs font-bold text-primary">Spring Boot Microservices</h4>
             </div>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Railway</span>
-              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Vercel</span>
-              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Netlify</span>
-              <span class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs">Mongo Atlas</span>
+            <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+              <div class="text-[10px] font-bold text-blue-500 mb-1">Coursera</div>
+              <h4 class="text-xs font-bold text-primary">Google IT Automation</h4>
             </div>
           </div>
         </div>
@@ -1137,77 +999,120 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- ============ TIMELINE PROFESIONAL =========== -->
+  <!-- ============ SECCIÓN GITHUB ================= -->
   <!-- ============================================ -->
-  <section id="timeline-path" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+  <section id="github-section" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Trayectoria Técnica</span>
+      <div class="max-w-3xl mx-auto">
+        <div class="custom-card flex flex-col justify-between w-full">
+          <div>
+            <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-4 mb-6">
+              <div class="flex items-center gap-3">
+                <i class="fab fa-github text-2xl text-primary"></i>
+                <div>
+                  <h3 class="text-lg font-bold text-primary">github.com/cardenaswalker2</h3>
+                  <p class="text-xs text-zinc-500 font-mono">Últimas contribuciones & proyectos fijados</p>
+                </div>
+              </div>
+              <a href="https://github.com/cardenaswalker2" target="_blank" class="btn-secondary h-10 px-4 flex items-center justify-center font-bold text-xs">
+                Visitar Perfil <i class="fas fa-external-link-alt ml-2 text-[10px]"></i>
+              </a>
+            </div>
+
+            <!-- Proyectos Fijados Simulación -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-bold text-primary">📁 Profile</span>
+                  <span class="text-[10px] font-mono text-zinc-400">Java</span>
+                </div>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400">Portafolio profesional interactivo adaptado para reclutadores.</p>
+              </div>
+              <div class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-bold text-primary">📁 Pagina</span>
+                  <span class="text-[10px] font-mono text-zinc-400">Java / Thymeleaf</span>
+                </div>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400">Portal y servicios backend empresariales de la fintech destacada.</p>
+              </div>
+            </div>
+
+            <!-- Lenguajes más usados -->
+            <div class="border-t border-zinc-200 dark:border-zinc-800 pt-4">
+              <h4 class="text-xs font-bold text-primary uppercase mb-3">Estadísticas de Lenguaje:</h4>
+              <div class="flex items-center gap-4 text-xs font-mono">
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-orange-500"></span> Java (74%)</div>
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-blue-500"></span> TypeScript (16%)</div>
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-yellow-500"></span> JavaScript (10%)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ============ ¿POR QUÉ TRABAJAR CONMIGO? ==== -->
+  <!-- ============================================ -->
+  <section id="why-me" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Valores Clave</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
-          Evolución del Aprendizaje
+          ¿Por qué trabajar conmigo?
         </h2>
       </div>
 
-      <div class="timeline-container max-w-3xl mx-auto w-full">
-        <!-- Timeline vertical line (hidden on mobile) -->
-        <div class="timeline-line hidden md:block"></div>
-
-        <!-- 2023 -->
-        <div class="relative timeline-item-row mb-8 flex flex-col md:flex-row md:justify-between items-start w-full" data-aos="fade-up">
-          <div class="timeline-dot hidden md:block"></div>
-          <div class="md:w-5/12 w-full md:text-right mb-2 md:mb-0">
-            <span class="text-xl font-extrabold text-blue-500">2023</span>
-          </div>
-          <div class="md:w-2"></div>
-          <div class="md:w-5/12 w-full custom-card">
-            <h4 class="text-base font-bold text-primary mb-1">Fundamentos de Java & DBs</h4>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Tarjeta 1 -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Código limpio</h3>
             <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Inicio de formación técnica oficial en Comfenalco. Aprendizaje exhaustivo de POO, lógica estructurada y estructuración de bases de datos relacionales.
+              Escribo código estructurado siguiendo principios SOLID para facilitar la mantenibilidad a largo plazo de tus sistemas.
             </p>
           </div>
         </div>
 
-        <!-- 2024 -->
-        <div class="relative timeline-item-row mb-8 flex flex-col md:flex-row md:justify-between items-start w-full" data-aos="fade-up" data-aos-delay="100">
-          <div class="timeline-dot hidden md:block"></div>
-          <div class="md:w-5/12 w-full md:text-right mb-2 md:mb-0">
-            <span class="text-xl font-extrabold text-blue-500">2024</span>
-          </div>
-          <div class="md:w-2"></div>
-          <div class="md:w-5/12 w-full custom-card">
-            <h4 class="text-base font-bold text-primary mb-1">Especialización en Spring Boot</h4>
+        <!-- Tarjeta 2 -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-500 flex items-center justify-center mb-4">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Arquitectura escalable</h3>
             <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Desarrollo de microservicios corporativos, seguridad integral JWT y despliegues virtualizados mediante contenedores Docker en plataformas cloud.
+              Diseño de sistemas distribuidos y APIs REST empresariales robustas y preparadas para soportar cargas concurrentes de forma natural.
             </p>
           </div>
         </div>
 
-        <!-- 2025 -->
-        <div class="relative timeline-item-row mb-8 flex flex-col md:flex-row md:justify-between items-start w-full" data-aos="fade-up" data-aos-delay="200">
-          <div class="timeline-dot hidden md:block"></div>
-          <div class="md:w-5/12 w-full md:text-right mb-2 md:mb-0">
-            <span class="text-xl font-extrabold text-blue-500">2025</span>
-          </div>
-          <div class="md:w-2"></div>
-          <div class="md:w-5/12 w-full custom-card">
-            <h4 class="text-base font-bold text-primary mb-1">Integración de Inteligencia Artificial</h4>
+        <!-- Tarjeta 3 -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-green-500/10 text-green-500 flex items-center justify-center mb-4">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Aprendizaje continuo</h3>
             <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Modelado e integración de endpoints OpenAI/Groq LLaMA, optimización de prompts y pipelines de agentes de decisión automáticos.
+              Investigo e incorporo proactivamente nuevas metodologías y tecnologías para aportar valor diferencial a tu empresa.
             </p>
           </div>
         </div>
 
-        <!-- 2026 -->
-        <div class="relative timeline-item-row flex flex-col md:flex-row md:justify-between items-start w-full" data-aos="fade-up" data-aos-delay="300">
-          <div class="timeline-dot hidden md:block"></div>
-          <div class="md:w-5/12 w-full md:text-right mb-2 md:mb-0">
-            <span class="text-xl font-extrabold text-blue-500">2026</span>
-          </div>
-          <div class="md:w-2"></div>
-          <div class="md:w-5/12 w-full custom-card">
-            <h4 class="text-base font-bold text-primary mb-1">Arquitectura de Sistemas Complejos</h4>
+        <!-- Tarjeta 4 -->
+        <div class="custom-card flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3 class="text-base font-bold text-primary mb-2">Resolución de problemas</h3>
             <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-              Consolidación como arquitecto de software Full Stack. Diseño de ecosistemas escalables de grado industrial en producción.
+              Mentalidad orientada a resolver las ineficiencias del negocio utilizando código robusto como canal primario de solución.
             </p>
           </div>
         </div>
@@ -1216,107 +1121,64 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- ============ CERTIFICATES SECTION ========== -->
+  <!-- ============ CICLO DE DESARROLLO DE SOFTWARE  -->
   <!-- ============================================ -->
-  <section id="certificates" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+  <section id="lifecycle" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Acreditaciones</span>
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Ciclo de Vida</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
-          Certificados Académicos
+          ¿Cómo desarrollo un proyecto?
         </h2>
+        <p class="text-xs sm:text-sm text-zinc-500 mt-2">Entendimiento completo del flujo de ingeniería de software.</p>
       </div>
 
-      <!-- 1 col on mobile, 3 on lg -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Cert 1 -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-[10px] font-mono text-zinc-400">Tecnológico Comfenalco</span>
-              <span class="text-[10px] font-mono text-blue-500">2024</span>
-            </div>
-            <h3 class="text-base font-bold text-primary mb-2">Desarrollador Backend Java</h3>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              Acreditación oficial en bases de programación de sistemas en Java, control de transacciones de bases de datos relacionales y API Rest.
-            </p>
-          </div>
+      <!-- Diagrama de Flujo (Lista vertical en móvil, fila/grid horizontal en md+) -->
+      <div class="grid grid-cols-1 md:grid-cols-9 gap-4 text-center">
+        <!-- Paso 1 -->
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+          <div class="text-xs font-extrabold text-blue-500 mb-1">01</div>
+          <h3 class="text-xs font-bold text-primary">Idea</h3>
         </div>
-
-        <!-- Cert 2 -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="100">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-[10px] font-mono text-zinc-400">Formación Complementaria</span>
-              <span class="text-[10px] font-mono text-blue-500">2024</span>
-            </div>
-            <h3 class="text-base font-bold text-primary mb-2">Especialista en Spring Boot & APIs</h3>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              Certificación avanzada en inyección de dependencias, securización mediante tokens JWT y despliegues automatizados con contenedores Docker.
-            </p>
-          </div>
+        <!-- Paso 2 -->
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+          <div class="text-xs font-extrabold text-blue-500 mb-1">02</div>
+          <h3 class="text-xs font-bold text-primary">Análisis</h3>
         </div>
-
-        <!-- Cert 3 -->
-        <div class="custom-card flex flex-col justify-between w-full" data-aos="fade-up" data-aos-delay="200">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-[10px] font-mono text-zinc-400">AI Academy</span>
-              <span class="text-[10px] font-mono text-blue-500">2025</span>
-            </div>
-            <h3 class="text-base font-bold text-primary mb-2">Integración de Modelos de Inteligencia Artificial</h3>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              Acreditación técnica en interconexión de endpoints de LLMs, automatización avanzada de flujos mediante agentes autónomos y prompt engineering.
-            </p>
-          </div>
+        <!-- Paso 3 -->
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+          <div class="text-xs font-extrabold text-blue-500 mb-1">03</div>
+          <h3 class="text-xs font-bold text-primary">Diseño</h3>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- ============ RECOMMENDATIONS SECTION ======== -->
-  <!-- ============================================ -->
-  <section id="recommendations" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
-        <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Referencias</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
-          Recomendaciones Profesionales
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto w-full">
-        <!-- Rec 1 -->
-        <div class="custom-card p-6 w-full" data-aos="fade-up">
-          <p class="text-zinc-500 dark:text-zinc-400 text-xs italic leading-relaxed mb-6 font-normal">
-            "Luis Alejandro demostró una gran capacidad de análisis al optimizar la API de facturación comercial. Escribe código ordenado, es responsable con los entregables y mantiene una comunicación técnica impecable."
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-xs font-bold text-primary">
-              CM
-            </div>
-            <div>
-              <div class="text-xs font-bold text-primary">Ing. Carlos Mendoza</div>
-              <div class="text-[10px] text-zinc-400">Líder Técnico de Proyectos</div>
-            </div>
-          </div>
+        <!-- Paso 4 -->
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+          <div class="text-xs font-extrabold text-blue-500 mb-1">04</div>
+          <h3 class="text-xs font-bold text-primary">Backend</h3>
         </div>
-
-        <!-- Rec 2 -->
-        <div class="custom-card p-6 w-full" data-aos="fade-up" data-aos-delay="100">
-          <p class="text-zinc-500 dark:text-zinc-400 text-xs italic leading-relaxed mb-6 font-normal">
-            "Capacidad innata para resolver problemas lógicos y diseñar estructuras de bases de datos complejas. Es proactivo con la incorporación de herramientas de Inteligencia Artificial para agilizar procesos."
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-xs font-bold text-primary">
-              MR
-            </div>
-            <div>
-              <div class="text-xs font-bold text-primary">Prof. Marta Restrepo</div>
-              <div class="text-[10px] text-zinc-400">Docente de Desarrollo de Software</div>
-            </div>
-          </div>
+        <!-- Paso 5 -->
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+          <div class="text-xs font-extrabold text-blue-500 mb-1">05</div>
+          <h3 class="text-xs font-bold text-primary">Frontend</h3>
+        </div>
+        <!-- Paso 6 -->
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+          <div class="text-xs font-extrabold text-blue-500 mb-1">06</div>
+          <h3 class="text-xs font-bold text-primary">Base de Datos</h3>
+        </div>
+        <!-- Paso 7 -->
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+          <div class="text-xs font-extrabold text-blue-500 mb-1">07</div>
+          <h3 class="text-xs font-bold text-primary">Pruebas</h3>
+        </div>
+        <!-- Paso 8 -->
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+          <div class="text-xs font-extrabold text-blue-500 mb-1">08</div>
+          <h3 class="text-xs font-bold text-primary">Despliegue</h3>
+        </div>
+        <!-- Paso 9 -->
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+          <div class="text-xs font-extrabold text-blue-500 mb-1">09</div>
+          <h3 class="text-xs font-bold text-primary">Mantenimiento</h3>
         </div>
       </div>
     </div>
@@ -1325,9 +1187,9 @@
   <!-- ============================================ -->
   <!-- ============ CONTACT SECTION =============== -->
   <!-- ============================================ -->
-  <section id="contact" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800">
+  <section id="contact" class="py-20 md:py-24 relative border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-16" data-aos="fade-up">
+      <div class="max-w-2xl mx-auto text-center mb-16">
         <span class="text-sm font-semibold tracking-wider text-blue-500 uppercase">Contacto</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-primary mt-2">
           Hablemos de tu próximo proyecto
@@ -1336,7 +1198,7 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto items-stretch w-full">
         <!-- Columna Izquierda: Info -->
-        <div class="lg:col-span-5 flex flex-col justify-between w-full" data-aos="fade-right">
+        <div class="lg:col-span-5 flex flex-col justify-between w-full">
           <div class="text-center lg:text-left">
             <h3 class="text-xl font-bold text-primary mb-4">¿Tienes un proyecto en mente?</h3>
             <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-8">
@@ -1347,7 +1209,7 @@
 
           <div class="space-y-4 mb-8 lg:mb-0 w-full">
             <a href="https://www.linkedin.com/in/luis-alejandro-cardenas-ramos-036abb3b8/" target="_blank"
-              class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors w-full">
+              class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors w-full">
               <i class="fab fa-linkedin-in text-blue-500 text-lg"></i>
               <div>
                 <div class="text-[10px] text-zinc-400 font-semibold uppercase">LinkedIn</div>
@@ -1356,7 +1218,7 @@
             </a>
 
             <a href="https://wa.me/573005722844?text=Hola%20Luis%20Alejandro,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte."
-              target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors w-full">
+              target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors w-full">
               <i class="fab fa-whatsapp text-emerald-500 text-lg"></i>
               <div>
                 <div class="text-[10px] text-zinc-400 font-semibold uppercase">WhatsApp</div>
@@ -1364,26 +1226,18 @@
               </div>
             </a>
 
-            <a href="mailto:cardenaswalker1@gmail.com" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors w-full">
+            <a href="mailto:cardenaswalker1@gmail.com" class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors w-full">
               <i class="fas fa-envelope text-purple-500 text-lg"></i>
               <div>
                 <div class="text-[10px] text-zinc-400 font-semibold uppercase">Email</div>
                 <div class="text-sm font-medium text-primary">cardenaswalker1@gmail.com</div>
               </div>
             </a>
-
-            <div class="flex items-center gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 w-full">
-              <i class="fas fa-map-marker-alt text-red-500 text-lg"></i>
-              <div>
-                <div class="text-[10px] text-zinc-400 font-semibold uppercase">Ubicación</div>
-                <div class="text-sm font-medium text-primary">Cartagena de Indias, Colombia</div>
-              </div>
-            </div>
           </div>
         </div>
 
         <!-- Columna Derecha: Formulario -->
-        <div class="lg:col-span-7 w-full" data-aos="fade-left">
+        <div class="lg:col-span-7 w-full">
           <div class="custom-card h-full w-full">
             <form id="contact-form" class="space-y-4 w-full">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1482,7 +1336,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 
   <script>
-    // ===== INICIALIZACIÓN AOS (desactivado en pantallas de móviles pequeños para máximo rendimiento) =====
+    // ===== INICIALIZACIÓN AOS =====
     const isMobile = window.innerWidth < 768;
     AOS.init({
       duration: isMobile ? 400 : 800,
@@ -1492,7 +1346,7 @@
       disable: isMobile
     });
 
-    // ===== MODO DÍA/NOCHE TOGGLE (Sincronizado Escritorio y Móvil Drawer) =====
+    // ===== MODO DÍA/NOCHE TOGGLE =====
     const themeToggle = document.getElementById('theme-toggle');
     const drawerThemeToggle = document.getElementById('drawer-theme-toggle');
     const html = document.documentElement;
@@ -1541,27 +1395,25 @@
         drawer.classList.remove('pointer-events-none');
         overlay.classList.remove('opacity-0');
         overlay.classList.add('opacity-100');
-        document.body.style.overflow = 'hidden'; // Evita scroll de fondo
+        document.body.style.overflow = 'hidden';
       } else {
         drawer.classList.add('translate-x-full');
         drawer.classList.add('pointer-events-none');
         overlay.classList.remove('opacity-100');
         overlay.classList.add('opacity-0');
-        document.body.style.overflow = ''; // Restaura scroll
+        document.body.style.overflow = '';
       }
     }
 
-    // Cerrar al tocar el backdrop overlay
     document.getElementById('drawer-overlay').addEventListener('click', toggleMobileMenu);
 
     // ===== TYPED.JS =====
     const typed = new Typed('#typed-text', {
       strings: [
-        'Desarrollador de Software',
+        'Java / Spring Boot specialist',
         'Full Stack Developer',
         'Backend Engineer',
         'AI Integrator',
-        'DevOps Enthusiast',
         'Software Architect'
       ],
       typeSpeed: 60,
